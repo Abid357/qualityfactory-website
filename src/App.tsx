@@ -1,4 +1,4 @@
-import { IoCall } from "react-icons/io5";
+import { IoCall, IoLogoWhatsapp } from "react-icons/io5";
 import { IoMail } from "react-icons/io5";
 import { BsMailbox2 } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
@@ -29,6 +29,12 @@ function App() {
             Contact us<span className="text-[#0C7E4A]">.</span>
           </p>
           <div className="flex items-center gap-2 mt-5">
+            <span className="text-[#0C7E4A]">
+              <IoLogoWhatsapp />
+            </span>
+            <p>+971 50 4567 348 <i>(WhatsApp only)</i></p>
+          </div>
+          <div className="flex items-center gap-2">
             <span className="text-[#0C7E4A]">
               <IoCall />
             </span>
