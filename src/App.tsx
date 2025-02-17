@@ -5,13 +5,18 @@ import { FaLocationDot } from "react-icons/fa6";
 function App() {
   return (
     <>
+      <a href="/" className="inline-block mt-5 ml-5"><img src="/logo/QualityLogo.svg" alt="" className="h-[50px] md:h-[100px]" /></a>
       <div className="w-[80%] mx-auto">
         <div className="flex flex-col-reverse md:flex-row justify-between items-center md:h-screen">
           <div className="flex flex-col items-center md:items-start">
-            <p className="font-bold text-3xl lg:text-4xl xl:text-5xl">We are renovating!</p>
-            <p className="lg:text-2xl xl:text-3xl">Please visit us again soon</p>
+            <p className="font-bold text-3xl lg:text-4xl xl:text-5xl">
+              We are renovating!
+            </p>
+            <p className="lg:text-2xl xl:text-3xl">
+              Please visit us again soon
+            </p>
           </div>
-          <img src="/ComingSoon.png" className="md:h-[80%]" alt="Coming Soon" />
+          <img src="/ComingSoon.png" alt="Coming Soon" className="md:h-[80%]" />
         </div>
         <div className="flex flex-col mt-20">
           <p className="flex justify-center font-bold text-2xl">Contact us!</p>
