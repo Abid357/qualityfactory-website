@@ -5,7 +5,13 @@ import { FaLocationDot } from "react-icons/fa6";
 function App() {
   return (
     <>
-      <a href="/" className="inline-block mt-5 ml-5"><img src="/logo/QualityLogo.svg" alt="" className="h-[50px] md:h-[100px]" /></a>
+      <a href="/" className="inline-block mt-5 ml-5">
+        <img
+          src="/logo/QualityLogo.svg"
+          alt=""
+          className="h-[50px] md:h-[100px]"
+        />
+      </a>
       <div className="w-[80%] mx-auto">
         <div className="flex flex-col-reverse md:flex-row justify-between items-center md:h-screen">
           <div className="flex flex-col items-center md:items-start">
@@ -34,7 +40,13 @@ function App() {
           </div>
           <div className="flex items-center gap-2">
             <FaLocationDot />
-            <p>Address: Industrial Area, Al Thuoob, Umm Al Quwain, UAE</p>
+            <a
+              href="https://maps.app.goo.gl/jSGencciHuGN6iRY6"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Address: Industrial Area, Al Thuoob, Umm Al Quwain, UAE
+            </a>
           </div>
           <div className="w-full aspect-[4/3] md:aspect-[16/9] mt-8">
             <iframe
