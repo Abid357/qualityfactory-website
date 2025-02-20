@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 import { HiMiniIdentification } from "react-icons/hi2";
 import { CiMobile3 } from "react-icons/ci";
 import { IoMail } from "react-icons/io5";
@@ -20,10 +20,75 @@ interface FormState {
   password: string; // Honeypot field for spam prevention
 }
 
+interface Country {
+  name: string;
+  code: string;
+  dial_code: string;
+  image: string;
+}
+
+interface Subject {
+  type: string;
+}
+
 interface OptionType {
   value: string;
-  label: JSX.Element;
+  label: React.ReactNode;
 }
+
+// Custom styles for react-select
+const customSelectStyles: StylesConfig<OptionType, false> = {
+  control: (provided, state) => ({
+    ...provided,
+    backgroundColor: "white",
+    borderRadius: "0.375rem",
+    minHeight: "60px",
+    border: state.isFocused ? "0px solid" : "0px solid",
+    boxShadow: "none",
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+  indicatorsContainer: (provided) => ({
+    ...provided,
+    height: "60px",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    fontSize: "16px",
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    fontSize: "16px",
+  }),
+};
+
+// Separate style for CountryCode select
+const countryCodeSelectStyles: StylesConfig<OptionType, false> = {
+  ...customSelectStyles,
+  control: (provided, state) => ({
+    ...provided,
+    borderRadius: "0.375rem 0 0 0.375rem",
+    minHeight: "60px",
+    border: state.isFocused ? "0px solid" : "0px solid",
+    boxShadow: "none",
+  }),
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+  indicatorsContainer: (provided) => ({
+    ...provided,
+    height: "60px",
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    fontSize: "16px",
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    fontSize: "16px",
+  }),
+};
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>({
@@ -40,7 +105,7 @@ export default function ContactForm() {
   const [success, setSuccess] = useState<string>("");
 
   // Map for react-select to options
-  const countryCodeOptions: OptionType[] = countries.map((country: any) => ({
+  const countryCodeOptions: OptionType[] = (countries as Country[]).map((country: Country) => ({
     value: country.dial_code,
     label: (
       <div className="flex items-center">
@@ -50,7 +115,7 @@ export default function ContactForm() {
     ),
   }));
 
-  const residenceOptions: OptionType[] = countries.map((country: any) => ({
+  const residenceOptions: OptionType[] = (countries as Country[]).map((country: Country) => ({
     value: country.name,
     label: (
       <div className="flex items-center">
@@ -60,64 +125,10 @@ export default function ContactForm() {
     ),
   }));
 
-  const subjectOptions: OptionType[] = subjectsData.map((subject: any) => ({
+  const subjectOptions: OptionType[] = (subjectsData as Subject[]).map((subject: Subject) => ({
     value: subject.type,
     label: <span className="text-[16px]">{subject.type}</span>,
   }));
-
-  // Custom styles for react-select
-  const customSelectStyles = {
-    control: (provided: any, state: any) => ({
-      ...provided,
-      backgroundColor: "white",
-      borderRadius: "0.375rem",
-      minHeight: "60px",
-      border: state.isFocused ? "0px solid" : "0px solid",
-      boxShadow: "none",
-    }),
-    indicatorSeparator: () => ({
-      display: "none",
-    }),
-    indicatorsContainer: (provided: any) => ({
-      ...provided,
-      height: "60px",
-    }),
-    placeholder: (provided: any) => ({
-      ...provided,
-      fontSize: "16px",
-    }),
-    singleValue: (provided: any) => ({
-      ...provided,
-      fontSize: "16px",
-    }),
-  };
-
-  // Separate style for CountryCode select
-  const countryCodeSelectStyles = {
-    ...customSelectStyles,
-    control: (provided: any, state: any) => ({
-      ...provided,
-      borderRadius: "0.375rem 0 0 0.375rem",
-      minHeight: "60px",
-      border: state.isFocused ? "0px solid" : "0px solid",
-      boxShadow: "none",
-    }),
-    indicatorSeparator: () => ({
-      display: "none",
-    }),
-    indicatorsContainer: (provided: any) => ({
-      ...provided,
-      height: "60px",
-    }),
-    placeholder: (provided: any) => ({
-      ...provided,
-      fontSize: "16px",
-    }),
-    singleValue: (provided: any) => ({
-      ...provided,
-      fontSize: "16px",
-    }),
-  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -224,7 +235,7 @@ export default function ContactForm() {
   return (
     <>
       <div className="relative bg-[#f8f4f4] rounded-lg shadow-[10px_10px_20px_rgba(0,0,0,0.15),-10px_-10px_10px_rgba(255,255,255,1)] w-full lg:w-[50%] p-5">
-        <div className="absolute shadow-[inset_2px_2px_4px_0px_rgba(0,0,0,0.01)] inset-0 h-full w-full"></div>
+        <div className="absolute shadow-[inset_2px_2px_4px_0px_rgba(0,0,0,0.01)] inset-0 pointer-events-none h-full w-full"></div>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 font-semibold md:text-xl w-full"
