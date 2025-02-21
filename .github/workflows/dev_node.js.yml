@@ -1,6 +1,7 @@
 name: Build (Dev Branch Only)
 
 concurrency:
+  group: development
   cancel-in-progress: true
 
 on:
@@ -8,7 +9,7 @@ on:
     branches: [ dev ]
 
 jobs:
-  build-and-deploy:
+  build-only:
     runs-on: ubuntu-latest
 
     steps:
