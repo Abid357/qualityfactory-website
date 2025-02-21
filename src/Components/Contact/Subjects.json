@@ -1,14 +1,14 @@
 [
-    {
-      "type": "Product Inquiries"
-    },
-    {
-      "type": "Factory Inquiries"
-    },
-    {
-      "type": "Other Inquiries"
-    },
-    {
-      "type": "Feedback"
-    }
-  ]
+  {
+    "type": "Product Inquiries"
+  },
+  {
+    "type": "Factory Inquiries"
+  },
+  {
+    "type": "Other Inquiries"
+  },
+  {
+    "type": "Feedback"
+  }
+]

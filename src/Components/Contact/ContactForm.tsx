@@ -43,8 +43,13 @@ const customSelectStyles: StylesConfig<OptionType, false> = {
     backgroundColor: "white",
     borderRadius: "0.375rem",
     minHeight: "60px",
-    border: state.isFocused ? "0px solid" : "0px solid",
+    border: state.isFocused ? "1px solid #0C7E4A" : "0px solid",
     boxShadow: "none",
+    "&:hover": {
+      borderColor: state.isFocused ? "#0C7E4A" : "",
+      boxShadow: "none",
+    },
+    outline: "none",
   }),
   indicatorSeparator: () => ({
     display: "none",
@@ -70,8 +75,13 @@ const countryCodeSelectStyles: StylesConfig<OptionType, false> = {
     ...provided,
     borderRadius: "0.375rem 0 0 0.375rem",
     minHeight: "60px",
-    border: state.isFocused ? "0px solid" : "0px solid",
+    border: state.isFocused ? "1px solid #0C7E4A" : "0px solid",
     boxShadow: "none",
+    "&:hover": {
+      borderColor: state.isFocused ? "#0C7E4A" : "",
+      boxShadow: "none",
+    },
+    outline: "none",
   }),
   indicatorSeparator: () => ({
     display: "none",
@@ -79,6 +89,7 @@ const countryCodeSelectStyles: StylesConfig<OptionType, false> = {
   indicatorsContainer: (provided) => ({
     ...provided,
     height: "60px",
+    width: "30%",
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -102,33 +113,52 @@ export default function ContactForm() {
     password: "",
   });
   const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<string>("");
 
   // Map for react-select to options
-  const countryCodeOptions: OptionType[] = (countries as Country[]).map((country: Country) => ({
-    value: country.dial_code,
-    label: (
-      <div className="flex items-center">
-        <img src={country.image} alt={country.name} className="w-10 mr-1" />
-        <span className="text-[16px]">{country.dial_code}</span>
-      </div>
-    ),
-  }));
+  const countryCodeOptions: OptionType[] = (countries as Country[]).map(
+    (country: Country) => ({
+      value: country.dial_code,
+      label: (
+        <div className="flex items-center">
+          <img
+            src={country.image}
+            alt={country.name}
+            className="w-7 md:w-10 md:ml-2 md:mr-1"
+          />
+          <span className="text-[14px] md:text-[16px]">
+            {country.dial_code}
+          </span>
+        </div>
+      ),
+    })
+  );
 
-  const residenceOptions: OptionType[] = (countries as Country[]).map((country: Country) => ({
-    value: country.name,
-    label: (
-      <div className="flex items-center">
-        <img src={country.image} alt={country.name} className="w-10 mr-1" />
-        <span className="text-[16px]">{country.name}</span>
-      </div>
-    ),
-  }));
+  const residenceOptions: OptionType[] = (countries as Country[]).map(
+    (country: Country) => ({
+      value: country.name,
+      label: (
+        <div className="flex items-center">
+          <img
+            src={country.image}
+            alt={country.name}
+            className="w-7 md:w-10 ml-2 md:mr-1"
+          />
+          <span className="text-[14px] md:text-[16px]">{country.name}</span>
+        </div>
+      ),
+    })
+  );
 
-  const subjectOptions: OptionType[] = (subjectsData as Subject[]).map((subject: Subject) => ({
-    value: subject.type,
-    label: <span className="text-[16px]">{subject.type}</span>,
-  }));
+  const subjectOptions: OptionType[] = (subjectsData as Subject[]).map(
+    (subject: Subject) => ({
+      value: subject.type,
+      label: (
+        <span className="text-[14px] md:text-[16px] ml-2">{subject.type}</span>
+      ),
+    })
+  );
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -182,6 +212,7 @@ export default function ContactForm() {
     }
 
     setError("");
+    setLoading(true);
 
     // Combine countryCode and mobile into one field
     const combinedMobile = form.mobile
@@ -196,7 +227,7 @@ export default function ContactForm() {
       residence: form.residence,
       subject: form.subject,
       message: form.message,
-      access_key: "ba2288be-dfe7-498a-88a6-d86a09bc09fa", // Public key of Quality Refreshment account
+      access_key: "ba2288be-dfe7-498a-88a6-d86a09bc09fa", // Public key of Quality Refreshment account: ba2288be-dfe7-498a-88a6-d86a09bc09fa
     };
 
     // Convert FormData to JSON object for Web3forms
@@ -213,6 +244,7 @@ export default function ContactForm() {
       });
       const data = await res.json();
       if (data.success) {
+        setLoading(false);
         setSuccess("Your message has been sent successfully.");
         setForm({
           name: "",
@@ -229,12 +261,13 @@ export default function ContactForm() {
       }
     } catch (err) {
       setError(err + ". Please try again later.");
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <div className="relative bg-[#f8f4f4] rounded-lg shadow-[10px_10px_20px_rgba(0,0,0,0.15),-10px_-10px_10px_rgba(255,255,255,1)] w-full lg:w-[50%] p-5">
+      <div className="relative bg-[#f8f4f4] rounded-lg shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,1)] w-full lg:w-[50%] p-5">
         <div className="absolute shadow-[inset_2px_2px_4px_0px_rgba(0,0,0,0.01)] inset-0 pointer-events-none h-full w-full"></div>
         <form
           onSubmit={handleSubmit}
@@ -255,7 +288,7 @@ export default function ContactForm() {
               value={form.name}
               onChange={handleChange}
               required
-              className="w-full h-[60px] bg-white pl-[25px] rounded-lg text-[16px]"
+              className="focus:border focus:border-[#0C7E4A] focus:outline-none focus:ring-0 bg-white pl-[25px] rounded-lg text-[14px] md:text-[16px] w-full h-[60px]"
             />
           </div>
           <div className="flex flex-col">
@@ -266,7 +299,7 @@ export default function ContactForm() {
               Mobile
             </label>
             <div className="flex flex-row">
-              <div className="w-1/3">
+              <div className="w-fit flex-shrink-0 lg:w-1/3">
                 <Select
                   options={countryCodeOptions}
                   value={countryCodeOptions.find(
@@ -291,7 +324,7 @@ export default function ContactForm() {
                 onChange={handleChange}
                 title="Valid mobile number (7-15 digits)."
                 pattern="\d+"
-                className="bg-white text-[16px] rounded-r-lg pl-[25px] h-[60px] w-full"
+                className="focus:border focus:border-[#0C7E4A] focus:outline-none focus:ring-0 bg-white text-[14px] md:text-[16px] rounded-r-lg pl-[25px] h-[60px] flex-1 min-w-0"
               />
             </div>
           </div>
@@ -311,7 +344,7 @@ export default function ContactForm() {
                 value={form.email}
                 onChange={handleChange}
                 required
-                className="h-[60px] bg-white pl-[25px] rounded-lg text-[16px]"
+                className="focus:border focus:border-[#0C7E4A] focus:outline-none focus:ring-0 bg-white pl-[25px] rounded-lg text-[14px] md:text-[16px] h-[60px]"
               />
             </div>
             <div className="flex flex-col w-full md:w-1/2">
@@ -378,7 +411,7 @@ export default function ContactForm() {
               value={form.message}
               onChange={handleChange}
               required
-              className="w-full h-[150px] pt-4 pl-[25px] border-0 bg-white rounded-lg text-[16px] font-semibold text-[#454545]"
+              className="focus:border focus:border-[#0C7E4A] focus:outline-none focus:ring-0 bg-white rounded-lg text-[14px] md:text-[16px] font-semibold text-[#454545] w-full h-[150px] pt-4 pl-5 md:pl-[25px]"
             ></textarea>
           </div>
           <p className="font-normal text-red-500 text-sm">* (required)</p>
@@ -396,9 +429,14 @@ export default function ContactForm() {
           {success && <div className="text-green-500">{success}</div>}
           <button
             type="submit"
-            className="text-white bg-[#0C7E4A] rounded-md px-3 py-2 cursor-pointer"
+            disabled={loading || success.length > 0}
+            className={`text-white bg-[#0C7E4A] hover:bg-[#73C057] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md px-3 py-2 ${
+              loading || success
+                ? "opacity-50 cursor-not-allowed"
+                : "cursor-pointer"
+            }`}
           >
-            Submit
+            {loading ? "Submitting..." : success ? "Submitted" : "Submit"}
           </button>
         </form>
       </div>
