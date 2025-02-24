@@ -28,13 +28,17 @@ export default function NavbarWhite({ handleOpen }: NavbarWhiteInterface) {
   return (
     <div
       className={`primary-navbar fixed top-0 left-0 transition-all duration-300 ease-in-out w-full ${
-        isSticky ? "bg-[#0C7E4A] shadow-md" : "bg-transparent  py-[10px]"
+        isSticky ? "bg-[#0C7E4A] shadow-md" : "bg-transparent pt-[5px]"
       }`}
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-10 px-5">
           <NavLink to="/">
-            <div className="relative flex items-center">
+            <div
+              className={`relative flex justify-center items-center  transition-all duration-300 ${
+                isSticky ? "h-[50px] md:h-[80px]" : "h-[50px] md:h-[100px]"
+              }`}
+            >
               <img
                 src={logo}
                 alt="logo"
