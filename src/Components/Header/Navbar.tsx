@@ -2,14 +2,18 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import logo from "/logo/QualityLogo.svg";
-import logoMini from "/logo/Quality_mini.svg";
+import logoMini from "/logo/Quality_miniNav.svg";
 
-interface NavbarWhiteInterface {
-  handleOpen: () => void;
-}
-
-export default function NavbarWhite({ handleOpen }: NavbarWhiteInterface) {
+export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
+
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/catalog", label: "Catalog" },
+    { to: "/services", label: "Services" },
+    { to: "/team", label: "Team" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   useEffect(() => {
     const primaryNavbar = document.querySelector(".primary-navbar");
@@ -49,7 +53,7 @@ export default function NavbarWhite({ handleOpen }: NavbarWhiteInterface) {
               <img
                 src={logoMini}
                 alt="logo mini"
-                className={`absolute transition-opacity duration-300 bg-white rounded-full p-1 md:p-2 h-[40px] md:h-[70px] w-auto ${
+                className={`absolute transition-opacity duration-300 h-[40px] md:h-[70px] w-auto ${
                   isSticky ? "opacity-100" : "opacity-0"
                 }`}
               />
@@ -57,87 +61,24 @@ export default function NavbarWhite({ handleOpen }: NavbarWhiteInterface) {
           </NavLink>
           <div className="hidden md:flex items-center justify-end gap-[67px] font-semibold uppercase text-[#0C7E4A] text-[17px] leading-[24px] transition-all duration-300">
             <ul className="flex gap-1">
-              <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isSticky
-                      ? isActive
-                        ? "bg-white text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                        : "text-white hover:bg-white hover:text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                      : isActive
-                      ? "bg-[#73C0571A] text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                      : "hover:bg-[#73C0571A] hover:text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/catalog"
-                  className={({ isActive }) =>
-                    isSticky
-                      ? isActive
-                        ? "bg-white text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                        : "text-white hover:bg-white hover:text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                      : isActive
-                      ? "bg-[#73C0571A] text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                      : "hover:bg-[#73C0571A] hover:text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                  }
-                >
-                  Catalog
-                </NavLink>
-              </li>
-              <li className="flex-none">
-                <NavLink
-                  to="/services"
-                  end
-                  className={({ isActive }) =>
-                    isSticky
-                      ? isActive
-                        ? "bg-white text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                        : "text-white hover:bg-white hover:text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                      : isActive
-                      ? "bg-[#73C0571A] text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                      : "hover:bg-[#73C0571A] hover:text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                  }
-                >
-                  Services
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/team"
-                  className={({ isActive }) =>
-                    isSticky
-                      ? isActive
-                        ? "bg-white text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                        : "text-white hover:bg-white hover:text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                      : isActive
-                      ? "bg-[#73C0571A] text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                      : "hover:bg-[#73C0571A] hover:text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                  }
-                >
-                  Team
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isSticky
-                      ? isActive
-                        ? "bg-white text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                        : "text-white hover:bg-white hover:text-[#0C7E4A] relative rounded-md py-[10px] px-[20px]"
-                      : isActive
-                      ? "bg-[#73C0571A] text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                      : "hover:bg-[#73C0571A] hover:text-[#73C057] relative rounded-md py-[10px] px-[20px]"
-                  }
-                >
-                  Contact
-                </NavLink>
-              </li>
+              {navItems.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      isSticky
+                        ? isActive
+                          ? "bg-white text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
+                          : "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
+                        : isActive
+                        ? "bg-[#73C0571A] text-[#73C057] rounded-md py-[10px] px-[20px]"
+                        : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
           <button

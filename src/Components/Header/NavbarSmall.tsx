@@ -1,20 +1,31 @@
 import { useEffect } from "react";
 import { Drawer } from "flowbite-react";
-import { Link } from "react-router";
+import { NavLink } from "react-router";
+import { TiHome } from "react-icons/ti";
+import { GrCatalog } from "react-icons/gr";
+import { GrBusinessService } from "react-icons/gr";
+import { RiTeamFill } from "react-icons/ri";
+import { MdContactEmergency } from "react-icons/md";
 import logo from "/logo/QualityLogo.svg";
-
-interface NavbarSmallInterface {
-  isOpen: boolean;
-  handleClose: () => void;
-}
 
 export default function NavbarSmall({
   isOpen,
   handleClose,
-}: NavbarSmallInterface) {
+}: {
+  isOpen: boolean;
+  handleClose: () => void;
+}) {
+  const navItems = [
+    { to: "/", label: "Home", icon: <TiHome /> },
+    { to: "/catalog", label: "Catalog", icon: <GrCatalog /> },
+    { to: "/services", label: "Services", icon: <GrBusinessService /> },
+    { to: "/team", label: "Team", icon: <RiTeamFill /> },
+    { to: "/contact", label: "Contact", icon: <MdContactEmergency /> },
+  ];
+
   const drawerTheme = {
     root: {
-      base: "fixed z-40 overflow-y-auto bg-white p-4 transition-transform",
+      base: "fixed z-40 overflow-y-auto bg-[#f8f4f4] p-4 transition-transform",
       backdrop: "fixed inset-0 z-30 bg-gray-900/50",
       edge: "bottom-16",
       position: {
@@ -78,43 +89,35 @@ export default function NavbarSmall({
       >
         <Drawer.Header titleIcon={() => <></>} />
         <div className="mb-5">
-          <Link to="/">
+          <NavLink to="/">
             <img
               src={logo}
               alt="logo"
-              className="h-[50px] w-auto"
+              className="flex justify-center w-full h-[80px]"
             />
-          </Link>
+          </NavLink>
         </div>
         <Drawer.Items>
           <div className="grid grid-cols-1 gap-4">
             <div className="font-semibold uppercase text-[#0a0a0a] text-[17px] transition-all duration-300 ">
-              <ul className="flex flex-col gap-1">
-                <li className="flex hover:text-[#0C7E4A] border-b py-[10px]">
-                  <Link to="/" className="flex-grow cursor-pointer">
-                    Home
-                  </Link>
-                </li>
-                <li className="flex hover:text-[#0C7E4A] border-b py-[10px]">
-                  <Link to="/catalog" className="flex-grow cursor-pointer">
-                    Catalog
-                  </Link>
-                </li>
-                <li className="flex items-center justify-between hover:text-[#0C7E4A] border-b py-[10px]">
-                  <Link to="/services" className="flex-grow cursor-pointer">
-                    Services
-                  </Link>
-                </li>
-                <li className="flex hover:text-[#0C7E4A] border-b py-[10px]">
-                  <Link to="/team" className="flex-grow cursor-pointer">
-                    Team
-                  </Link>
-                </li>
-                <li className="flex hover:text-[#0C7E4A] border-b py-[10px]">
-                  <Link to="/contact" className="flex-grow cursor-pointer">
-                    Contact
-                  </Link>
-                </li>
+              <ul className="flex flex-col text-[#0C7E4A] pt-5 gap-5">
+                {navItems.map((item) => (
+                  <li className="flex" key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
+                          : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                      }
+                    >
+                      <div className="flex items-center gap-5">
+                        <p className="text-xl">{item.icon}</p>
+                        <p>{item.label}</p>
+                      </div>
+                    </NavLink>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
