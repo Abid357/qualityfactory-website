@@ -13,7 +13,7 @@ function Home() {
               Please visit us again soon
             </p>
           </div>
-          <img src="/ComingSoon.png" alt="Coming Soon" className="md:h-[80%]" />
+          <img src="/ComingSoon.png" alt="Coming Soon" className="pt-10 md:pt-0 md:h-[80%]" />
         </div>
         <Contact />
       </div>

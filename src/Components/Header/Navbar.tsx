@@ -40,7 +40,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
           <NavLink to="/">
             <div
               className={`relative flex justify-center items-center  transition-all duration-300 ${
-                isSticky ? "h-[50px] md:h-[80px]" : "h-[50px] md:h-[100px]"
+                isSticky ? "h-[40px] md:h-[60px]" : "h-[50px] md:h-[100px]"
               }`}
             >
               <img
@@ -53,7 +53,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
               <img
                 src={logoMini}
                 alt="logo mini"
-                className={`absolute transition-opacity duration-300 h-[40px] md:h-[70px] w-auto ${
+                className={`absolute transition-opacity duration-300 h-[30px] md:h-[50px] w-auto ${
                   isSticky ? "opacity-100" : "opacity-0"
                 }`}
               />
