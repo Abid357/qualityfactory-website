@@ -1,6 +1,7 @@
-import Contact from "./Contact";
+import Contact from "../Components/Home/Contact/Contact";
+import Services from "../Components/Home/Services/Services";
 
-function Home() {
+export default function Home() {
   return (
     <>
       <div className="w-[80%] mt-5 mb-10 mx-auto">
@@ -13,12 +14,15 @@ function Home() {
               Please visit us again soon
             </p>
           </div>
-          <img src="/ComingSoon.png" alt="Coming Soon" className="pt-10 md:pt-0 md:h-[80%]" />
+          <img
+            src="/ComingSoon.png"
+            alt="Coming Soon"
+            className="pt-10 md:pt-0 md:h-[80%]"
+          />
         </div>
         <Contact />
+        <Services />
       </div>
     </>
   );
 }
-
-export default Home;
