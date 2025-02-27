@@ -1,4 +1,5 @@
 import Contact from "../Components/Home/Contact/Contact";
+import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
 import Services from "../Components/Home/Services/Services";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
         </div>
         <Contact />
         <Services />
+        <OpeningHours />
       </div>
     </>
   );
