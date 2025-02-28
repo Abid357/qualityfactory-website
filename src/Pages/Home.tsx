@@ -21,9 +21,9 @@ export default function Home() {
             className="pt-10 md:pt-0 md:h-[80%]"
           />
         </div>
-        <Contact />
         <Services />
         <OpeningHours />
+        <Contact />
       </div>
     </>
   );

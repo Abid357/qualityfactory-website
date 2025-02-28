@@ -5,15 +5,15 @@ export default function OpeningHours() {
   const [currentDay, setCurrentDay] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  // Days data: Sunday = 0, Saturday = 6
+  // Days data: Monday = 0, Sunday = 6
   const daysData = [
-    { day: "Sun", hours: "8am - 8pm", isWorkingDay: true },
     { day: "Mon", hours: "8am - 8pm", isWorkingDay: true },
     { day: "Tue", hours: "8am - 8pm", isWorkingDay: true },
     { day: "Wed", hours: "8am - 8pm", isWorkingDay: true },
     { day: "Thu", hours: "8am - 8pm", isWorkingDay: true },
     { day: "Fri", hours: "Closed", isWorkingDay: false },
-    { day: "Sat", hours: "Closed", isWorkingDay: false },
+    { day: "Sat", hours: "8am - 8pm", isWorkingDay: true },
+    { day: "Sun", hours: "8am - 8pm", isWorkingDay: true },
   ];
 
   useEffect(() => {
@@ -24,7 +24,8 @@ export default function OpeningHours() {
         timeZone: "Asia/Dubai",
       });
       const dubaiDate = new Date(dubaiTime);
-      const day = dubaiDate.getDay();
+      const jsDay = dubaiDate.getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+      const day = jsDay === 0 ? 6 : jsDay - 1; // Convert to 0 = Mon, ..., 6 = Sun
       setCurrentDay(day);
       const hours = dubaiDate.getHours();
 
@@ -48,8 +49,8 @@ export default function OpeningHours() {
   return (
     <>
       <div className="flex flex-col mt-20">
-        <p className="flex items-end font-bold text-3xl lg:text-4xl xl:text-5xl mb-10">
-          <span>We Are</span>
+        <p className="flex flex-wrap items-end font-bold text-3xl lg:text-4xl xl:text-5xl mb-10">
+          <span className="whitespace-nowrap">We are</span>
           {isOpen ? (
             <img
               src="/OpeningHours/Open.svg"

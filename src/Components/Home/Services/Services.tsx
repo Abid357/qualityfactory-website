@@ -13,9 +13,9 @@ const ServiceItem = ({
   const titleParts = title.split("&");
 
   return (
-    <div className="flex flex-col gap-2 w-80 max-w-full">
+    <div className="flex flex-col gap-2">
       <div className="mx-auto">
-        <img src={img} alt={title} className="w-20" />
+        <img src={img} alt={title} className="w-20 [filter:brightness(0)_saturate(100%)_invert(42%)_sepia(73%)_saturate(7459%)_hue-rotate(142deg)_brightness(91%)_contrast(85%)]" />
       </div>
       <p className="font-bold text-xl">
         {titleParts.map((part, index) => (
@@ -35,9 +35,9 @@ export default function Services() {
     <>
       <div className="flex flex-col mt-20">
         <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl mb-5">
-          Our Services<span className="text-[#0C7E4A]">.</span>
+          Our services<span className="text-[#0C7E4A]">.</span>
         </p>
-        <div className="flex flex-col md:flex-row items-center md:items-start md:flex-wrap md:justify-between gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-5 justify-items-center">
           {servicesData.services.map((service, index: number) => (
             <ServiceItem
               key={index}
