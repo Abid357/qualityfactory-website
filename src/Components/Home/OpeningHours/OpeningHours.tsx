@@ -72,7 +72,9 @@ export default function OpeningHours() {
             <Card key={index} className="flex-1">
               <div
                 className={`flex lg:flex-col justify-between lg:justify-center items-center gap-5 rounded-md p-3 ${
-                  currentDay === index ? "text-white bg-[#0C7E4A]" : ""
+                  currentDay === index
+                    ? "text-white bg-[#0C7E4A] shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,1)]"
+                    : ""
                 }`}
               >
                 <p className="text-lg lg:text-xl xl:text-2xl">{dayInfo.day}</p>

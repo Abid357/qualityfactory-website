@@ -15,7 +15,7 @@ const ServiceItem = ({
   return (
     <div className="flex flex-col gap-2">
       <div className="mx-auto">
-        <img src={img} alt={title} className="w-20 [filter:brightness(0)_saturate(100%)_invert(42%)_sepia(73%)_saturate(7459%)_hue-rotate(142deg)_brightness(91%)_contrast(85%)]" />
+        <img src={img} alt={title} className="w-20" />
       </div>
       <p className="font-bold text-xl">
         {titleParts.map((part, index) => (
