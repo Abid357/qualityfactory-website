@@ -13,6 +13,9 @@ export default function Contact() {
         <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl mb-5">
           Contact us<span className="text-[#0C7E4A]">.</span>
         </p>
+        <div className="flex justify-center my-10">
+          <ContactForm />
+        </div>
         <div className="flex items-center gap-2">
           <span className="text-[#0C7E4A]">
             <IoLogoWhatsapp />
@@ -63,9 +66,6 @@ export default function Contact() {
               />
             </div>
           </Card>
-        </div>
-        <div className="flex justify-center mt-10">
-          <ContactForm />
         </div>
       </div>
     </>
