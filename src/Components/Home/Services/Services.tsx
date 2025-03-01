@@ -13,7 +13,7 @@ const ServiceItem = ({
   const titleParts = title.split("&");
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col text-center gap-2">
       <div className="mx-auto">
         <img src={img} alt={title} className="w-20" />
       </div>
