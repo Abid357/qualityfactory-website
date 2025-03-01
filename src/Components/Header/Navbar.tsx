@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import { IoMenu } from "react-icons/io5";
-import logo from "/logo/QualityLogo.svg";
-import logoMini from "/logo/Quality_miniNav.svg";
+import logo from "/Logo/QualityLogo.svg";
+import logoMini from "/Logo/Quality_miniNav.svg";
 
 export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
@@ -11,7 +11,6 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     { to: "/", label: "Home" },
     { to: "/catalog", label: "Catalog" },
     { to: "/services", label: "Services" },
-    { to: "/team", label: "Team" },
     { to: "/contact", label: "Contact" },
   ];
 
