@@ -1,8 +1,49 @@
+import { useState, useEffect } from "react";
+import { useLocation } from 'react-router';
 import Contact from "../Components/Home/Contact/Contact";
 import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
 import Services from "../Components/Home/Services/Services";
 
 export default function Home() {
+  const location = useLocation();
+  const [navbarHeight, setNavbarHeight] = useState(80); 
+
+  useEffect(() => {
+    // Get actual navbar height
+    const updateNavHeight = () => {
+      const navbar = document.querySelector(".primary-navbar");
+      if (navbar) {
+        setNavbarHeight(navbar.clientHeight);
+      }
+    };
+
+    // Update on load and resize
+    updateNavHeight();
+    window.addEventListener("resize", updateNavHeight);
+
+    // Apply scroll-margin-top to all sections
+    const sections = document.querySelectorAll('div[id]');
+    sections.forEach(section => {
+      (section as HTMLElement).style.scrollMarginTop = `${navbarHeight + 20}px`;
+    });
+
+
+    const hash = location.hash;
+
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100); // Short delay to ensure styles are applied
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateNavHeight);
+    };
+  }, [location.hash, navbarHeight]);
+
   return (
     <>
       <div className="w-full h-screen relative overflow-hidden">
@@ -21,9 +62,13 @@ export default function Home() {
       </div>
       <div className="left-0 w-full md:h-32 h-8 bg-gradient-to-t to-[#EDEBE8] from-transparent"></div>
       <div className="flex flex-col gap-40 w-[80%] my-20 mx-auto">
-        <Services />
+        <div id="services">
+          <Services />
+        </div>
         <OpeningHours />
-        <Contact />
+        <div id="contact">
+          <Contact />
+        </div>
       </div>
     </>
   );

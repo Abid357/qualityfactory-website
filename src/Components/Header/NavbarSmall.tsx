@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Drawer } from "flowbite-react";
-import { NavLink } from "react-router";
+import { NavLink, Link } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
@@ -15,10 +15,20 @@ export default function NavbarSmall({
   handleClose: () => void;
 }) {
   const navItems = [
-    { to: "/", label: "Home", icon: <TiHome /> },
-    { to: "/catalog", label: "Catalog", icon: <GrCatalog /> },
-    { to: "/services", label: "Services", icon: <GrBusinessService /> },
-    { to: "/contact", label: "Contact", icon: <MdContactEmergency /> },
+    { to: "/", label: "Home", type: "page", icon: <TiHome /> },
+    { to: "/catalog", label: "Catalog", type: "page", icon: <GrCatalog /> },
+    {
+      to: "/#services",
+      label: "Services",
+      type: "section",
+      icon: <GrBusinessService />,
+    },
+    {
+      to: "/#contact",
+      label: "Contact",
+      type: "section",
+      icon: <MdContactEmergency />,
+    },
   ];
 
   const drawerTheme = {
@@ -101,19 +111,33 @@ export default function NavbarSmall({
               <ul className="flex flex-col text-[#0C7E4A] pt-5 gap-5">
                 {navItems.map((item) => (
                   <li className="flex" key={item.to}>
-                    <NavLink
-                      to={item.to}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
-                          : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
-                      }
-                    >
-                      <div className="flex items-center gap-5">
-                        <p className="text-xl">{item.icon}</p>
-                        <p>{item.label}</p>
-                      </div>
-                    </NavLink>
+                    {item.type === "page" ? (
+                      <NavLink
+                        to={item.to}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
+                            : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                        }
+                      >
+                        <div className="flex items-center gap-5">
+                          <p className="text-xl">{item.icon}</p>
+                          <p>{item.label}</p>
+                        </div>
+                      </NavLink>
+                    ) : (
+                      <Link
+                        to={item.to}
+                        className={
+                          "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                        }
+                      >
+                        <div className="flex items-center gap-5">
+                          <p className="text-xl">{item.icon}</p>
+                          <p>{item.label}</p>
+                        </div>
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

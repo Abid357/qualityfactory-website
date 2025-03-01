@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router";
+import { NavLink, Link } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import logo from "/Logo/QualityLogo.svg";
 import logoMini from "/Logo/Quality_miniNav.svg";
@@ -8,10 +8,10 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
 
   const navItems = [
-    { to: "/", label: "Home" },
-    { to: "/catalog", label: "Catalog" },
-    { to: "/services", label: "Services" },
-    { to: "/contact", label: "Contact" },
+    { to: "/", label: "Home", type: "page" },
+    { to: "/catalog", label: "Catalog", type: "page" },
+    { to: "/#services", label: "Services", type: "section" },
+    { to: "/#contact", label: "Contact", type: "section" },
   ];
 
   useEffect(() => {
@@ -62,20 +62,33 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
             <ul className="flex gap-1">
               {navItems.map((item) => (
                 <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    className={({ isActive }) =>
-                      isSticky
-                        ? isActive
-                          ? "bg-white text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
-                          : "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
-                        : isActive
-                        ? "bg-[#73C0571A] text-[#73C057] rounded-md py-[10px] px-[20px]"
-                        : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
+                  {item.type === "page" ? (
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        isSticky
+                          ? isActive
+                            ? "bg-white text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
+                            : "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
+                          : isActive
+                          ? "bg-[#73C0571A] text-[#73C057] rounded-md py-[10px] px-[20px]"
+                          : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      className={
+                        isSticky
+                          ? "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
+                          : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
+                      }
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
