@@ -33,7 +33,7 @@ const ServiceItem = ({
 export default function Services() {
   return (
     <>
-      <div className="flex flex-col mt-20">
+      <div className="flex flex-col">
         <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl mb-5">
           Our services<span className="text-[#0C7E4A]">.</span>
         </p>

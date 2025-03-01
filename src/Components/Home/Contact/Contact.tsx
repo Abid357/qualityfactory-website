@@ -5,15 +5,19 @@ import { BsMailbox2 } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import Card from "../../Card";
+import formImg from "/ContactUs/ContactForm.png";
 
 export default function Contact() {
   return (
     <>
-      <div className="flex flex-col mt-20">
+      <div className="flex flex-col">
         <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl mb-5">
           Contact us<span className="text-[#0C7E4A]">.</span>
         </p>
-        <div className="flex justify-center my-10">
+        <div className="flex flex-col lg:flex-row item-center lg:justify-between my-10">
+          <div className="flex justify-center lg:w-1/2">
+            <img src={formImg} alt="formImg" />
+          </div>
           <ContactForm />
         </div>
         <div className="flex items-center gap-2">

@@ -4,9 +4,8 @@ import { NavLink } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
-import { RiTeamFill } from "react-icons/ri";
 import { MdContactEmergency } from "react-icons/md";
-import logo from "/logo/QualityLogo.svg";
+import logo from "/Logo/QualityLogo.svg";
 
 export default function NavbarSmall({
   isOpen,
@@ -19,7 +18,6 @@ export default function NavbarSmall({
     { to: "/", label: "Home", icon: <TiHome /> },
     { to: "/catalog", label: "Catalog", icon: <GrCatalog /> },
     { to: "/services", label: "Services", icon: <GrBusinessService /> },
-    { to: "/team", label: "Team", icon: <RiTeamFill /> },
     { to: "/contact", label: "Contact", icon: <MdContactEmergency /> },
   ];
 
