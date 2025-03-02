@@ -94,10 +94,9 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
           });
         },
         {
-          // Use smaller threshold for "active" detection
-          threshold: 0.05,
-          // Adjust rootMargin to account for navbar height
-          rootMargin: "-60px 0px -10px 0px",
+          // Virtual "viewport" in the middle 60% of the screen
+          threshold: 0.1, // Detect even 10% of section is in the viewport
+          rootMargin: "-20% 0px -20% 0px", // 60% vertical viewport in the middle
         }
       );
 
@@ -130,13 +129,13 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         setIsAtTop(scrollTop < 500); // Consider "top" to be first 500px
       };
-  
+
       // Initial Check
       checkIfAtTop();
-  
+
       // Add scroll event listener
       window.addEventListener("scroll", checkIfAtTop);
-  
+
       // Cleanup
       return () => {
         window.removeEventListener("scroll", checkIfAtTop);
@@ -149,7 +148,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
 
   useEffect(() => {
     // Reset activeSection when user navigates to a different page
-    if (!location.pathname.startsWith('/#')) {
+    if (!location.pathname.startsWith("/#")) {
       setActiveSection(null);
     }
   }, [location.pathname]);

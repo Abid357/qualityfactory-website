@@ -154,10 +154,9 @@ export default function NavbarSmall({
           });
         },
         {
-          // Use smaller threshold for "active" detection
-          threshold: 0.05,
-          // Adjust rootMargin to account for navbar height
-          rootMargin: "-60px 0px -10px 0px",
+          // Virtual "viewport" in the middle 60% of the screen
+          threshold: 0.1, // Detect even 10% of section is in the viewport
+          rootMargin: "-20% 0px -20% 0px", // 60% vertical viewport in the middle
         }
       );
 
