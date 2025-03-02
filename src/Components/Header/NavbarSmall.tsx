@@ -16,6 +16,7 @@ export default function NavbarSmall({
 }) {
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   const navItems = useMemo(
     () => [
@@ -183,6 +184,36 @@ export default function NavbarSmall({
     };
   }, [isOpen, location.pathname, activeSection, navItems]);
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const checkIfAtTop = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        setIsAtTop(scrollTop < 500); // Consider "top" to be first 500px
+      };
+  
+      // Initial Check
+      checkIfAtTop();
+  
+      // Add scroll event listener
+      window.addEventListener("scroll", checkIfAtTop);
+  
+      // Cleanup
+      return () => {
+        window.removeEventListener("scroll", checkIfAtTop);
+      };
+    } else {
+      // If not on home page, don't track scroll
+      setIsAtTop(false);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // Reset activeSection when user navigates to a different page
+    if (!location.pathname.startsWith('/#')) {
+      setActiveSection(null);
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <Drawer
@@ -216,7 +247,7 @@ export default function NavbarSmall({
                             handleClose();
                           }}
                           className={({ isActive }) =>
-                            isActive
+                            isActive && !activeSection && isAtTop
                               ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
                               : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
                           }

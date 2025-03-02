@@ -8,6 +8,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   const navItems = useMemo(
     () => [
@@ -123,6 +124,36 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     };
   }, [location.pathname, activeSection, navItems]);
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      const checkIfAtTop = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        setIsAtTop(scrollTop < 500); // Consider "top" to be first 500px
+      };
+  
+      // Initial Check
+      checkIfAtTop();
+  
+      // Add scroll event listener
+      window.addEventListener("scroll", checkIfAtTop);
+  
+      // Cleanup
+      return () => {
+        window.removeEventListener("scroll", checkIfAtTop);
+      };
+    } else {
+      // If not on home page, don't track scroll
+      setIsAtTop(false);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // Reset activeSection when user navigates to a different page
+    if (!location.pathname.startsWith('/#')) {
+      setActiveSection(null);
+    }
+  }, [location.pathname]);
+
   // Check if a section link is active
   const isSectionActive = (to: string): boolean => {
     if (!to.includes("#")) return false;
@@ -171,10 +202,10 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
                         onClick={scrollToTop}
                         className={({ isActive }) =>
                           isSticky
-                            ? isActive && !activeSection
+                            ? isActive && !activeSection && isAtTop
                               ? "bg-white text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
                               : "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
-                            : isActive && !activeSection
+                            : isActive && !activeSection && isAtTop
                             ? "bg-[#73C0571A] text-[#73C057] rounded-md py-[10px] px-[20px]"
                             : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
                         }
