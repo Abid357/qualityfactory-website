@@ -171,10 +171,10 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
                         onClick={scrollToTop}
                         className={({ isActive }) =>
                           isSticky
-                            ? isActive
+                            ? isActive && !activeSection
                               ? "bg-white text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
                               : "text-white hover:bg-white hover:text-[#0C7E4A] rounded-md py-[10px] px-[20px]"
-                            : isActive
+                            : isActive && !activeSection
                             ? "bg-[#73C0571A] text-[#73C057] rounded-md py-[10px] px-[20px]"
                             : "hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[10px] px-[20px]"
                         }
