@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Drawer } from "flowbite-react";
-import { NavLink, Link } from "react-router";
+import { NavLink, Link, useLocation } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
@@ -14,22 +14,28 @@ export default function NavbarSmall({
   isOpen: boolean;
   handleClose: () => void;
 }) {
-  const navItems = [
-    { to: "/", label: "Home", type: "page", icon: <TiHome /> },
-    { to: "/catalog", label: "Catalog", type: "page", icon: <GrCatalog /> },
-    {
-      to: "/#services",
-      label: "Services",
-      type: "section",
-      icon: <GrBusinessService />,
-    },
-    {
-      to: "/#contact",
-      label: "Contact",
-      type: "section",
-      icon: <MdContactEmergency />,
-    },
-  ];
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const navItems = useMemo(
+    () => [
+      { to: "/", label: "Home", type: "page", icon: <TiHome /> },
+      { to: "/catalog", label: "Catalog", type: "page", icon: <GrCatalog /> },
+      {
+        to: "/#services",
+        label: "Services",
+        type: "section",
+        icon: <GrBusinessService />,
+      },
+      {
+        to: "/#contact",
+        label: "Contact",
+        type: "section",
+        icon: <MdContactEmergency />,
+      },
+    ],
+    []
+  );
 
   const drawerTheme = {
     root: {
@@ -74,6 +80,47 @@ export default function NavbarSmall({
     },
   };
 
+  const scrollToTop = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToSection = (to: string) => {
+    handleClose(); // Close Drawer
+
+    if (to.includes("#")) {
+      const sectionId = to.split("#")[1];
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        // Small delay to allow drawer to close
+        setTimeout(() => {
+          const navbar = document.querySelector(".primary-navbar");
+          const navbarHeight = navbar ? navbar.clientHeight : 60;
+          const offsetTop = section.offsetTop - navbarHeight - 20;
+
+          window.scrollTo({
+            top: offsetTop,
+            behavior: "smooth",
+          });
+
+          setActiveSection(sectionId);
+        }, 300);
+      }
+    }
+  };
+
+  // Check if a section link is active
+  const isSectionActive = (to: string): boolean => {
+    if (!to.includes("#")) return false;
+    const sectionId = to.split("#")[1];
+    return sectionId === activeSection;
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add("overflow-hidden");
@@ -81,11 +128,60 @@ export default function NavbarSmall({
       document.body.classList.remove("overflow-hidden");
     }
 
+    // Track section visibility
+    if (location.pathname === "/") {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Get the section ID
+            const sectionId = entry.target.id;
+
+            // Find if there is a nav item for this section
+            const matchingNavItem = navItems.find(
+              (item) => item.type === "section" && item.to === `/#${sectionId}`
+            );
+
+            if (matchingNavItem) {
+              if (entry.isIntersecting) {
+                // Section is visible, highlight nav item
+                setActiveSection(sectionId);
+              } else if (activeSection === sectionId) {
+                // Section left the viewport, clear if it was active
+                setActiveSection(null);
+              }
+            }
+          });
+        },
+        {
+          // Use smaller threshold for "active" detection
+          threshold: 0.05,
+          // Adjust rootMargin to account for navbar height
+          rootMargin: "-60px 0px -10px 0px",
+        }
+      );
+
+      // Only observe sections that match nav items
+      const sectionIds = navItems
+        .filter((item) => item.type === "section")
+        .map((item) => item.to.split("#")[1]);
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          sectionObserver.observe(section);
+        }
+      });
+
+      return () => {
+        sectionObserver.disconnect();
+      };
+    }
+
     // Cleanup function to remove class when component unmounts
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
-  }, [isOpen]);
+  }, [isOpen, location.pathname, activeSection, navItems]);
 
   return (
     <>
@@ -97,7 +193,7 @@ export default function NavbarSmall({
       >
         <Drawer.Header titleIcon={() => <></>} />
         <div className="mb-5">
-          <NavLink to="/">
+          <NavLink to="/" onClick={scrollToTop}>
             <img
               src={logo}
               alt="logo"
@@ -112,24 +208,48 @@ export default function NavbarSmall({
                 {navItems.map((item) => (
                   <li className="flex" key={item.to}>
                     {item.type === "page" ? (
-                      <NavLink
-                        to={item.to}
-                        className={({ isActive }) =>
-                          isActive
-                            ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
-                            : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
-                        }
-                      >
-                        <div className="flex items-center gap-5">
-                          <p className="text-xl">{item.icon}</p>
-                          <p>{item.label}</p>
-                        </div>
-                      </NavLink>
+                      item.to === "/" ? (
+                        <NavLink
+                          to={item.to}
+                          onClick={() => {
+                            scrollToTop();
+                            handleClose();
+                          }}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
+                              : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                          }
+                        >
+                          <div className="flex items-center gap-5">
+                            <p className="text-xl">{item.icon}</p>
+                            <p>{item.label}</p>
+                          </div>
+                        </NavLink>
+                      ) : (
+                        <NavLink
+                          to={item.to}
+                          onClick={handleClose}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
+                              : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                          }
+                        >
+                          <div className="flex items-center gap-5">
+                            <p className="text-xl">{item.icon}</p>
+                            <p>{item.label}</p>
+                          </div>
+                        </NavLink>
+                      )
                     ) : (
                       <Link
                         to={item.to}
+                        onClick={() => scrollToSection(item.to)}
                         className={
-                          "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
+                          isSectionActive(item.to)
+                            ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
+                            : "flex-grow hover:bg-[#73C0571A] hover:text-[#73C057] rounded-md py-[5px] pl-3"
                         }
                       >
                         <div className="flex items-center gap-5">
