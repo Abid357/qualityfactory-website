@@ -55,13 +55,13 @@ export default function OpeningHours() {
             <img
               src="/OpeningHours/Open.svg"
               alt="Open"
-              className="h-20 mx-5"
+              className="md:h-20 h-[60px] mx-5"
             />
           ) : (
             <img
               src="/OpeningHours/Closed.svg"
               alt="Closed"
-              className="h-20 mx-5"
+              className="md:h-20 h-[60px] mx-5"
             />
           )}
           <span className="whitespace-nowrap">now<span className="text-[#0C7E4A]">.</span></span>
