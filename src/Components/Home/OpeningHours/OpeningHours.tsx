@@ -64,8 +64,7 @@ export default function OpeningHours() {
               className="h-20 mx-5"
             />
           )}
-          <span>now</span>
-          <span className="text-[#0C7E4A]">.</span>
+          <span className="whitespace-nowrap">now<span className="text-[#0C7E4A]">.</span></span>
         </p>
         <div className="flex flex-col lg:flex-row lg:justify-between gap-5 lg:gap-10 uppercase">
           {daysData.map((dayInfo, index) => (

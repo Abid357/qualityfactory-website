@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <>
       <div className="flex flex-col">
-        <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl mb-5">
+        <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
           Contact us<span className="text-[#0C7E4A]">.</span>
         </p>
         <div className="flex flex-col lg:flex-row item-center lg:justify-between my-10">
