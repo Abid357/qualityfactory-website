@@ -33,20 +33,18 @@ const ServiceItem = ({
 export default function Services() {
   return (
     <>
-      <div className="flex flex-col">
-        <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
-          Our services<span className="text-[#0C7E4A]">.</span>
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-5 justify-items-center">
-          {servicesData.services.map((service, index: number) => (
-            <ServiceItem
-              key={index}
-              img={service.img}
-              title={service.title}
-              description={service.description}
-            />
-          ))}
-        </div>
+      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
+        Our services<span className="text-[#0C7E4A]">.</span>
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10 md:gap-5 justify-items-center">
+        {servicesData.services.map((service, index: number) => (
+          <ServiceItem
+            key={index}
+            img={service.img}
+            title={service.title}
+            description={service.description}
+          />
+        ))}
       </div>
     </>
   );

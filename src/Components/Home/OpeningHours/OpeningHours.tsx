@@ -48,40 +48,40 @@ export default function OpeningHours() {
 
   return (
     <>
-      <div className="flex flex-col">
-        <p className="flex flex-wrap items-end font-bold text-3xl lg:text-4xl xl:text-5xl mb-10">
-          <span className="whitespace-nowrap">We are</span>
-          {isOpen ? (
-            <img
-              src="/OpeningHours/Open.svg"
-              alt="Open"
-              className="md:h-20 h-[60px] mx-5"
-            />
-          ) : (
-            <img
-              src="/OpeningHours/Closed.svg"
-              alt="Closed"
-              className="md:h-20 h-[60px] mx-5"
-            />
-          )}
-          <span className="whitespace-nowrap">now<span className="text-[#0C7E4A]">.</span></span>
-        </p>
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-5 lg:gap-10 uppercase">
-          {daysData.map((dayInfo, index) => (
-            <Card key={index} className="flex-1">
-              <div
-                className={`flex lg:flex-col justify-between lg:justify-center items-center gap-5 rounded-md p-3 ${
-                  currentDay === index
-                    ? "text-white bg-[#0C7E4A] shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,1)]"
-                    : ""
-                }`}
-              >
-                <p className="text-lg lg:text-xl xl:text-2xl">{dayInfo.day}</p>
-                <p>{dayInfo.hours}</p>
-              </div>
-            </Card>
-          ))}
-        </div>
+      <p className="flex flex-wrap items-end font-bold text-3xl lg:text-4xl xl:text-5xl mb-10">
+        <span className="whitespace-nowrap">We are</span>
+        {isOpen ? (
+          <img
+            src="/OpeningHours/Open.svg"
+            alt="Open"
+            className="md:h-20 h-[60px] mx-5"
+          />
+        ) : (
+          <img
+            src="/OpeningHours/Closed.svg"
+            alt="Closed"
+            className="md:h-20 h-[60px] mx-5"
+          />
+        )}
+        <span className="whitespace-nowrap">
+          now<span className="text-[#0C7E4A]">.</span>
+        </span>
+      </p>
+      <div className="flex flex-col lg:flex-row lg:justify-between gap-5 lg:gap-10 uppercase">
+        {daysData.map((dayInfo, index) => (
+          <Card key={index} className="flex-1">
+            <div
+              className={`flex lg:flex-col justify-between lg:justify-center items-center gap-5 rounded-md p-3 ${
+                currentDay === index
+                  ? "text-white bg-[#0C7E4A] shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,1)]"
+                  : ""
+              }`}
+            >
+              <p className="text-lg lg:text-xl xl:text-2xl">{dayInfo.day}</p>
+              <p>{dayInfo.hours}</p>
+            </div>
+          </Card>
+        ))}
       </div>
     </>
   );

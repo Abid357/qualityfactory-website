@@ -1,12 +1,20 @@
 import { useState, useEffect } from "react";
-import { useLocation } from 'react-router';
+import { useLocation } from "react-router";
 import Contact from "../Components/Home/Contact/Contact";
 import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
 import Services from "../Components/Home/Services/Services";
+import Stats from "../Components/Home/Stats/Stats";
 
 export default function Home() {
   const location = useLocation();
-  const [navbarHeight, setNavbarHeight] = useState(80); 
+  const [navbarHeight, setNavbarHeight] = useState(80);
+
+  const sections = [
+    { id: "services", Component: Services },
+    { id: "stats", Component: Stats },
+    { id: "openingHours", Component: OpeningHours },
+    { id: "contact", Component: Contact },
+  ];
 
   useEffect(() => {
     // Get actual navbar height
@@ -22,11 +30,10 @@ export default function Home() {
     window.addEventListener("resize", updateNavHeight);
 
     // Apply scroll-margin-top to all sections
-    const sections = document.querySelectorAll('div[id]');
-    sections.forEach(section => {
+    const sections = document.querySelectorAll("div[id]");
+    sections.forEach((section) => {
       (section as HTMLElement).style.scrollMarginTop = `${navbarHeight + 20}px`;
     });
-
 
     const hash = location.hash;
 
@@ -34,7 +41,7 @@ export default function Home() {
       setTimeout(() => {
         const element = document.getElementById(hash.substring(1));
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100); // Short delay to ensure styles are applied
     }
@@ -62,13 +69,11 @@ export default function Home() {
       </div>
       <div className="left-0 w-full md:h-32 h-8 bg-gradient-to-t to-[#EDEBE8] from-transparent"></div>
       <div className="flex flex-col gap-40 w-[80%] my-20 mx-auto">
-        <div id="services">
-          <Services />
-        </div>
-        <OpeningHours />
-        <div id="contact">
-          <Contact />
-        </div>
+        {sections.map(({ id, Component }) => (
+          <div key={id} id={id}>
+            <Component />
+          </div>
+        ))}
       </div>
     </>
   );
