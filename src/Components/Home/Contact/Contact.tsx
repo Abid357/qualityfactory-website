@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <>
       <div className="flex flex-col">
-        <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
+        <p className="flex font-bold text-2xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
           Contact us<span className="text-[#0C7E4A]">.</span>
         </p>
         <div className="flex flex-col lg:flex-row items-center lg:justify-between my-10 gap-10">
@@ -24,8 +24,8 @@ export default function Contact() {
           </div>
           <ContactForm />
         </div>
-        <div className="flex flex-col lg:flex-row justify-between gap-10">
-          <div className="w-full lg:w-3/4 order-2 lg:order-1">
+        <div className="flex flex-col lg:flex-row justify-center gap-10 md:mt-4">
+          <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <Card>
               <div className="flex justify-center items-center aspect-[4/3] md:aspect-[16/9] w-full h-full p-5">
                 <iframe
@@ -38,35 +38,35 @@ export default function Contact() {
               </div>
             </Card>
           </div>
-          <div className="w-full lg:w-1/4 order-1 lg:order-2 flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-[#0C7E4A] text-xl">
+          <div className="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col gap-4 my-auto">
+            <div className="flex items-center gap-4">
+              <span className="text-[#0C7E4A] text-2xl">
                 <IoLogoWhatsapp />
               </span>
               <p>
                 +971 50 4567 348 <i>(WhatsApp only)</i>
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#0C7E4A] text-xl">
+            <div className="flex items-center gap-4">
+              <span className="text-[#0C7E4A] text-2xl">
                 <IoCall />
               </span>
               <a href="tel:+971 6 529 2984">+971 6 529 2984</a>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#0C7E4A] text-xl">
+            <div className="flex items-center gap-4">
+              <span className="text-[#0C7E4A] text-2xl">
                 <IoMail />
               </span>
               <a href="mailto:info@qualityfactory.ae">info@qualityfactory.ae</a>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#0C7E4A] text-xl">
+            <div className="flex items-center gap-4">
+              <span className="text-[#0C7E4A] text-2xl">
                 <BsMailbox2 />
               </span>
               <p>PO Box: 85531, Dubai, UAE</p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#0C7E4A] text-xl">
+            <div className="flex items-center gap-4">
+              <span className="text-[#0C7E4A] text-2xl">
                 <FaLocationDot />
               </span>
               <a
