@@ -13,7 +13,9 @@ export default function Counter({
         duration={3}
         end={number}
         suffix={suffix}
-        className="font-bold text-xl md:text-6xl"
+        enableScrollSpy={true}
+        scrollSpyOnce={true}
+        className="font-bold text-3xl md:text-6xl"
       />
     </div>
   );
