@@ -56,11 +56,16 @@ export default function Stats() {
     <>
       <div className="grid grid-cols-2 xl:grid-cols-4 gap-10 justify-self-center">
         {statsData.map((stat, index) => (
-          <Card key={index} className="w-32 md:w-60 h-32 md:h-60 flex justify-center items-center">
+          <Card
+            key={index}
+            className="w-32 md:w-60 h-32 md:h-60 flex justify-center items-center"
+          >
             <div className="flex flex-col justify-center items-center gap-5 rounded-md">
               <img src={stat.icon} alt={stat.alt} className="h-5 md:h-10" />
               <Counter number={stat.value} suffix={stat.suffix} />
-              <p className="md:font-semibold text-xs md:text-xl">{stat.label}</p>
+              <p className="md:font-semibold text-xs md:text-xl">
+                {stat.label}
+              </p>
             </div>
           </Card>
         ))}
