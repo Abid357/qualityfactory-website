@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import Contact from "../Components/Home/Contact/Contact";
-import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
 import Services from "../Components/Home/Services/Services";
 import Stats from "../Components/Home/Stats/Stats";
+import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
+import Customers from "../Components/Home/Customers/Customers";
+import Contact from "../Components/Home/Contact/Contact";
 
 export default function Home() {
   const location = useLocation();
@@ -13,6 +14,7 @@ export default function Home() {
     { id: "services", Component: Services },
     { id: "stats", Component: Stats },
     { id: "openingHours", Component: OpeningHours },
+    { id: "customers", Component: Customers },
     { id: "contact", Component: Contact },
   ];
 
