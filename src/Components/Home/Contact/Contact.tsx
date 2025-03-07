@@ -10,7 +10,7 @@ import formImg from "/ContactUs/ContactForm.png";
 export default function Contact() {
   return (
     <>
-      <p className="flex font-bold text-2xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
+      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
         Contact us<span className="text-[#0C7E4A]">.</span>
       </p>
       <div className="flex flex-col lg:flex-row items-center lg:justify-between my-10 gap-10">

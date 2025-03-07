@@ -39,7 +39,7 @@ export default function Stats() {
     {
       icon: Boxes,
       alt: "Daily Boxes Produced",
-      value: 4000,
+      value: 5000,
       label: "Daily Boxes Produced",
       suffix: "+",
     },
