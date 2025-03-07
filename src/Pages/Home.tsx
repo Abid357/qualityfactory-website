@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import Certifications from "../Components/Home/Certifications/Certifications";
 import Services from "../Components/Home/Services/Services";
 import Stats from "../Components/Home/Stats/Stats";
 import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
@@ -12,7 +11,6 @@ export default function Home() {
   const [navbarHeight, setNavbarHeight] = useState(80);
 
   const sections = [
-    { id: "certifications", Component: Certifications },
     { id: "services", Component: Services },
     { id: "stats", Component: Stats },
     { id: "openingHours", Component: OpeningHours },
