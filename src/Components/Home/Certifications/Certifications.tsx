@@ -16,10 +16,12 @@ export default function Certifications() {
           className="w-full max-w-md mb-5"
         />
         <Link to="/certificates">
-          <button className="flex justify-center items-center gap-3 font-bold text-[#0C7E4A] hover:text-white bg-white hover:bg-[#0C7E4A] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md px-3 py-2">
-            <FaEye />
-            Certificates
-          </button>
+          <Card>
+            <button className="flex justify-center items-center gap-3 font-bold text-[#0C7E4A] hover:text-white bg-white hover:bg-[#0C7E4A] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md px-4 py-2">
+              <FaEye />
+              <p>Certificates</p>
+            </button>
+          </Card>
         </Link>
       </div>
 
