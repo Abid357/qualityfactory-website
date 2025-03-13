@@ -28,7 +28,7 @@ function CardGrid({
   displayType,
 }: {
   title: string;
-  items: Array<{ logo: string; background: string; name: string }>;
+  items: Array<{ name: string; logo?: string; background: string }>;
   displayType: "logo" | "name";
 }) {
   return (
@@ -41,9 +41,9 @@ function CardGrid({
         {items.map((item, index) => (
           <ImageCard
             key={index}
+            name={item.name}
             logo={item.logo}
             background={item.background}
-            name={item.name}
             displayType={displayType}
           />
         ))}
@@ -54,14 +54,14 @@ function CardGrid({
 
 // Brand card component with hover effects
 function ImageCard({
+  name,
   logo,
   background,
-  name,
   displayType,
 }: {
-  logo: string;
-  background: string;
   name: string;
+  logo?: string;
+  background: string;
   displayType: "logo" | "name";
 }) {
   const [isHovered, setIsHovered] = useState(false);

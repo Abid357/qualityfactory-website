@@ -1,34 +1,28 @@
 [
     {
       "name": "Energy Drinks",
-      "logo": "/Catalog/Brands/BlackTigerLogo.png",
-      "background": "/Catalog/Brands/BlackTiger.png"
+      "background": "/Catalog/Categories/EnergyDrinks.jpg"
     },
     {
       "name": "Basil Drinks",
-      "logo": "/Catalog/Brands/BoomTigerLogo.svg",
-      "background": "/Catalog/Brands/BoomTiger.png"
+      "background": "/Catalog/Categories/BasilDrinks.png"
     },
     {
       "name": "Soft Drinks",
-      "logo": "/Catalog/Brands/JoocyLogo.svg",
-      "background": "/Catalog/Brands/Joocy.png"
+      "background": "/Catalog/Categories/SoftDrinks.png"
     },
     {
       "name": "Flavored Drinks",
-      "logo": "/Catalog/Brands/CrownLogo.svg",
-      "background": "/Catalog/Brands/Crown.png"
+      "background": "/Catalog/Categories/FlavoredDrinks.png"
     },
     {
       "name": "Electrolytes",
-      "logo": "/Catalog/Brands/SpeedLogo.svg",
-      "background": "/Catalog/Brands/Speed.png"
+      "background": "/Catalog/Categories/Electrolytes.png"
     }
     ,
     {
-      "name": "Sparkling Waters",
-      "logo": "/Catalog/Brands/SpeedLogo.svg",
-      "background": "/Catalog/Brands/Speed.png"
+      "name": "Coming Soon!",
+      "background": "/Catalog/Categories/SparklingWaters.png"
     }
   ]
   
