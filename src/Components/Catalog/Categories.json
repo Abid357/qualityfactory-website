@@ -1,0 +1,34 @@
+[
+    {
+      "name": "Energy Drinks",
+      "logo": "/Catalog/Brands/BlackTigerLogo.png",
+      "background": "/Catalog/Brands/BlackTiger.png"
+    },
+    {
+      "name": "Basil Drinks",
+      "logo": "/Catalog/Brands/BoomTigerLogo.svg",
+      "background": "/Catalog/Brands/BoomTiger.png"
+    },
+    {
+      "name": "Soft Drinks",
+      "logo": "/Catalog/Brands/JoocyLogo.svg",
+      "background": "/Catalog/Brands/Joocy.png"
+    },
+    {
+      "name": "Flavored Drinks",
+      "logo": "/Catalog/Brands/CrownLogo.svg",
+      "background": "/Catalog/Brands/Crown.png"
+    },
+    {
+      "name": "Electrolytes",
+      "logo": "/Catalog/Brands/SpeedLogo.svg",
+      "background": "/Catalog/Brands/Speed.png"
+    }
+    ,
+    {
+      "name": "Sparkling Waters",
+      "logo": "/Catalog/Brands/SpeedLogo.svg",
+      "background": "/Catalog/Brands/Speed.png"
+    }
+  ]
+  

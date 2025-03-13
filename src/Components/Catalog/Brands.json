@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Black Tiger",
+    "logo": "/Catalog/Brands/BlackTigerLogo.png",
+    "background": "/Catalog/Brands/BlackTiger.png"
+  },
+  {
+    "name": "Boom Tiger",
+    "logo": "/Catalog/Brands/BoomTigerLogo.svg",
+    "background": "/Catalog/Brands/BoomTiger.png"
+  },
+  {
+    "name": "Joocy",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "background": "/Catalog/Brands/Joocy.png"
+  },
+  {
+    "name": "Crown",
+    "logo": "/Catalog/Brands/CrownLogo.svg",
+    "background": "/Catalog/Brands/Crown.png"
+  },
+  {
+    "name": "Speed",
+    "logo": "/Catalog/Brands/SpeedLogo.svg",
+    "background": "/Catalog/Brands/Speed.png"
+  }
+]
