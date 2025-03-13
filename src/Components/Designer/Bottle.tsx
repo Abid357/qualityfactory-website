@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Card from "../Card";
 import Arrow from "./Arrow";
 
 export default function Bottle() {
-    const [waveColor, setWaveColor] = useState("#07bdff"); // Default color
+    const [waveColor, setWaveColor] = useState("#f4a404"); // Default color
     const [animationKey, setAnimationKey] = useState(0); // Changes to restart fill animation
 
     // Function to update color & restart fill animation
@@ -14,8 +13,8 @@ export default function Bottle() {
 
     return (
         <>
-            <div className="flex flex-row justify-center items-center">
-                <Arrow margin={50} />
+            <div className="flex flex-row justify-even items-center">
+                <Arrow margins={"md:mr-[50px] mr-[15px]"} />
                 <div className="relative flex flex-col items-center">
                     <div className="w-32 h-12 bg-gray-200 border-[10px] border-gray-200 border-t rounded-t-[100%]" />
                     <div
@@ -32,9 +31,8 @@ export default function Bottle() {
                             onChange={handleColorChange}
                             title="Choose your color" />
                     </div>
-
                 </div>
-                <Arrow isRight={true} margin={50} />
+                <Arrow isRight={true} margins={"md:ml-[50px] ml-[15px]"} />
             </div>
             <style>
                 {`

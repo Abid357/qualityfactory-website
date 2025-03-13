@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Red",
+        "color": "#c71f2e"
+    },
+    {
+        "name": "Green",
+        "color": "#1c9913"
+    },
+    {
+        "name": "White",
+        "color": "#e2dce8"
+    },
+    {
+        "name": "Purple",
+        "color": "#5b3f8b"
+    },
+    {
+        "name": "Blue",
+        "color": "#00baf5"
+    }
+]
