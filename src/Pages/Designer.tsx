@@ -1,4 +1,4 @@
-import Bottle from "../Components/Designer/Bottle";
+import Bottle from "../Components/Designer/Bottle/Bottle";
 import Cap from "../Components/Designer/Cap/Cap";
 
 export default function Designer() {
