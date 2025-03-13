@@ -7,30 +7,30 @@ export default function Cap() {
     const [animating, setAnimating] = useState(false);
     const [animation, setAnimation] = useState({});
 
-    const slideCap = (direction = "next", newIndex) => {
+    const slideCap = (direction = "next", newIndex: number) => {
         if (animating) return;
         setAnimating(true);
-    
+
         // Step 1: Fade Out Animation
-        const translation = direction === "next" ? 100 : -100;
+        const translation = direction === "next" ? 75 : -75;
         setAnimation({
             transform: `translateX(${translation}px)`,
             opacity: 0,
             transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
             backgroundColor: Caps[capsIndex].color, // Keep the current color until fully faded out
         });
-    
+
         setTimeout(() => {
             // Step 2: Change Index (AFTER fade out completes)
             setCapsIndex(newIndex);
-    
+
             // Step 3: Change Color BEFORE fade-in
             setAnimation(() => ({
                 opacity: 0,
                 transform: `translateX(${translation * -1}px)`,
                 backgroundColor: Caps[newIndex].color, // Change color first
             }));
-    
+
             setTimeout(() => {
                 // Step 4: Fade In Animation
                 setAnimation({
@@ -49,13 +49,25 @@ export default function Cap() {
 
     useEffect(() => {
         nextCap();
-      }, []);
+    }, []);
 
     return (
         <>
             <div className="flex flex-row justify-center">
                 <Arrow margins={"md:mr-[100px] mr-[65px]"} onClick={prevCap} />
-                <div className="w-8 h-5 mt-1 rounded-[4px]" style={animation}/>
+                <div className="flex flex-row justify-between w-8 h-6 mt-1 rounded-[4px] relative" style={animation}>
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                    <div className="bg-white w-[5%] opacity-[30%]" />
+                </div>
                 <Arrow isRight={true} margins={"md:ml-[100px] ml-[65px]"} onClick={nextCap} />
             </div>
         </>

@@ -1,22 +1,42 @@
 [
     {
         "name": "Red",
-        "color": "#c71f2e"
+        "color": "#c21121"
+    },
+    {
+        "name": "Lime",
+        "color": "#3aad0c"
+    },
+    {
+        "name": "Pink",
+        "color": "#ff68c3"
+    },
+    {
+        "name": "Orange",
+        "color": "#fe6c45"
+    },
+    {
+        "name": "Brown",
+        "color": "#873323"
     },
     {
         "name": "Green",
-        "color": "#1c9913"
+        "color": "#02aa78"
     },
     {
         "name": "White",
-        "color": "#e2dce8"
+        "color": "#ebeae4"
     },
     {
-        "name": "Purple",
-        "color": "#5b3f8b"
+        "name": "Yellow",
+        "color": "#ebe423"
+    },
+    {
+        "name": "Aqua",
+        "color": "#00baf5"
     },
     {
         "name": "Blue",
-        "color": "#00baf5"
+        "color": "#1c4fde"
     }
 ]
