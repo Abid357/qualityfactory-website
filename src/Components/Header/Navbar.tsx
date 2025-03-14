@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { NavLink, Link, useLocation } from "react-router";
+import { NavLink, Link, useLocation, useNavigate } from "react-router";
 import { IoMenu } from "react-icons/io5";
 import logo from "/Logo/QualityLogo.svg";
 import logoMini from "/Logo/Quality_miniNav.svg";
@@ -7,6 +7,7 @@ import logoMini from "/Logo/Quality_miniNav.svg";
 export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
 
@@ -20,12 +21,22 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     []
   );
 
-  const scrollToTop = () => {
-    if (location.pathname === "/") {
+  const scrollToTop = (path: string) => {
+    // If already on target path, just scroll to top
+    if (location.pathname === path) {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
+    } else {
+      // If not on target path, navigate and then scroll to top
+      navigate(path);
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "auto",
+        });
+      }, 100);
     }
   };
 
@@ -33,26 +44,47 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     // Extract the section ID from the hash
     if (to.includes("#")) {
       const sectionId = to.split("#")[1];
-      const section = document.getElementById(sectionId);
 
-      if (section) {
-        // Get navbar height for offset
-        const navbar = document.querySelector(".primary-navbar");
-        const navbarHeight = navbar ? navbar.clientHeight : 80;
+      // Check if need to navigate first
+      const basePath = to.split("#")[0] || "/";
 
-        // Calculate the scroll position with offset
-        const offsetTop = section.offsetTop - navbarHeight - 20; // 20px extra padding
+      if (location.pathname !== basePath) {
+        // Navigate to base page first
+        navigate(basePath);
 
-        // Scroll to the section
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-
-        // Update active section
-        setActiveSection(sectionId);
+        // Then scroll to section
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            scrollToSectionHelper(section, sectionId);
+          }
+        }, 100);
+      } else {
+        // Already on correct page, just scroll to section
+        const section = document.getElementById(sectionId);
+        if (section) {
+          scrollToSectionHelper(section, sectionId);
+        }
       }
     }
+  };
+
+  const scrollToSectionHelper = (section: HTMLElement, sectionId: string) => {
+    // Get navbar height for offset
+    const navbar = document.querySelector(".primary-navbar");
+    const navbarHeight = navbar ? navbar.clientHeight : 80;
+
+    // Calculate the scroll position with offset
+    const offsetTop = section.offsetTop - navbarHeight - 20;
+
+    // Scroll to the section
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+
+    // Update active section
+    setActiveSection(sectionId);
   };
 
   useEffect(() => {
@@ -168,7 +200,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-between gap-10 px-5">
-          <NavLink to="/" onClick={scrollToTop}>
+          <NavLink to="/" onClick={() => scrollToTop("/")}>
             <div
               className={`relative flex justify-center items-center  transition-all duration-300 ${
                 isSticky ? "h-[40px] md:h-[60px]" : "h-[50px] md:h-[100px]"
@@ -198,7 +230,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
                     item.to === "/" ? (
                       <NavLink
                         to={item.to}
-                        onClick={scrollToTop}
+                        onClick={() => scrollToTop("/")}
                         className={({ isActive }) =>
                           isSticky
                             ? isActive && !activeSection && isAtTop
@@ -214,6 +246,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
                     ) : (
                       <NavLink
                         to={item.to}
+                        onClick={() => scrollToTop(item.to)}
                         className={({ isActive }) =>
                           isSticky
                             ? isActive
