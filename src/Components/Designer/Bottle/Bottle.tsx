@@ -81,6 +81,9 @@ export default function Bottle() {
                 </div>
                 <Arrow isRight={true} margins={"md:ml-[50px] ml-[15px] top-5"} onClick={nextVolume} />
             </div>
+            <p className="flex text-sm lg:text-md xl:text-lg italic whitespace-nowrap text-gray-500 mt-2">
+                Click on the bottle to change the color
+            </p>
             <style>
                 {`
               @keyframes wave {
