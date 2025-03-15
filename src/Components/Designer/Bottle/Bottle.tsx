@@ -10,7 +10,7 @@ export default function Bottle({ waveColor, setWaveColor, volumesIndex, setVolum
     const [animation, setAnimation] = useState({});
 
     // Function to update color & restart fill animation
-    const changeColor = (e) => {
+    const changeColor = (e: { target: { value: string; }; }) => {
         setWaveColor(e.target.value);
         setAnimationKey(prevKey => prevKey + 1); // Change key to restart fill animation
     };

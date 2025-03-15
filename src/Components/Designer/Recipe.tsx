@@ -162,7 +162,7 @@ const Column = ({
         className="h-full w-full transition-colors"
       >
         {cards.map((c) => {
-          return <Card key={c.id} {...c} handleDragStart={handleDragStart} handleUpArrowClick={handleUpArrowClick} handleDownArrowClick={handleDownArrowClick} handleDeleteButtonClick={handleDeleteButtonClick} cards={cards} setCards={setCards} />;
+          return <Card key={c.id} {...c} handleDragStart={handleDragStart} handleUpArrowClick={handleUpArrowClick} handleDownArrowClick={handleDownArrowClick} handleDeleteButtonClick={handleDeleteButtonClick} setCards={setCards} />;
         })}
         <DropIndicator beforeId={null} />
         <AddCard setCards={setCards} />
