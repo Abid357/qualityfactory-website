@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Red",
+        "color": "#c21121"
+    },
+    {
+        "name": "Lime",
+        "color": "#3aad0c"
+    },
+    {
+        "name": "Pink",
+        "color": "#ff68c3"
+    },
+    {
+        "name": "Orange",
+        "color": "#fe6c45"
+    },
+    {
+        "name": "Brown",
+        "color": "#873323"
+    },
+    {
+        "name": "Green",
+        "color": "#02aa78"
+    },
+    {
+        "name": "White",
+        "color": "#ebeae4"
+    },
+    {
+        "name": "Yellow",
+        "color": "#ebe423"
+    },
+    {
+        "name": "Aqua",
+        "color": "#00baf5"
+    },
+    {
+        "name": "Blue",
+        "color": "#1c4fde"
+    }
+]
