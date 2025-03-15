@@ -34,7 +34,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
       setTimeout(() => {
         window.scrollTo({
           top: 0,
-          behavior: "auto",
+          behavior: "smooth",
         });
       }, 100);
     }

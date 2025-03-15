@@ -37,7 +37,7 @@ function CardGrid({
         {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {items.map((item, index) => (
           <ImageCard
             key={index}
@@ -67,7 +67,7 @@ function ImageCard({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Card className="h-60 md:h-80 w-full max-w-[500px] rounded-3xl">
+    <Card className="h-60 md:h-80 w-full rounded-3xl">
       <div
         className="relative h-full w-full overflow-hidden rounded-3xl shadow-[6px_6px_12px_rgba(0,0,0,0.15),-10px_-10px_6px_rgba(255,255,255,1)]"
         onMouseEnter={() => setIsHovered(true)}
@@ -75,12 +75,11 @@ function ImageCard({
       >
         {/* Background image with grayscale filter */}
         <div
-          className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out bg-center ${
+          className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out bg-no-repeat bg-center bg-[size:100%] md:bg-[size:150%] ${
             isHovered ? "" : "grayscale-0 md:grayscale"
           }`}
           style={{
-            backgroundImage: `url(${background})`,
-            backgroundSize: "150%",
+            backgroundImage: `url(${background})`
           }}
         />
 

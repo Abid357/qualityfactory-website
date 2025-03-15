@@ -48,12 +48,15 @@ export default function Home() {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100); // Short delay to ensure styles are applied
+    } else if (location.state && location.state.scrollToTop) {
+      // Scroll to top if requested via navigation state
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     return () => {
       window.removeEventListener("resize", updateNavHeight);
     };
-  }, [location.hash, navbarHeight]);
+  }, [location.hash, navbarHeight, location.state]);
 
   return (
     <>
