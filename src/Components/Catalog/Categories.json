@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Energy Drinks",
+      "background": "/Catalog/Categories/EnergyDrinks.jpg"
+    },
+    {
+      "name": "Basil Drinks",
+      "background": "/Catalog/Categories/BasilDrinks.png"
+    },
+    {
+      "name": "Soft Drinks",
+      "background": "/Catalog/Categories/SoftDrinks.png"
+    },
+    {
+      "name": "Flavored Drinks",
+      "background": "/Catalog/Categories/FlavoredDrinks.png"
+    },
+    {
+      "name": "Electrolytes",
+      "background": "/Catalog/Categories/Electrolytes.png"
+    }
+    ,
+    {
+      "name": "Sparkling Waters",
+      "background": "/Catalog/Categories/SparklingWaters.png",
+      "comingSoon": true
+    }
+  ]

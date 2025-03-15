@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Drawer } from "flowbite-react";
-import { NavLink, Link, useLocation } from "react-router";
+import { NavLink, Link, useLocation, useNavigate } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
@@ -15,6 +15,7 @@ export default function NavbarSmall({
   handleClose: () => void;
 }) {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
 
@@ -81,11 +82,21 @@ export default function NavbarSmall({
     },
   };
 
-  const scrollToTop = () => {
-    if (location.pathname === "/") {
+  const scrollToTop = (path: string) => {
+    // If already on target path, just scroll to top
+    if (location.pathname === path) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, 300);
+    } else {
+      // If not on target path, navigate and then scroll to top
+      navigate(path);
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: "auto",
       });
     }
   };
@@ -95,24 +106,48 @@ export default function NavbarSmall({
 
     if (to.includes("#")) {
       const sectionId = to.split("#")[1];
-      const section = document.getElementById(sectionId);
 
-      if (section) {
-        // Small delay to allow drawer to close
+      // Check if we need to navigate first
+      const basePath = to.split("#")[0] || "/";
+
+      if (location.pathname !== basePath) {
+        // Navigate to base page first
+        navigate(basePath);
+
+        // Then scroll to section after drawer close
         setTimeout(() => {
-          const navbar = document.querySelector(".primary-navbar");
-          const navbarHeight = navbar ? navbar.clientHeight : 60;
-          const offsetTop = section.offsetTop - navbarHeight - 20;
-
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth",
-          });
-
-          setActiveSection(sectionId);
+          const section = document.getElementById(sectionId);
+          if (section) {
+            scrollToSectionHelper(section, sectionId);
+          }
+        }, 300);
+      } else {
+        // Already on correct page, just scroll to section after drawer closes
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            scrollToSectionHelper(section, sectionId);
+          }
         }, 300);
       }
     }
+  };
+
+  const scrollToSectionHelper = (section: HTMLElement, sectionId: string) => {
+    // Get navbar height for offset
+    const navbar = document.querySelector(".primary-navbar");
+    const navbarHeight = navbar ? navbar.clientHeight : 60;
+
+    // Calculate the scroll position with offset
+    const offsetTop = section.offsetTop - navbarHeight - 20;
+
+    // Scroll to the section
+    window.scrollTo({
+      top: offsetTop,
+      behavior: "smooth",
+    });
+
+    setActiveSection(sectionId);
   };
 
   // Check if a section link is active
@@ -189,13 +224,13 @@ export default function NavbarSmall({
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         setIsAtTop(scrollTop < 500); // Consider "top" to be first 500px
       };
-  
+
       // Initial Check
       checkIfAtTop();
-  
+
       // Add scroll event listener
       window.addEventListener("scroll", checkIfAtTop);
-  
+
       // Cleanup
       return () => {
         window.removeEventListener("scroll", checkIfAtTop);
@@ -208,7 +243,7 @@ export default function NavbarSmall({
 
   useEffect(() => {
     // Reset activeSection when user navigates to a different page
-    if (!location.pathname.startsWith('/#')) {
+    if (!location.pathname.startsWith("/#")) {
       setActiveSection(null);
     }
   }, [location.pathname]);
@@ -223,7 +258,7 @@ export default function NavbarSmall({
       >
         <Drawer.Header titleIcon={() => <></>} />
         <div className="mb-5">
-          <NavLink to="/" onClick={scrollToTop}>
+          <NavLink to="/" onClick={() => scrollToTop("/")}>
             <img
               src={logo}
               alt="logo"
@@ -242,7 +277,7 @@ export default function NavbarSmall({
                         <NavLink
                           to={item.to}
                           onClick={() => {
-                            scrollToTop();
+                            scrollToTop("/");
                             handleClose();
                           }}
                           className={({ isActive }) =>
@@ -259,7 +294,10 @@ export default function NavbarSmall({
                       ) : (
                         <NavLink
                           to={item.to}
-                          onClick={handleClose}
+                          onClick={() => {
+                            scrollToTop(item.to);
+                            handleClose();
+                          }}
                           className={({ isActive }) =>
                             isActive
                               ? "flex-grow bg-[#73C0571A] text-[#73C057] rounded-md py-[5px] pl-3"
