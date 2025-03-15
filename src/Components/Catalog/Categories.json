@@ -21,7 +21,8 @@
     }
     ,
     {
-      "name": "Coming Soon!",
-      "background": "/Catalog/Categories/SparklingWaters.png"
+      "name": "Sparkling Waters",
+      "background": "/Catalog/Categories/SparklingWaters.png",
+      "comingSoon": true
     }
   ]

@@ -28,7 +28,12 @@ function CardGrid({
   displayType,
 }: {
   title: string;
-  items: Array<{ name: string; logo?: string; background: string }>;
+  items: Array<{
+    name: string;
+    logo?: string;
+    background: string;
+    comingSoon?: boolean;
+  }>;
   displayType: "logo" | "name";
 }) {
   return (
@@ -45,6 +50,7 @@ function CardGrid({
             logo={item.logo}
             background={item.background}
             displayType={displayType}
+            comingSoon={item.comingSoon}
           />
         ))}
       </div>
@@ -57,11 +63,13 @@ function ImageCard({
   name,
   logo,
   background,
+  comingSoon,
   displayType,
 }: {
   name: string;
   logo?: string;
   background: string;
+  comingSoon?: boolean;
   displayType: "logo" | "name";
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -79,7 +87,7 @@ function ImageCard({
             isHovered ? "" : "grayscale-0 md:grayscale"
           }`}
           style={{
-            backgroundImage: `url(${background})`
+            backgroundImage: `url(${background})`,
           }}
         />
 
@@ -90,17 +98,37 @@ function ImageCard({
         {/* Colorful logo */}
         <div className="absolute inset-0 flex items-center justify-center">
           {displayType === "logo" ? (
-            <div className="relative flex items-center justify-center w-1/2 h-1/2">
-              <img
-                src={logo}
-                alt={`${name} Logo`}
-                className="max-w-full max-h-full object-contain drop-shadow-[0_0_10px_rgba(255,255,255,1)] transform transition-transform duration-300 ease-in-out"
-              />
+            <div className="relative w-full h-full flex flex-col items-center justify-center">
+              <div className="w-1/2 h-1/2 flex items-center justify-center">
+                <img
+                  src={logo}
+                  alt={`${name} Logo`}
+                  className="max-w-full max-h-full object-contain drop-shadow-[0_0_10px_rgba(255,255,255,1)] transform transition-transform duration-300 ease-in-out"
+                />
+              </div>
+
+              {comingSoon && (
+                <div className="mt-4 bg-[#0C7E4A] bg-opacity-80 px-5 py-1 rounded-full shadow-lg">
+                  <p className="text-white text-sm italic font-medium">
+                    Coming Soon
+                  </p>
+                </div>
+              )}
             </div>
           ) : (
-            <p className="text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl px-6 drop-shadow-[0_0_5px_rgba(0,0,0,1),0_0_10px_rgba(255,255,255,1)] transform transition-transform duration-300 ease-in-out">
-              {name}
-            </p>
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-white text-center font-bold text-3xl md:text-4xl lg:text-5xl px-6 drop-shadow-[0_0_5px_rgba(0,0,0,1),0_0_10px_rgba(255,255,255,1)] transform transition-transform duration-300 ease-in-out">
+                {name}
+              </p>
+
+              {comingSoon && (
+                <div className="mt-4 bg-[#0C7E4A] bg-opacity-80 px-5 py-1 rounded-full shadow-lg">
+                  <p className="text-white text-sm italic font-medium">
+                    Coming Soon
+                  </p>
+                </div>
+              )}
+            </div>
           )}
         </div>
       </div>
