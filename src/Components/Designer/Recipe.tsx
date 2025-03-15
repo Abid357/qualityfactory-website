@@ -7,19 +7,16 @@ import React, {
 } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { CardType } from "../../Pages/Designer";
 
 
 
-// TODO: remove after testing
-const DEFAULT_CARDS = [
-  { ingredient: "Sodium Benzoate", "amount": 20, "unit": "g", id: "1" },
-  { ingredient: "Carmoizine Color", "amount": 50, "unit": "mg", id: "2" },
-  { ingredient: "Orange Flavor", "amount": 168, "unit": "g", id: "3" },
-];
+type ColumnProps = {
+  cards: CardType[];
+  setCards: Dispatch<SetStateAction<CardType[]>>;
+};
 
-export default function Recipe() {
-  const [cards, setCards] = useState(DEFAULT_CARDS);
-
+export default function Recipe({ cards, setCards }: ColumnProps) {
   return (
     <div className="flex justify-center h-full w-full">
       <Column
@@ -28,11 +25,6 @@ export default function Recipe() {
       />
     </div>
   );
-};
-
-type ColumnProps = {
-  cards: CardType[];
-  setCards: Dispatch<SetStateAction<CardType[]>>;
 };
 
 const Column = ({
@@ -321,11 +313,4 @@ const AddCard = ({ setCards }: AddCardProps) => {
       )}
     </>
   );
-};
-
-type CardType = {
-  ingredient: string;
-  amount: number;
-  unit: string;
-  id: string;
 };

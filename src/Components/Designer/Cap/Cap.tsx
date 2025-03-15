@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import Arrow from "../Arrow"
 import Caps from "./Caps.json"
 
-export default function Cap() {
-    const [capsIndex, setCapsIndex] = useState(0);
+export default function Cap({capsIndex, setCapsIndex}: {capsIndex: number, setCapsIndex: (index: number) => void}) {
     const [animating, setAnimating] = useState(false);
     const [animation, setAnimation] = useState({});
 

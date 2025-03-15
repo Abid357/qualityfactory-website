@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import Arrow from "../Arrow";
 import Volumes from "./Volumes.json";
 
-export default function Bottle() {
-    const [waveColor, setWaveColor] = useState("#f4a404"); // Default color
+export default function Bottle({ waveColor, setWaveColor, volumesIndex, setVolumesIndex }: {
+    waveColor: string; setWaveColor: (color: string) => void; volumesIndex: number; setVolumesIndex: (index: number) => void;
+}) {
     const [animationKey, setAnimationKey] = useState(0); // Changes to restart fill animation
-    const [volumesIndex, setVolumesIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
     const [animation, setAnimation] = useState({});
 

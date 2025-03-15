@@ -1,7 +1,9 @@
-import { IoLogoWhatsapp } from "react-icons/io5";
 import countries from "../Home/Contact/Countries.json";
 import { useState } from "react";
 import Select, { StylesConfig } from "react-select";
+import { CardType } from "../../Pages/Designer";
+import Volumes from "../Designer/Bottle/Volumes.json";
+import Caps from "../Designer/Cap/Caps.json";
 
 interface OptionType {
     value: string;
@@ -89,7 +91,7 @@ const countryCodeSelectStyles: StylesConfig<OptionType, false> = {
     indicatorsContainer: (provided) => ({
         ...provided,
         height: "60px",
-        width: "30%",
+        width: "20%",
     }),
     placeholder: (provided) => ({
         ...provided,
@@ -102,7 +104,7 @@ const countryCodeSelectStyles: StylesConfig<OptionType, false> = {
 };
 
 
-export default function Share() {
+export default function Share({ waveColor, capsIndex, volumesIndex, items }: { waveColor: string, capsIndex: number, volumesIndex: number, items: CardType[] }) {
     const [form, setForm] = useState<FormState>({
         countryCode: "",
         mobile: "",
@@ -111,21 +113,38 @@ export default function Share() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (form.mobile && !form.countryCode) {
-            setError("Please select a mobile country code.");
+
+        if (!form.mobile) {
+            setError("Please enter your mobile number.");
             return;
         }
-
-        if (form.mobile) {
+        else {
             const mobileRegex = /^\d{7,15}$/; // Allow 7 to 15 digits
             if (!mobileRegex.test(form.mobile)) {
                 setError("Please enter a valid mobile number (7-15 digits).");
                 return;
             }
         }
+        if (!form.countryCode) {
+            setError("Please select a mobile country code.");
+            return;
+        }
 
         setError("");
-        const url = `https://wa.me/${form.countryCode}${form.mobile}`;
+
+        let message = "I just designed my own product on Quality Factory website! Here are the details:\n\n";
+        message += `*Drink Color*: ${waveColor}\n`;
+        message += `*Cap Color*: ${Caps[capsIndex].name}\n`;
+        message += `*Bottle Size*: ${Volumes[volumesIndex]}\n`;
+
+        if (items.length) {
+            message += "\n*Ingredients*\n";
+            items.forEach((item) => {
+                message += `${item.ingredient} - ${item.amount} ${item.unit}\n`;
+            });
+        }
+
+        const url = `https://wa.me/${form.countryCode}${form.mobile}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
     };
 
@@ -145,7 +164,7 @@ export default function Share() {
                 className="flex flex-col md:flex-row gap-4 font-semibold md:text-xl w-full"
             >
                 <div className="flex flex-row w-full">
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 md:w-[30%]">
                         <Select
                             options={countryCodeOptions}
                             value={countryCodeOptions.find(
@@ -180,6 +199,7 @@ export default function Share() {
                     Share
                 </button>
             </form>
+            {error && <div className="w-full text-red-500 text-sm md:text-md my-2 italic">{error}</div>}
         </div>
     );
 }
