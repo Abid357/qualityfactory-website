@@ -11,14 +11,13 @@ import { FaFire } from "react-icons/fa";
 
 const Recipe = () => {
   return (
-    <div>
       <Board />
-    </div>
   );
 };
 
 export default Recipe;
 
+// TODO: remove after testing
 const DEFAULT_CARDS = [
   { ingredient: "Sodium Benzoate", "amount": 20, "unit": "g", id: "1" },
   { ingredient: "Carmoizine Color", "amount": 50, "unit": "mg", id: "2" },
@@ -29,7 +28,7 @@ const Board = () => {
   const [cards, setCards] = useState(DEFAULT_CARDS);
 
   return (
-    <div className="flex h-full w-full gap-3 p-12">
+    <div className="flex justify-center h-full w-full gap-3 p-12">
       <Column
         cards={cards}
         setCards={setCards}
@@ -152,16 +151,12 @@ const Column = ({
   };
 
   return (
-    <div className="w-56 shrink-0">
-      <div className="mb-3 flex items-center justify-between">
-      </div>
+    <div className="ml-30 w-[75%] shrink-0">
       <div
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
-        className={`h-full w-full transition-colors ${
-          active ? "bg-neutral-800/50" : "bg-neutral-800/0"
-        }`}
+        className="h-full w-full transition-colors"
       >
         {cards.map((c) => {
           return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
@@ -186,6 +181,16 @@ const Card = ({ ingredient, amount, unit, id, handleDragStart }: CardProps) => {
         layoutId={id}
         draggable="true"
         onDragStart={(e) => handleDragStart(e, { id })}
+        onTouchStart={(e) => {
+          const touch = e.touches[0];
+          const dragEvent = new DragEvent("dragstart", {
+            bubbles: true,
+            cancelable: true,
+            dataTransfer: new DataTransfer(),
+          });
+          dragEvent.dataTransfer?.setData("cardId", id);
+          e.target.dispatchEvent(dragEvent);
+        }}
         className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
       >
         <div className="flex flex-row justify-between">
