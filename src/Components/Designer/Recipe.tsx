@@ -7,15 +7,8 @@ import React, {
 } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { FaFire } from "react-icons/fa";
 
-const Recipe = () => {
-  return (
-      <Board />
-  );
-};
 
-export default Recipe;
 
 // TODO: remove after testing
 const DEFAULT_CARDS = [
@@ -24,17 +17,15 @@ const DEFAULT_CARDS = [
   { ingredient: "Orange Flavor", "amount": 168, "unit": "g", id: "3" },
 ];
 
-const Board = () => {
+export default function Recipe() {
   const [cards, setCards] = useState(DEFAULT_CARDS);
 
   return (
-    <div className="flex justify-center h-full w-full gap-3 p-12">
+    <div className="flex justify-center h-full w-full">
       <Column
         cards={cards}
         setCards={setCards}
       />
-      
-      <BurnBarrel setCards={setCards} />
     </div>
   );
 };
@@ -48,16 +39,35 @@ const Column = ({
   cards,
   setCards,
 }: ColumnProps) => {
-  const [active, setActive] = useState(false);
-
   const handleDragStart = (e: DragEvent, card: CardType) => {
     e.dataTransfer.setData("cardId", card.id);
+  };
+
+  const handleUpArrowClick = (id: string) => {
+    const index = cards.findIndex((card) => card.id === id);
+    if (index > 0) {
+      const updatedCards = [...cards];
+      const temp = updatedCards[index - 1];
+      updatedCards[index - 1] = updatedCards[index];
+      updatedCards[index] = temp;
+      setCards(updatedCards);
+    }
+  };
+
+  const handleDownArrowClick = (id: string) => {
+    const index = cards.findIndex((card) => card.id === id);
+    if (index < cards.length - 1) {
+      const updatedCards = [...cards];
+      const temp = updatedCards[index + 1];
+      updatedCards[index + 1] = updatedCards[index];
+      updatedCards[index] = temp;
+      setCards(updatedCards);
+    }
   };
 
   const handleDragEnd = (e: DragEvent) => {
     const cardId = e.dataTransfer.getData("cardId");
 
-    setActive(false);
     clearHighlights();
 
     const indicators = getIndicators();
@@ -91,8 +101,6 @@ const Column = ({
   const handleDragOver = (e: DragEvent) => {
     e.preventDefault();
     highlightIndicator(e);
-
-    setActive(true);
   };
 
   const clearHighlights = (els?: HTMLElement[]) => {
@@ -147,11 +155,14 @@ const Column = ({
 
   const handleDragLeave = () => {
     clearHighlights();
-    setActive(false);
+  };
+
+  const handleDeleteButtonClick = (id: string) => {
+    setCards((pv) => pv.filter((c) => c.id !== id));
   };
 
   return (
-    <div className="ml-30 w-[75%] shrink-0">
+    <div className="w-full sm:max-w-[80%] md:max-w-[60%] lg:max-w-[40%] xl:max-w-[30%] shrink-0">
       <div
         onDrop={handleDragEnd}
         onDragOver={handleDragOver}
@@ -159,7 +170,7 @@ const Column = ({
         className="h-full w-full transition-colors"
       >
         {cards.map((c) => {
-          return <Card key={c.id} {...c} handleDragStart={handleDragStart} />;
+          return <Card key={c.id} {...c} handleDragStart={handleDragStart} handleUpArrowClick={handleUpArrowClick} handleDownArrowClick={handleDownArrowClick} handleDeleteButtonClick={handleDeleteButtonClick} cards={cards} setCards={setCards} />;
         })}
         <DropIndicator beforeId={null} />
         <AddCard setCards={setCards} />
@@ -170,9 +181,12 @@ const Column = ({
 
 type CardProps = CardType & {
   handleDragStart: Function;
+  handleUpArrowClick: Function;
+  handleDownArrowClick: Function;
+  handleDeleteButtonClick: Function;
 };
 
-const Card = ({ ingredient, amount, unit, id, handleDragStart }: CardProps) => {
+const Card = ({ ingredient, amount, unit, id, handleDragStart, handleUpArrowClick, handleDownArrowClick, handleDeleteButtonClick }: CardProps) => {
   return (
     <>
       <DropIndicator beforeId={id} />
@@ -181,23 +195,28 @@ const Card = ({ ingredient, amount, unit, id, handleDragStart }: CardProps) => {
         layoutId={id}
         draggable="true"
         onDragStart={(e) => handleDragStart(e, { id })}
-        onTouchStart={(e) => {
-          const touch = e.touches[0];
-          const dragEvent = new DragEvent("dragstart", {
-            bubbles: true,
-            cancelable: true,
-            dataTransfer: new DataTransfer(),
-          });
-          dragEvent.dataTransfer?.setData("cardId", id);
-          e.target.dispatchEvent(dragEvent);
-        }}
-        className="cursor-grab rounded border border-neutral-700 bg-neutral-800 p-3 active:cursor-grabbing"
+        className="flex justify-start cursor-grab border border-gray-400 bg-[#f8f4f4] rounded active:cursor-grabbing"
       >
-        <div className="flex flex-row justify-between">
-          <div className="text-sm text-neutral-100">{ingredient}</div>
-          <div className="text-sm text-neutral-100">{amount}</div>
-          <div className="text-sm text-neutral-100">{unit}</div>
+        <div className="flex flex-col ml-2 mr-2 justify-center md:hidden">
+          <button
+            onClick={() => handleUpArrowClick(id)}
+            className="hover:text-gray-400 text-[#0C7E4A] transition-colors"
+          >▲</button>
+          <button
+            onClick={() => handleDownArrowClick(id)}
+            className="hover:text-gray-400 text-[#0C7E4A] transition-colors"
+          >▼</button>
         </div>
+        <div className="flex flex-row justify-between items-center w-full p-2 gap-1.5">
+          <div className="w-3/4 grow-3 text-gray-800 font-medium text-sm">{ingredient}</div>
+          <div className="w-1/6 grow-1 text-gray-800 font-medium text-sm text-end">{amount || ''}</div>
+          <div className="w-1/6 grow-1 text-gray-800 font-medium text-sm text-end">{unit}</div>
+        </div>
+        <button
+          onClick={() => handleDeleteButtonClick(id)}
+          className="flex items-center mr-2 ml-3">
+          <FiTrash className="md:text-[#0C7E4A] text-[#ed3b43] hover:text-[#ed3b43] transition-colors" />
+        </button>
       </motion.div>
     </>
   );
@@ -211,48 +230,8 @@ const DropIndicator = ({ beforeId }: DropIndicatorProps) => {
   return (
     <div
       data-before={beforeId || "-1"}
-      className="my-0.5 h-0.5 w-full bg-violet-400 opacity-0"
+      className="my-0.5 h-0.5 w-full bg-[#0C7E4A] opacity-0"
     />
-  );
-};
-
-const BurnBarrel = ({
-  setCards,
-}: {
-  setCards: Dispatch<SetStateAction<CardType[]>>;
-}) => {
-  const [active, setActive] = useState(false);
-
-  const handleDragOver = (e: DragEvent) => {
-    e.preventDefault();
-    setActive(true);
-  };
-
-  const handleDragLeave = () => {
-    setActive(false);
-  };
-
-  const handleDragEnd = (e: DragEvent) => {
-    const cardId = e.dataTransfer.getData("cardId");
-
-    setCards((pv) => pv.filter((c) => c.id !== cardId));
-
-    setActive(false);
-  };
-
-  return (
-    <div
-      onDrop={handleDragEnd}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      className={`mt-10 grid h-32 w-32 shrink-0 place-content-center rounded text-3xl ${
-        active
-          ? "border-red-800 bg-red-800/20 text-red-500"
-          : "border-neutral-500 bg-neutral-500/20 text-neutral-500"
-      }`}
-    >
-      {active ? <FaFire className="animate-bounce" /> : <FiTrash />}
-    </div>
   );
 };
 
@@ -279,6 +258,9 @@ const AddCard = ({ setCards }: AddCardProps) => {
     };
 
     setCards((pv) => [...pv, newCard]);
+    setIngredient("");
+    setAmount("");
+    setUnit("");
 
     setAdding(false);
   };
@@ -287,36 +269,40 @@ const AddCard = ({ setCards }: AddCardProps) => {
     <>
       {adding ? (
         <motion.form layout onSubmit={handleSubmit}>
-          <div className="mt-1.5 flex justify-between gap-1.5">
+            <div className="mt-1.5 flex justify-between gap-1.5">
             <textarea
               onChange={(e) => setIngredient(e.target.value)}
               autoFocus
               placeholder="Ingredient"
-              className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0"
+              className="w-1/2 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
             />
             <textarea
-              onChange={(e) => setAmount(e.target.value)}
-              autoFocus
+              onChange={(e) => {
+              const value = e.target.value;
+              if (/^\d*\.?\d*$/.test(value)) {
+                setAmount(value);
+              }
+              }}
+              value={amount}
               placeholder="Amount"
-              className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0"
+              className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
             />
             <textarea
               onChange={(e) => setUnit(e.target.value)}
-              autoFocus
               placeholder="Unit"
-              className="w-full rounded border border-violet-400 bg-violet-400/20 p-3 text-sm text-neutral-50 placeholder-violet-300 focus:outline-0"
+              className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
             />
-          </div>
+            </div>
           <div className="mt-1.5 flex items-center justify-end gap-1.5">
             <button
               onClick={() => setAdding(false)}
-              className="px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
+              className="px-3 py-1.5 text-sm text-[#ed3b43] md:text-gray-400 transition-colors hover:text-[#ed3b43]"
             >
               Close
             </button>
             <button
               type="submit"
-              className="flex items-center gap-1.5 rounded bg-neutral-50 px-3 py-1.5 text-xs text-neutral-950 transition-colors hover:bg-neutral-300"
+              className="flex items-center gap-1.5 rounded px-3 py-1.5 text-sm bg-[#0C7E4A] text-white md:bg-[#f8f4f4] md:text-[#0C7E4A] transition-colors hover:bg-[#0C7E4A] hover:text-white"
             >
               <span>Add</span>
               <FiPlus />
@@ -327,7 +313,7 @@ const AddCard = ({ setCards }: AddCardProps) => {
         <motion.button
           layout
           onClick={() => setAdding(true)}
-          className="flex w-full items-center gap-1.5 px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:text-neutral-50"
+          className="flex w-full items-center justify-end gap-1.5 px-3 py-1.5 text-sm font-bold hover:text-[#0C7E4A] md:text-gray-400 text-[#0C7E4A] transition-colors "
         >
           <span>Add Item</span>
           <FiPlus />
