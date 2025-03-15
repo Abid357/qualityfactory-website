@@ -75,7 +75,7 @@ function ImageCard({
       >
         {/* Background image with grayscale filter */}
         <div
-          className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out bg-no-repeat bg-center bg-[size:100%] md:bg-[size:150%] ${
+          className={`absolute inset-0 w-full h-full transition-all duration-500 ease-in-out bg-no-repeat bg-center bg-[size:150%] ${
             isHovered ? "" : "grayscale-0 md:grayscale"
           }`}
           style={{

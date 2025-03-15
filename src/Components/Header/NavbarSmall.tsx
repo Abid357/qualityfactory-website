@@ -94,12 +94,10 @@ export default function NavbarSmall({
     } else {
       // If not on target path, navigate and then scroll to top
       navigate(path);
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }, 300);
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
     }
   };
 

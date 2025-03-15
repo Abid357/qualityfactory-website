@@ -31,12 +31,10 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
     } else {
       // If not on target path, navigate and then scroll to top
       navigate(path);
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }, 100);
+      window.scrollTo({
+        top: 0,
+        behavior: "auto",
+      });
     }
   };
 
