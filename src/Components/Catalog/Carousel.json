@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Apple",
+    "SKU ": "SOMETHING",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyApple.png",
+    "fruit": "/Catalog/Carousel/Mango.png",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#69c389",
+    "nameColor": "#ffffff",
+    "categoryColor": "#ffffff",
+    "volumeColor": "#ffffff"
+  },
+  {
+    "name": "Guava",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyGuava.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#f56a48",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Lemon",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyLemon.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#ffdda1",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Lychee",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyLychee.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#ffece2",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Mango",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyMango.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#ffc0a1",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "MixFruit",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyMixFruit.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#fdee59",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Orange",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyOrange.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#e0e90d",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Pinapple",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyPinapple.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#eafed7",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Pomegranate",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyPomegranate.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#c6bd9a",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  },
+  {
+    "name": "Tamarind",
+    "SKU ": "",
+    "category": "Flavored Drink",
+    "bottle": "/Catalog/Carousel/JoocyTamarind.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#f02f35",
+    "nameColor": "",
+    "categoryColor": "",
+    "volumeColor": ""
+  }
+]
