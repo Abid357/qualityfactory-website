@@ -6,7 +6,7 @@ concurrency:
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ dev, anim ]
 
 jobs:
   build-only:
