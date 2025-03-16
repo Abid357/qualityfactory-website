@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
 import Card from "../Card";
 import BrandsData from "./Brands.json";
 import CategoriesData from "./Categories.json";
@@ -10,12 +13,12 @@ export default function Categories() {
         <CardGrid
           title="Explore by category"
           items={CategoriesData}
-          displayType="name"
+          displayType="category"
         />
         <CardGrid
           title="Explore by brand"
           items={BrandsData}
-          displayType="logo"
+          displayType="brand"
         />
       </div>
     </>
@@ -34,7 +37,7 @@ function CardGrid({
     background: string;
     comingSoon?: boolean;
   }>;
-  displayType: "logo" | "name";
+  displayType: "brand" | "category";
 }) {
   return (
     <div>
@@ -70,16 +73,32 @@ function ImageCard({
   logo?: string;
   background: string;
   comingSoon?: boolean;
-  displayType: "logo" | "name";
+  displayType: "brand" | "category";
 }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
 
+  const formattedName = name.toLowerCase().replace(/\s+/g, "");
+  const handleCardClick = () => {
+    if (!comingSoon) {
+      dispatch(setFilter(name));
+      dispatch(setFilterType(displayType));
+
+      sessionStorage.setItem('carouselFilter', name);
+      sessionStorage.setItem('carouselFilterType', displayType);
+
+      navigate(`/catalog/${formattedName}`);
+    }
+  };
+
   return (
-    <Card className="h-60 md:h-80 w-full rounded-3xl">
+    <Card className="h-60 md:h-80 w-full rounded-3xl cursor-pointer">
       <div
         className="relative h-full w-full overflow-hidden rounded-3xl shadow-[6px_6px_12px_rgba(0,0,0,0.15),-10px_-10px_6px_rgba(255,255,255,1)]"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={handleCardClick}
       >
         {/* Background image with grayscale filter */}
         <div
@@ -97,7 +116,7 @@ function ImageCard({
 
         {/* Colorful logo */}
         <div className="absolute inset-0 flex items-center justify-center">
-          {displayType === "logo" ? (
+          {displayType === "brand" ? (
             <div className="relative w-full h-full flex flex-col items-center justify-center">
               <div className="w-1/2 h-1/2 flex items-center justify-center">
                 <img

@@ -1,14 +1,89 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  selectCarouselFilter,
+  selectCarouselFilterType,
+} from "../../redux/carousel/carouselSelectors";
+import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
 import ProductData from "./Carousel.json";
 
+// Helper function to normalize strings for comparison
+const normalizeString = (str: string) => {
+  if (!str) return "";
+  let normalized = str.toLowerCase().trim(); // Remove 's' at the end if present
+  normalized = normalized.replace(/s$/, ""); // Handle common plural forms
+  normalized = normalized.replace(/\s+/g, ""); // Remove spaces
+  return normalized;
+};
+
+const findBestMatch = (filter: string, filterType: string) => {
+  const normalizedFilter = normalizeString(filter);
+
+  return ProductData.filter((item) => {
+    if (filterType === "category") {
+      return (
+        normalizeString(item.category).includes(normalizedFilter) ||
+        normalizedFilter.includes(normalizeString(item.category))
+      );
+    } else if (filterType === "brand") {
+      return (
+        normalizeString(item.brand).includes(normalizedFilter) ||
+        normalizedFilter.includes(normalizeString(item.brand))
+      );
+    }
+    return false;
+  });
+};
+
 export default function Carousel() {
+  const dispatch = useDispatch();
+  const filterFromRedux = useSelector(selectCarouselFilter);
+  const filterTypeFromRedux = useSelector(selectCarouselFilterType);
+
+  useEffect(() => {
+    if (!filterFromRedux) {
+      const storedFilter = sessionStorage.getItem("carouselFilter");
+      const storedFilterType = sessionStorage.getItem("carouselFilterType");
+
+      if (storedFilter) {
+        dispatch(setFilter(storedFilter));
+      }
+
+      if (storedFilterType) {
+        dispatch(setFilterType(storedFilterType));
+      }
+    }
+  }, [filterFromRedux, dispatch]);
+
+  const filter =
+    filterFromRedux || sessionStorage.getItem("carouselFilter") || "";
+  const filterType =
+    filterTypeFromRedux || sessionStorage.getItem("carouselFilterType") || "";
+
+  const filteredProducts = useMemo(() => {
+    if (!filter) return ProductData;
+    return findBestMatch(filter, filterType);
+  }, [filter, filterType]);
+
+  console.log({
+    filter,
+    filterType,
+    filteredProductsLength: filteredProducts.length,
+    allProductsLength: ProductData.length
+  });
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
   const [sliding, setSliding] = useState(false);
   const [fading, setFading] = useState(false);
   const [initialized, setInitialized] = useState(false);
-  const totalItems = ProductData.length;
+  const totalItems = filteredProducts.length;
+
+  // Reset active index when filter changes
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [filter, filterTypeFromRedux]);
 
   useEffect(() => {
     setInitialized(true);
@@ -89,7 +164,7 @@ export default function Carousel() {
   };
 
   const getItemsWithPositions = () => {
-    return ProductData.map((item, index) => {
+    return filteredProducts.map((item, index) => {
       // Calculate the position relative to activeIndex
       const position = index - activeIndex;
 
@@ -114,10 +189,12 @@ export default function Carousel() {
 
   const itemsWithPositions = getItemsWithPositions();
 
+  const title = filter;
+
   return (
     <div className="overflow-x-hidden">
       <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-10">
-        Products
+        {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
@@ -186,16 +263,16 @@ export default function Carousel() {
                         alt={item.name}
                         className="absolute -top-20 left-5 h-[100%]"
                       />
-                        {item.fruit && (
+                      {item.fruit && (
                         <img
                           src={item.fruit}
                           alt={item.name}
                           className="absolute -top-2 -right-2 md:-right-10 h-[30%] md:h-[40%]"
                           style={{
-                          opacity: isCurrent && !fading ? 1 : 0,
+                            opacity: isCurrent && !fading ? 1 : 0,
                           }}
                         />
-                        )}
+                      )}
 
                       {/* Product details */}
                       <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
@@ -237,7 +314,7 @@ export default function Carousel() {
                       <img
                         src={item.logo}
                         alt={`${item.name} logo`}
-                        className="absolute -bottom-6 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
+                        className="absolute -bottom-4 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
                         style={{
                           opacity: isCurrent && !fading ? 1 : 0,
                           border: `2px solid ${item.backgroundColor}`,
@@ -253,7 +330,7 @@ export default function Carousel() {
 
         {/* Navigation dots */}
         <div className="flex justify-center mt-20 gap-2">
-          {ProductData.map((_, index) => (
+          {filteredProducts.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}

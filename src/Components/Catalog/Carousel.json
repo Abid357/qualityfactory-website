@@ -2,6 +2,7 @@
   {
     "name": "Apple",
     "SKU ": "JOO-FD-APP-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyApple.png",
     "fruit": "",
@@ -14,6 +15,7 @@
   {
     "name": "Guava",
     "SKU ": "JOO-FD-GUA-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyGuava.png",
     "fruit": "",
@@ -26,6 +28,7 @@
   {
     "name": "Lemon",
     "SKU ": "JOO-FD-LEM-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyLemon.png",
     "fruit": "",
@@ -38,6 +41,7 @@
   {
     "name": "Lychee",
     "SKU ": "JOO-FD-LYC-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyLychee.png",
     "fruit": "",
@@ -50,6 +54,7 @@
   {
     "name": "Mango",
     "SKU ": "JOO-FD-MAN-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyMango.png",
     "fruit": "/Catalog/Carousel/Mango.png",
@@ -62,6 +67,7 @@
   {
     "name": "Mix Fruit",
     "SKU ": "JOO-FD-MIX-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyMixFruit.png",
     "fruit": "",
@@ -74,6 +80,7 @@
   {
     "name": "Orange",
     "SKU ": "JOO-FD-ORA-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyOrange.png",
     "fruit": "",
@@ -86,6 +93,7 @@
   {
     "name": "Pinapple",
     "SKU ": "JOO-FD-PIN-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyPinapple.png",
     "fruit": "",
@@ -98,6 +106,7 @@
   {
     "name": "Pomegranate",
     "SKU ": "JOO-FD-POM-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyPomegranate.png",
     "fruit": "",
@@ -110,8 +119,48 @@
   {
     "name": "Tamarind",
     "SKU ": "JOO-FD-TAM-250-24",
+    "brand": "Joocy",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyTamarind.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#cda89d",
+    "nameColor": "#663731",
+    "categoryColor": "#2f1a17",
+    "volumeColor": "#663731"
+  },
+  {
+    "name": "Blueberry",
+    "SKU ": "JOO-FD-TAM-250-24",
+    "brand": "Quality",
+    "category": "Electrolyte",
+    "bottle": "/Catalog/Carousel/ElectrolyteBlueberry.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#cda89d",
+    "nameColor": "#663731",
+    "categoryColor": "#2f1a17",
+    "volumeColor": "#663731"
+  },
+  {
+    "name": "Lemon",
+    "SKU ": "JOO-FD-TAM-250-24",
+    "brand": "Quality",
+    "category": "Electrolyte",
+    "bottle": "/Catalog/Carousel/ElectrolyteLemon.png",
+    "fruit": "",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#cda89d",
+    "nameColor": "#663731",
+    "categoryColor": "#2f1a17",
+    "volumeColor": "#663731"
+  },
+  {
+    "name": "Orange",
+    "SKU ": "JOO-FD-TAM-250-24",
+    "brand": "Quality",
+    "category": "Electrolyte",
+    "bottle": "/Catalog/Carousel/ElectrolyteOrange.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
     "backgroundColor": "#cda89d",
