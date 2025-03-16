@@ -164,7 +164,7 @@ export default function Carousel() {
                 return (
                   <div
                     key={`${item.index}`}
-                    className={`transition-all duration-300 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${
+                    className={`transition-all duration-1000 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${
                       isVisible ? "" : "opacity-0 pointer-events-none"
                     }`}
                     style={{
@@ -190,7 +190,7 @@ export default function Carousel() {
                       <img
                         src={item.fruit}
                         alt={item.name}
-                        className="absolute top-0 right-0 md:-right-10 h-[25%] md:h-[40%]"
+                        className="absolute top-0 -right-2 md:-right-10 h-[30%] md:h-[40%]"
                         style={{
                           opacity: isCurrent && !fading ? 1 : 0,
                         }}
@@ -199,16 +199,22 @@ export default function Carousel() {
                       {/* Product details */}
                       <div className="absolute left-[55%] md:left-1/2 transition-all duration-300 ease-in-out">
                         <p
-                          className="font-bold text-xl md:text-3xl transition-all duration-300 ease-in-out"
+                          className="font-bold text-xl md:text-3xl xl:text-4xl transition-all duration-300 ease-in-out"
                           style={{
                             color: item.nameColor,
                             opacity: isCurrent && !fading ? 1 : 0,
+                            fontSize:
+                              item.name && item.name.length > 7
+                                ? `calc(1.5rem - ${
+                                    Math.min(item.name.length - 7, 10) * 0.07
+                                  }rem)`
+                                : undefined,
                           }}
                         >
                           {item.name}
                         </p>
                         <p
-                          className="text-sm transition-all duration-300 ease-in-out"
+                          className="text-sm transition-all duration-300 ease-in-out mt-1"
                           style={{
                             color: item.categoryColor,
                             opacity: isCurrent && !fading ? 1 : 0,
@@ -233,6 +239,8 @@ export default function Carousel() {
                         className="absolute -bottom-6 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
                         style={{
                           opacity: isCurrent && !fading ? 1 : 0,
+                          border: `2px solid ${item.backgroundColor}`,
+                          borderColor: item.backgroundColor,
                         }}
                       />
                     </div>
