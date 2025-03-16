@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   SetStateAction,
   useState,
@@ -162,7 +162,7 @@ const Column = ({
         className="h-full w-full transition-colors"
       >
         {cards.map((c) => {
-          return <Card key={c.id} {...c} handleDragStart={handleDragStart} handleUpArrowClick={handleUpArrowClick} handleDownArrowClick={handleDownArrowClick} handleDeleteButtonClick={handleDeleteButtonClick} setCards={setCards} />;
+          return <Card key={c.id} {...c} handleDragStart={handleDragStart} handleUpArrowClick={handleUpArrowClick} handleDownArrowClick={handleDownArrowClick} handleDeleteButtonClick={handleDeleteButtonClick} />;
         })}
         <DropIndicator beforeId={null} />
         <AddCard setCards={setCards} />
@@ -172,10 +172,10 @@ const Column = ({
 };
 
 type CardProps = CardType & {
-  handleDragStart: Function;
-  handleUpArrowClick: Function;
-  handleDownArrowClick: Function;
-  handleDeleteButtonClick: Function;
+  handleDragStart: (e: DragEvent<Element>, card: CardType) => void;
+  handleUpArrowClick: (id: string) => void;
+  handleDownArrowClick: (id: string) => void;
+  handleDeleteButtonClick: (id: string) => void;
 };
 
 const Card = ({ ingredient, amount, unit, id, handleDragStart, handleUpArrowClick, handleDownArrowClick, handleDeleteButtonClick }: CardProps) => {
@@ -185,9 +185,13 @@ const Card = ({ ingredient, amount, unit, id, handleDragStart, handleUpArrowClic
       <motion.div
         layout
         layoutId={id}
-        draggable="true"
-        onDragStart={(e) => handleDragStart(e, { id })}
-        className="flex justify-start cursor-grab border border-gray-400 bg-[#f8f4f4] rounded active:cursor-grabbing"
+        {...{ draggable: "true", className: "flex justify-start cursor-grab border border-gray-400 bg-[#f8f4f4] rounded active:cursor-grabbing" }}
+        onDragStart={(e) => handleDragStart(e as unknown as unknown as DragEvent<Element>, {
+          id,
+          ingredient: "",
+          amount: 0,
+          unit: ""
+        })}
       >
         <div className="flex flex-col ml-2 mr-2 justify-center md:hidden">
           <button
@@ -260,52 +264,53 @@ const AddCard = ({ setCards }: AddCardProps) => {
   return (
     <>
       {adding ? (
-        <motion.form layout onSubmit={handleSubmit}>
+        <motion.div>
+          <form onSubmit={handleSubmit}>
             <div className="mt-1.5 flex justify-between gap-1.5">
-            <textarea
-              onChange={(e) => setIngredient(e.target.value)}
-              autoFocus
-              placeholder="Ingredient"
-              className="w-1/2 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
-            />
-            <textarea
-              onChange={(e) => {
-              const value = e.target.value;
-              if (/^\d*\.?\d*$/.test(value)) {
-                setAmount(value);
-              }
-              }}
-              value={amount}
-              placeholder="Amount"
-              className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
-            />
-            <textarea
-              onChange={(e) => setUnit(e.target.value)}
-              placeholder="Unit"
-              className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
-            />
+              <textarea
+                onChange={(e) => setIngredient(e.target.value)}
+                autoFocus
+                placeholder="Ingredient"
+                className="w-1/2 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
+              />
+              <textarea
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*\.?\d*$/.test(value)) {
+                    setAmount(value);
+                  }
+                }}
+                value={amount}
+                placeholder="Amount"
+                className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
+              />
+              <textarea
+                onChange={(e) => setUnit(e.target.value)}
+                placeholder="Unit"
+                className="w-1/4 rounded border border-gray-400 bg-white p-3 md:font-medium md:text-sm text-xs placeholder-gray-400 focus:outline-[#0C7E4A]"
+              />
             </div>
-          <div className="mt-1.5 flex items-center justify-end gap-1.5">
-            <button
-              onClick={() => setAdding(false)}
-              className="px-3 py-1.5 text-sm text-[#ed3b43] md:text-gray-400 transition-colors hover:text-[#ed3b43]"
-            >
-              Close
-            </button>
-            <button
-              type="submit"
-              className="flex items-center gap-1.5 rounded px-3 py-1.5 text-sm bg-[#0C7E4A] text-white md:bg-[#f8f4f4] md:text-[#0C7E4A] transition-colors hover:bg-[#0C7E4A] hover:text-white"
-            >
-              <span>Add</span>
-              <FiPlus />
-            </button>
-          </div>
-        </motion.form>
+            <div className="mt-1.5 flex items-center justify-end gap-1.5">
+              <button
+                onClick={() => setAdding(false)}
+                className="px-3 py-1.5 text-sm text-[#ed3b43] md:text-gray-400 transition-colors hover:text-[#ed3b43]"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                className="flex items-center gap-1.5 rounded px-3 py-1.5 text-sm bg-[#0C7E4A] text-white md:bg-[#f8f4f4] md:text-[#0C7E4A] transition-colors hover:bg-[#0C7E4A] hover:text-white"
+              >
+                <span>Add</span>
+                <FiPlus />
+              </button>
+            </div>
+          </form>
+        </motion.div>
       ) : (
         <motion.button
           layout
-          onClick={() => setAdding(true)}
-          className="flex w-full items-center justify-end gap-1.5 px-3 py-1.5 text-sm font-bold hover:text-[#0C7E4A] md:text-gray-400 text-[#0C7E4A] transition-colors "
+          {...{ onClick: () => setAdding(true), className: "flex w-full items-center justify-end gap-1.5 px-3 py-1.5 text-sm font-bold hover:text-[#0C7E4A] md:text-gray-400 text-[#0C7E4A] transition-colors" }}
         >
           <span>Add Item</span>
           <FiPlus />
