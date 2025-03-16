@@ -186,15 +186,16 @@ export default function Carousel() {
                         alt={item.name}
                         className="absolute -top-20 left-5 h-[100%]"
                       />
-                      {/* Fruit image */}
-                      <img
-                        src={item.fruit}
-                        alt={item.name}
-                        className="absolute top-0 -right-2 md:-right-10 h-[30%] md:h-[40%]"
-                        style={{
+                        {item.fruit && (
+                        <img
+                          src={item.fruit}
+                          alt={item.name}
+                          className="absolute -top-2 -right-2 md:-right-10 h-[30%] md:h-[40%]"
+                          style={{
                           opacity: isCurrent && !fading ? 1 : 0,
-                        }}
-                      />
+                          }}
+                        />
+                        )}
 
                       {/* Product details */}
                       <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
