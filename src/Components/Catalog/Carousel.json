@@ -1,122 +1,122 @@
 [
   {
     "name": "Apple",
-    "SKU ": "SOMETHING",
+    "SKU ": "JOO-FD-APP-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyApple.png",
     "fruit": "/Catalog/Carousel/Mango.png",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#69c389",
-    "nameColor": "#ffffff",
-    "categoryColor": "#ffffff",
-    "volumeColor": "#ffffff"
+    "backgroundColor": "#efcbb7",
+    "nameColor": "#904820",
+    "categoryColor": "#2d170b",
+    "volumeColor": "#904820"
   },
   {
     "name": "Guava",
-    "SKU ": "",
+    "SKU ": "JOO-FD-GUA-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyGuava.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#f56a48",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#afe099",
+    "nameColor": "#375c27",
+    "categoryColor": "#20200b",
+    "volumeColor": "#375c27"
   },
   {
     "name": "Lemon",
-    "SKU ": "",
+    "SKU ": "JOO-FD-LEM-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyLemon.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#ffdda1",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#dcea93",
+    "nameColor": "#585C02",
+    "categoryColor": "#20200b",
+    "volumeColor": "#585C02"
   },
   {
     "name": "Lychee",
-    "SKU ": "",
+    "SKU ": "JOO-FD-LYC-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyLychee.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#ffece2",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#e8b3ad",
+    "nameColor": "#641b13",
+    "categoryColor": "#1a0704",
+    "volumeColor": "#641b13"
   },
   {
     "name": "Mango",
-    "SKU ": "",
+    "SKU ": "JOO-FD-MAN-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyMango.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#ffc0a1",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#ffe470",
+    "nameColor": "#ae6d00",
+    "categoryColor": "#472c09",
+    "volumeColor": "#ae6d00"
   },
   {
-    "name": "MixFruit",
-    "SKU ": "",
+    "name": "Mix Fruit",
+    "SKU ": "JOO-FD-MIX-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyMixFruit.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#fdee59",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#ffcfa1",
+    "nameColor": "#b05600",
+    "categoryColor": "#301700",
+    "volumeColor": "#b05600"
   },
   {
     "name": "Orange",
-    "SKU ": "",
+    "SKU ": "JOO-FD-ORA-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyOrange.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#e0e90d",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#fde193",
+    "nameColor": "#cd7400",
+    "categoryColor": "#874e00",
+    "volumeColor": "#cd7400"
   },
   {
     "name": "Pinapple",
-    "SKU ": "",
+    "SKU ": "JOO-FD-PIN-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyPinapple.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#eafed7",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#f2eeba",
+    "nameColor": "#b2a805",
+    "categoryColor": "#3f3a01",
+    "volumeColor": "#b2a805"
   },
   {
     "name": "Pomegranate",
-    "SKU ": "",
+    "SKU ": "JOO-FD-POM-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyPomegranate.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#c6bd9a",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#d59697",
+    "nameColor": "#7e2d32",
+    "categoryColor": "#3d1618",
+    "volumeColor": "#7e2d32"
   },
   {
     "name": "Tamarind",
-    "SKU ": "",
+    "SKU ": "JOO-FD-TAM-250-24",
     "category": "Flavored Drink",
     "bottle": "/Catalog/Carousel/JoocyTamarind.png",
     "fruit": "",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "backgroundColor": "#f02f35",
-    "nameColor": "",
-    "categoryColor": "",
-    "volumeColor": ""
+    "backgroundColor": "#cda89d",
+    "nameColor": "#663731",
+    "categoryColor": "#2f1a17",
+    "volumeColor": "#663731"
   }
 ]

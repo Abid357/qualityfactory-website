@@ -197,14 +197,14 @@ export default function Carousel() {
                       />
 
                       {/* Product details */}
-                      <div className="absolute left-[55%] md:left-1/2 transition-all duration-300 ease-in-out">
+                      <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
                         <p
                           className="font-bold text-xl md:text-3xl xl:text-4xl transition-all duration-300 ease-in-out"
                           style={{
                             color: item.nameColor,
                             opacity: isCurrent && !fading ? 1 : 0,
                             fontSize:
-                              item.name && item.name.length > 7
+                              item.name && item.name.length > 9
                                 ? `calc(1.5rem - ${
                                     Math.min(item.name.length - 7, 10) * 0.07
                                   }rem)`
