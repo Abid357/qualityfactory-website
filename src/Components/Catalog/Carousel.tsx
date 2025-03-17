@@ -183,7 +183,7 @@ export default function Carousel() {
 
   const itemsWithPositions = getItemsWithPositions();
 
-  const title = filter;
+  const title = filterType === "brand" ? `${filter} Drinks` : filter;
 
   return (
     <div className="flex flex-col h-fit">
@@ -236,9 +236,8 @@ export default function Carousel() {
               return (
                 <div
                   key={`${item.index}`}
-                  className={`transition-all duration-1000 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${
-                    isVisible ? "" : "opacity-0 pointer-events-none"
-                  }`}
+                  className={`transition-all duration-1000 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${isVisible ? "" : "opacity-0 pointer-events-none"
+                    }`}
                   style={{
                     transform: `translateX(${transformX})`,
                   }}
@@ -256,14 +255,14 @@ export default function Carousel() {
                     <img
                       src={item.bottle}
                       alt={item.name}
-                      className="absolute -top-20 left-5 h-[100%]"
+                      className="absolute bottom-20 left-5 h-auto w-[40%] md:w-[35%]"
                     />
                     {item.fruit && (
-                      <div className="absolute -top-2 -right-2 flex justify-center items-center h-[30%] md:h-[40%] w-[40%] md:w-[55%]">
+                      <div className="absolute -top-5 right-0 md:-right-2 flex justify-center items-center h-[120px] w-[120px] md:h-[160px] md:w-[180px]">
                         <img
                           src={item.fruit}
                           alt={item.name}
-                          className="h-auto w-full object-contain"
+                          className="max-h-full max-w-full object-contain"
                           style={{
                             opacity: isCurrent && !fading ? 1 : 0,
                           }}
@@ -273,30 +272,32 @@ export default function Carousel() {
 
                     {/* Product details */}
                     <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
-                      <p
+                        <p
                         className="font-bold text-xl md:text-3xl xl:text-4xl transition-all duration-300 ease-in-out"
                         style={{
                           color: item.nameColor,
                           opacity: isCurrent && !fading ? 1 : 0,
                           fontSize:
-                            item.name && item.name.length > 9
-                              ? `calc(1.5rem - ${
-                                  Math.min(item.name.length - 7, 10) * 0.07
-                                }rem)`
-                              : undefined,
+                          item.name && item.name.length > 9
+                            ? window.matchMedia("(min-width: 768px)").matches
+                            ? `calc(1.8rem - ${Math.min(item.name.length - 7, 10) * 0.07
+                            }rem)`
+                            : `calc(1.3rem - ${Math.min(item.name.length - 7, 10) * 0.07
+                            }rem)`
+                            : undefined,
                         }}
-                      >
+                        >
                         {item.name}
-                      </p>
-                      <p
-                        className="text-sm transition-all duration-300 ease-in-out mt-1"
+                        </p>
+                        <p
+                        className="text-sm leading-none transition-all duration-300 ease-in-out mt-1"
                         style={{
                           color: item.categoryColor,
                           opacity: isCurrent && !fading ? 1 : 0,
                         }}
-                      >
+                        >
                         {item.category}
-                      </p>
+                        </p>
                       <p
                         className="italic transition-all duration-300 ease-in-out mt-4"
                         style={{
@@ -311,7 +312,7 @@ export default function Carousel() {
                     <img
                       src={item.logo}
                       alt={`${item.name} logo`}
-                      className="absolute -bottom-4 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
+                      className="absolute -bottom-4 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-1.5 object-contain transition-all duration-300 ease-in-out"
                       style={{
                         opacity: isCurrent && !fading ? 1 : 0,
                         border: `2px solid ${item.backgroundColor}`,
@@ -330,11 +331,10 @@ export default function Carousel() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-2 sm:h-3 w-2 sm:w-3 rounded-full transition-all ${
-                index === activeIndex
+              className={`h-2 sm:h-3 w-2 sm:w-3 rounded-full transition-all ${index === activeIndex
                   ? "bg-[#0C7E4A] w-5"
                   : "bg-gray-300 hover:bg-gray-400"
-              }`}
+                }`}
               disabled={sliding || fading}
             />
           ))}

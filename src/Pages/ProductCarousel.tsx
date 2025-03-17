@@ -24,7 +24,7 @@ export default function ProductCarousel() {
           <div className="flex justify-center my-10">
             <button
               onClick={handleBack}
-              className="text-white bg-[#0C7E4A] hover:bg-[#73C057] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md w-fit px-3 py-2"
+              className="text-white bg-[#0C7E4A] hover:bg-[#73C057] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md w-fit px-3 py-2 cursor-pointer"
             >
               Go Back
             </button>

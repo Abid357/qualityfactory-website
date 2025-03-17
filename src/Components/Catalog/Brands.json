@@ -20,8 +20,13 @@
     "background": "/Catalog/Brands/Crown.png"
   },
   {
-    "name": "Speed",
+    "name": "High Speed",
     "logo": "/Catalog/Brands/SpeedLogo.svg",
     "background": "/Catalog/Brands/Speed.png"
+  },
+  {
+    "name": "Quality",
+    "logo": "/Logo/Quality_title.svg",
+    "background": "/Catalog/Brands/Electrolytes.png"
   }
 ]

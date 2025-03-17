@@ -17,9 +17,12 @@
     },
     {
       "name": "Electrolytes",
-      "background": "/Catalog/Categories/Electrolytes.png"
-    }
-    ,
+      "background": "/Catalog/Categories/Electrolytes.jpg"
+    },
+    {
+      "name": "Concentrated Syrups",
+      "background": "/Catalog/Categories/ConcentratedSyrups.png"
+    },
     {
       "name": "Sparkling Waters",
       "background": "/Catalog/Categories/SparklingWaters.png",
