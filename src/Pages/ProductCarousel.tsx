@@ -1,19 +1,22 @@
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { selectCatalogScrollPosition } from "../redux/catalog/catalogSelectors";
 import Carousel from "../Components/Catalog/Carousel";
 
 export default function ProductCarousel() {
   const navigate = useNavigate();
+  const catalogScrollPosition = useSelector(selectCatalogScrollPosition);
 
   const handleBack = () => {
     navigate("/catalog");
     window.scrollTo({
-      top: 0,
+      top: catalogScrollPosition,
       behavior: "auto",
     });
   };
   return (
     <>
-      <div className="flex flex-col gap-40 w-[80%] pt-60 mb-20 mx-auto">
+      <div className="flex flex-col gap-10 w-[80%] pt-20 md:pt-40 mb-20 mx-auto">
         <div id="carousel">
           <Carousel />
         </div>

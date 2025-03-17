@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import {
   selectCarouselFilter,
@@ -7,42 +8,65 @@ import {
 } from "../../redux/carousel/carouselSelectors";
 import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
 import ProductData from "./Carousel.json";
-
-// Helper function to normalize strings for comparison
-const normalizeString = (str: string) => {
-  if (!str) return "";
-  let normalized = str.toLowerCase().trim(); // Remove 's' at the end if present
-  normalized = normalized.replace(/s$/, ""); // Handle common plural forms
-  normalized = normalized.replace(/\s+/g, ""); // Remove spaces
-  return normalized;
-};
-
-const findBestMatch = (filter: string, filterType: string) => {
-  const normalizedFilter = normalizeString(filter);
-
-  return ProductData.filter((item) => {
-    if (filterType === "category") {
-      return (
-        normalizeString(item.category).includes(normalizedFilter) ||
-        normalizedFilter.includes(normalizeString(item.category))
-      );
-    } else if (filterType === "brand") {
-      return (
-        normalizeString(item.brand).includes(normalizedFilter) ||
-        normalizedFilter.includes(normalizeString(item.brand))
-      );
-    }
-    return false;
-  });
-};
+import BrandsData from "./Brands.json";
+import CategoriesData from "./Categories.json";
 
 export default function Carousel() {
   const dispatch = useDispatch();
   const filterFromRedux = useSelector(selectCarouselFilter);
   const filterTypeFromRedux = useSelector(selectCarouselFilterType);
+  const { products } = useParams<{ products: string }>();
+  const urlParam = products?.toLowerCase() || "";
+
+  // Find matching item name from URL
+  const findMatchingName = (urlParam: string) => {
+    // Check in brands
+    const matchingBrand = BrandsData.find(
+      (brand) => brand.name?.toLowerCase().replace(/\s+/g, "") === urlParam
+    );
+    if (matchingBrand) {
+      return { name: matchingBrand.name, type: "brand" };
+    }
+
+    // Check in categories
+    const matchingCategory = CategoriesData.find(
+      (category) =>
+        category.name?.toLowerCase().replace(/\s+/g, "") === urlParam
+    );
+    if (matchingCategory) {
+      return { name: matchingCategory.name, type: "category" };
+    }
+
+    return null;
+  };
 
   useEffect(() => {
-    if (!filterFromRedux) {
+    // If URL parameter exists, check if need to update filter
+    if (urlParam) {
+      const matchingItem = findMatchingName(urlParam);
+
+      if (matchingItem) {
+        const storedFilter = sessionStorage.getItem("carouselFilter");
+        const storedFilterType = sessionStorage.getItem("carouselFilterType");
+
+        const formattedStoredFilter =
+          storedFilter?.toLowerCase().replace(/\s+/g, "") || "";
+
+        // If URL param differs from stored value, update everything
+        if (urlParam !== formattedStoredFilter) {
+          sessionStorage.setItem("carouselFilter", matchingItem.name);
+          sessionStorage.setItem("carouselFilterType", matchingItem.type);
+
+          dispatch(setFilter(matchingItem.name));
+          dispatch(setFilterType(matchingItem.type));
+        } else if (!filterFromRedux) {
+          // If URL matches storage but Redux is empty, restore from storage
+          dispatch(setFilter(storedFilter || ""));
+          dispatch(setFilterType(storedFilterType || ""));
+        }
+      }
+    } else if (!filterFromRedux) {
+      // If no URL param but session storage exists, use storage
       const storedFilter = sessionStorage.getItem("carouselFilter");
       const storedFilterType = sessionStorage.getItem("carouselFilterType");
 
@@ -54,7 +78,7 @@ export default function Carousel() {
         dispatch(setFilterType(storedFilterType));
       }
     }
-  }, [filterFromRedux, dispatch]);
+  }, [urlParam, filterFromRedux, dispatch]);
 
   const filter =
     filterFromRedux || sessionStorage.getItem("carouselFilter") || "";
@@ -62,16 +86,16 @@ export default function Carousel() {
     filterTypeFromRedux || sessionStorage.getItem("carouselFilterType") || "";
 
   const filteredProducts = useMemo(() => {
-    if (!filter) return ProductData;
-    return findBestMatch(filter, filterType);
+    if (!filter || !filterType) return ProductData;
+    return ProductData.filter((item) => {
+      if (filterType === "category") {
+        return item.category === filter;
+      } else if (filterType === "brand") {
+        return item.brand === filter;
+      }
+      return false;
+    });
   }, [filter, filterType]);
-
-  console.log({
-    filter,
-    filterType,
-    filteredProductsLength: filteredProducts.length,
-    allProductsLength: ProductData.length
-  });
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
@@ -329,7 +353,7 @@ export default function Carousel() {
         </div>
 
         {/* Navigation dots */}
-        <div className="flex justify-center mt-20 gap-2">
+        <div className="flex justify-center mt-10 gap-2">
           {filteredProducts.map((_, index) => (
             <button
               key={index}

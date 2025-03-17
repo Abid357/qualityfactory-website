@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import carouselReducer from "./carousel/carouselSlice";
+import catalogReducer from "./catalog/catalogSlice";
 
 const store = configureStore({
   reducer: {
     carousel: carouselReducer,
+    catalog: catalogReducer,
   },
 });
 

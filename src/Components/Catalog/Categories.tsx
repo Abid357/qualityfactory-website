@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
+import { setCatalogScrollPosition } from "../../redux/catalog/catalogSlice";
 import Card from "../Card";
 import BrandsData from "./Brands.json";
 import CategoriesData from "./Categories.json";
@@ -82,11 +83,16 @@ function ImageCard({
   const formattedName = name.toLowerCase().replace(/\s+/g, "");
   const handleCardClick = () => {
     if (!comingSoon) {
+      // Store filter data
       dispatch(setFilter(name));
       dispatch(setFilterType(displayType));
 
       sessionStorage.setItem('carouselFilter', name);
       sessionStorage.setItem('carouselFilterType', displayType);
+
+      // Save scroll position in Redux
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      dispatch(setCatalogScrollPosition(scrollPosition));
 
       navigate(`/catalog/${formattedName}`);
     }
