@@ -16,17 +16,20 @@ export default function ProductCarousel() {
   };
   return (
     <>
-      <div className="flex flex-col gap-10 w-[80%] pt-20 md:pt-40 mb-20 mx-auto">
-        <div id="carousel">
-          <Carousel />
-        </div>
-        <div className="flex justify-center">
-          <button
-            onClick={handleBack}
-            className="text-white bg-[#0C7E4A] hover:bg-[#73C057] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md w-fit px-3 py-2"
-          >
-            Go Back
-          </button>
+      <div className="overflow-hidden h-screen w-[80%] mx-auto pt-20 md:pt-32">
+        {/*  pt-20 md:pt-40 */}
+        <div className="flex flex-col">
+          <div id="carousel">
+            <Carousel />
+          </div>
+          <div className="flex justify-center my-10">
+            <button
+              onClick={handleBack}
+              className="text-white bg-[#0C7E4A] hover:bg-[#73C057] transition-all duration-300 ease-in-out transform active:scale-95 rounded-md w-fit px-3 py-2"
+            >
+              Go Back
+            </button>
+          </div>
         </div>
       </div>
     </>

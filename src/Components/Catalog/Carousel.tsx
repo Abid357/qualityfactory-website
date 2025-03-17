@@ -41,49 +41,19 @@ export default function Carousel() {
   };
 
   useEffect(() => {
-    // If URL parameter exists, check if need to update filter
     if (urlParam) {
       const matchingItem = findMatchingName(urlParam);
 
       if (matchingItem) {
-        const storedFilter = sessionStorage.getItem("carouselFilter");
-        const storedFilterType = sessionStorage.getItem("carouselFilterType");
-
-        const formattedStoredFilter =
-          storedFilter?.toLowerCase().replace(/\s+/g, "") || "";
-
-        // If URL param differs from stored value, update everything
-        if (urlParam !== formattedStoredFilter) {
-          sessionStorage.setItem("carouselFilter", matchingItem.name);
-          sessionStorage.setItem("carouselFilterType", matchingItem.type);
-
-          dispatch(setFilter(matchingItem.name));
-          dispatch(setFilterType(matchingItem.type));
-        } else if (!filterFromRedux) {
-          // If URL matches storage but Redux is empty, restore from storage
-          dispatch(setFilter(storedFilter || ""));
-          dispatch(setFilterType(storedFilterType || ""));
-        }
-      }
-    } else if (!filterFromRedux) {
-      // If no URL param but session storage exists, use storage
-      const storedFilter = sessionStorage.getItem("carouselFilter");
-      const storedFilterType = sessionStorage.getItem("carouselFilterType");
-
-      if (storedFilter) {
-        dispatch(setFilter(storedFilter));
-      }
-
-      if (storedFilterType) {
-        dispatch(setFilterType(storedFilterType));
+        // Update Redux with the matching item's info
+        dispatch(setFilter(matchingItem.name));
+        dispatch(setFilterType(matchingItem.type));
       }
     }
-  }, [urlParam, filterFromRedux, dispatch]);
+  }, [urlParam, dispatch]);
 
-  const filter =
-    filterFromRedux || sessionStorage.getItem("carouselFilter") || "";
-  const filterType =
-    filterTypeFromRedux || sessionStorage.getItem("carouselFilterType") || "";
+  const filter = filterFromRedux || "";
+  const filterType = filterTypeFromRedux || "";
 
   const filteredProducts = useMemo(() => {
     if (!filter || !filterType) return ProductData;
@@ -216,13 +186,13 @@ export default function Carousel() {
   const title = filter;
 
   return (
-    <div className="overflow-x-hidden">
+    <div className="flex flex-col h-full">
       <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-10">
         {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
-      <div className="relative w-full px-4 sm:px-6 lg:px-8 mt-40">
+      <div className="relative w-full px-4 sm:px-6 lg:px-8 mt-20">
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
@@ -285,7 +255,7 @@ export default function Carousel() {
                       <img
                         src={item.bottle}
                         alt={item.name}
-                        className="absolute -top-20 left-5 h-[100%]"
+                        className="absolute -top-20 left-5 z-10 h-[100%]"
                       />
                       {item.fruit && (
                         <img
@@ -331,7 +301,7 @@ export default function Carousel() {
                             opacity: isCurrent && !fading ? 1 : 0,
                           }}
                         >
-                          250ml
+                          {item.volume}
                         </p>
                       </div>
                       {/* Logo */}
