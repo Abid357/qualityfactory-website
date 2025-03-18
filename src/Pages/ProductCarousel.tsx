@@ -16,9 +16,8 @@ export default function ProductCarousel() {
   };
   return (
     <>
-      <div className="overflow-hidden h-screen w-[80%] mx-auto pt-20 md:pt-32">
-        {/*  pt-20 md:pt-40 */}
-        <div className="flex flex-col">
+      <div className="overflow-hidden min-h-screen max-h-screen w-[80%] mx-auto pt-20 md:pt-32">
+        <div className="flex-1 flex flex-col">
           <div id="carousel">
             <Carousel />
           </div>

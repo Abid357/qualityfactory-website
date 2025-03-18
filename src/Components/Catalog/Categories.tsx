@@ -10,7 +10,7 @@ import CategoriesData from "./Categories.json";
 export default function Categories() {
   return (
     <>
-      <div className="flex flex-col gap-40">
+      <div className="flex flex-col gap-20">
         <CardGrid
           title="Explore by category"
           items={CategoriesData}
