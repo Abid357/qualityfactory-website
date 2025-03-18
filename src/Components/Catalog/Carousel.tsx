@@ -186,13 +186,13 @@ export default function Carousel() {
   const title = filter;
 
   return (
-    <div className="flex flex-col h-full">
-      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-10">
+    <div className="flex flex-col h-1/2 md:h-full">
+      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-2 sm:mb-4">
         {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
-      <div className="relative flex-1 min-h-0 max-h-[500px] w-full mt-20">
+      <div className="relative flex-1 min-h-0 w-full mt-[5%]">
         {/* Navigation buttons */}
         <button
           onClick={handlePrev}
@@ -210,7 +210,7 @@ export default function Carousel() {
         </button>
 
         {/* Carousel items */}
-        <div className="flex justify-center items-center h-[400px]">
+        <div className="flex justify-center items-center h-full">
           <div className="flex relative w-full h-full">
             {initialized &&
               itemsWithPositions.map((item) => {
@@ -243,7 +243,7 @@ export default function Carousel() {
                     }}
                   >
                     <div
-                      className={`relative flex flex-col items-center justify-center rounded-full transition-all duration-300 w-[240px] sm:w-[280px] md:w-[320px] h-[360px] sm:h-[400px] mx-auto`}
+                      className={`relative flex flex-col items-center justify-center rounded-full transition-all duration-300 w-[240px] sm:w-[280px] md:w-[320px] h-full mx-auto`}
                       style={{
                         backgroundColor:
                           isCurrent && !fading
@@ -252,12 +252,12 @@ export default function Carousel() {
                       }}
                     >
                       {/* Bottle image */}
-                      <div className="absolute -top-[20%] left-[5%] z-10 h-[100%] w-[40%]">
-                      <img
-                        src={item.bottle}
-                        alt={item.name}
-                        className="absolute max-h-full max-w-full"
-                      />
+                      <div className="absolute md:-top-[10%] left-[5%] z-10 h-3/4 md:h-[100%] w-[40%]">
+                        <img
+                          src={item.bottle}
+                          alt={item.name}
+                          className="absolute max-h-full max-w-full"
+                        />
                       </div>
                       {item.fruit && (
                         <div className="absolute -top-2 -right-2 flex justify-center items-center h-[30%] md:h-[40%] w-[40%] md:w-[55%]">
@@ -332,7 +332,7 @@ export default function Carousel() {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-3 w-3 rounded-full transition-all ${
+              className={`h-2 sm:h-3 w-2 sm:w-3 rounded-full transition-all ${
                 index === activeIndex
                   ? "bg-[#0C7E4A] w-5"
                   : "bg-gray-300 hover:bg-gray-400"
