@@ -186,144 +186,144 @@ export default function Carousel() {
   const title = filter;
 
   return (
-    <div className="flex flex-col h-1/2 md:h-full">
+    <div className="flex flex-col h-fit">
       <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-2 sm:mb-4">
         {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
-      <div className="relative flex-1 min-h-0 w-full mt-[5%]">
+      <div className="relative flex-1 w-full mt-[5%]">
         {/* Navigation buttons */}
-        <button
-          onClick={handlePrev}
-          className="absolute z-10 left-2 sm:left-5 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={sliding || fading || activeIndex === 0}
-        >
-          <FaArrowLeft className="text-[#0C7E4A]" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="absolute z-10 right-2 sm:right-5 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={sliding || fading || activeIndex === totalItems - 1}
-        >
-          <FaArrowRight className="text-[#0C7E4A]" />
-        </button>
+        <div className="absolute top-1/2 -translate-y-1/2 z-10 flex justify-between w-full">
+          <button
+            onClick={handlePrev}
+            className="bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={sliding || fading || activeIndex === 0}
+          >
+            <FaArrowLeft className="text-[#0C7E4A]" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={sliding || fading || activeIndex === totalItems - 1}
+          >
+            <FaArrowRight className="text-[#0C7E4A]" />
+          </button>
+        </div>
 
         {/* Carousel items */}
-        <div className="flex justify-center items-center h-full">
-          <div className="flex relative w-full h-full">
-            {initialized &&
-              itemsWithPositions.map((item) => {
-                const isCurrent = item.positionName === "current";
-                const isPrev = item.positionName === "prev";
-                const isNext = item.positionName === "next";
-                const isVisible = isCurrent || isPrev || isNext;
+        <div className="flex-none relative h-[360px] sm:h-[400px] w-full">
+          {initialized &&
+            itemsWithPositions.map((item) => {
+              const isCurrent = item.positionName === "current";
+              const isPrev = item.positionName === "prev";
+              const isNext = item.positionName === "next";
+              const isVisible = isCurrent || isPrev || isNext;
 
-                const basePosition = item.position * 100;
-                let slideOffset = 0;
+              const basePosition = item.position * 100;
+              let slideOffset = 0;
 
-                if (sliding) {
-                  if (direction === "left") {
-                    slideOffset = -100;
-                  } else if (direction === "right") {
-                    slideOffset = 100;
-                  }
+              if (sliding) {
+                if (direction === "left") {
+                  slideOffset = -100;
+                } else if (direction === "right") {
+                  slideOffset = 100;
                 }
+              }
 
-                const transformX = `${basePosition + slideOffset}%`;
+              const transformX = `${basePosition + slideOffset}%`;
 
-                return (
+              return (
+                <div
+                  key={`${item.index}`}
+                  className={`transition-all duration-1000 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${
+                    isVisible ? "" : "opacity-0 pointer-events-none"
+                  }`}
+                  style={{
+                    transform: `translateX(${transformX})`,
+                  }}
+                >
                   <div
-                    key={`${item.index}`}
-                    className={`transition-all duration-1000 ease-in-out absolute top-0 left-0 xl:left-[35%] w-full xl:w-1/3 h-full ${
-                      isVisible ? "" : "opacity-0 pointer-events-none"
-                    }`}
+                    className={`relative flex flex-col items-center justify-center rounded-full transition-all duration-300 w-[240px] sm:w-[280px] md:w-[320px] h-[360px] sm:h-[400px] mx-auto`}
                     style={{
-                      transform: `translateX(${transformX})`,
+                      backgroundColor:
+                        isCurrent && !fading
+                          ? item.backgroundColor
+                          : "rgba(255, 255, 255, 0)",
                     }}
                   >
-                    <div
-                      className={`relative flex flex-col items-center justify-center rounded-full transition-all duration-300 w-[240px] sm:w-[280px] md:w-[320px] h-full mx-auto`}
-                      style={{
-                        backgroundColor:
-                          isCurrent && !fading
-                            ? item.backgroundColor
-                            : "rgba(255, 255, 255, 0)",
-                      }}
-                    >
-                      {/* Bottle image */}
-                      <div className="absolute md:-top-[10%] left-[5%] z-10 h-3/4 md:h-[100%] w-[40%]">
-                        <img
-                          src={item.bottle}
-                          alt={item.name}
-                          className="absolute max-h-full max-w-full"
-                        />
-                      </div>
-                      {item.fruit && (
-                        <div className="absolute -top-2 -right-2 flex justify-center items-center h-[30%] md:h-[40%] w-[40%] md:w-[55%]">
-                          <img
-                            src={item.fruit}
-                            alt={item.name}
-                            className="h-auto w-full object-contain"
-                            style={{
-                              opacity: isCurrent && !fading ? 1 : 0,
-                            }}
-                          />
-                        </div>
-                      )}
-
-                      {/* Product details */}
-                      <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
-                        <p
-                          className="font-bold text-xl md:text-3xl xl:text-4xl transition-all duration-300 ease-in-out"
-                          style={{
-                            color: item.nameColor,
-                            opacity: isCurrent && !fading ? 1 : 0,
-                            fontSize:
-                              item.name && item.name.length > 9
-                                ? `calc(1.5rem - ${
-                                    Math.min(item.name.length - 7, 10) * 0.07
-                                  }rem)`
-                                : undefined,
-                          }}
-                        >
-                          {item.name}
-                        </p>
-                        <p
-                          className="text-sm transition-all duration-300 ease-in-out mt-1"
-                          style={{
-                            color: item.categoryColor,
-                            opacity: isCurrent && !fading ? 1 : 0,
-                          }}
-                        >
-                          {item.category}
-                        </p>
-                        <p
-                          className="italic transition-all duration-300 ease-in-out mt-4"
-                          style={{
-                            color: item.volumeColor,
-                            opacity: isCurrent && !fading ? 1 : 0,
-                          }}
-                        >
-                          {item.volume}
-                        </p>
-                      </div>
-                      {/* Logo */}
+                    {/* Bottle image */}
+                    <div className="absolute md:-top-[10%] left-[5%] z-10 h-3/4 md:h-full w-[40%]">
                       <img
-                        src={item.logo}
-                        alt={`${item.name} logo`}
-                        className="absolute -bottom-4 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
-                        style={{
-                          opacity: isCurrent && !fading ? 1 : 0,
-                          border: `2px solid ${item.backgroundColor}`,
-                          borderColor: item.backgroundColor,
-                        }}
+                        src={item.bottle}
+                        alt={item.name}
+                        className="absolute max-h-full max-w-full"
                       />
                     </div>
+                    {item.fruit && (
+                      <div className="absolute -top-2 -right-2 flex justify-center items-center h-[30%] md:h-[40%] w-[40%] md:w-[55%]">
+                        <img
+                          src={item.fruit}
+                          alt={item.name}
+                          className="h-auto w-full object-contain"
+                          style={{
+                            opacity: isCurrent && !fading ? 1 : 0,
+                          }}
+                        />
+                      </div>
+                    )}
+
+                    {/* Product details */}
+                    <div className="absolute left-[55%] md:left-[47%] transition-all duration-300 ease-in-out">
+                      <p
+                        className="font-bold text-xl md:text-3xl xl:text-4xl transition-all duration-300 ease-in-out"
+                        style={{
+                          color: item.nameColor,
+                          opacity: isCurrent && !fading ? 1 : 0,
+                          fontSize:
+                            item.name && item.name.length > 9
+                              ? `calc(1.5rem - ${
+                                  Math.min(item.name.length - 7, 10) * 0.07
+                                }rem)`
+                              : undefined,
+                        }}
+                      >
+                        {item.name}
+                      </p>
+                      <p
+                        className="text-sm transition-all duration-300 ease-in-out mt-1"
+                        style={{
+                          color: item.categoryColor,
+                          opacity: isCurrent && !fading ? 1 : 0,
+                        }}
+                      >
+                        {item.category}
+                      </p>
+                      <p
+                        className="italic transition-all duration-300 ease-in-out mt-4"
+                        style={{
+                          color: item.volumeColor,
+                          opacity: isCurrent && !fading ? 1 : 0,
+                        }}
+                      >
+                        {item.volume}
+                      </p>
+                    </div>
+                    {/* Logo */}
+                    <img
+                      src={item.logo}
+                      alt={`${item.name} logo`}
+                      className="absolute -bottom-4 h-12 w-24 bg-[#f8f4f4] rounded-[50%] p-2 object-contain transition-all duration-300 ease-in-out"
+                      style={{
+                        opacity: isCurrent && !fading ? 1 : 0,
+                        border: `2px solid ${item.backgroundColor}`,
+                        borderColor: item.backgroundColor,
+                      }}
+                    />
                   </div>
-                );
-              })}
-          </div>
+                </div>
+              );
+            })}
         </div>
 
         {/* Navigation dots */}
