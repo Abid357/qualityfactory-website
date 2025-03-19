@@ -192,7 +192,7 @@ export default function Carousel() {
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
-      <div className="relative flex-1 w-full mt-[5%]">
+      <div className="relative flex-1 w-full mt-[30%] sm:mt-[15%] md:mt-[10%] lg:mt-[7%]">
         {/* Navigation buttons */}
         <div className="absolute top-1/2 -translate-y-1/2 z-10 flex justify-between w-full">
           <button
@@ -253,13 +253,11 @@ export default function Carousel() {
                     }}
                   >
                     {/* Bottle image */}
-                    <div className="absolute md:-top-[10%] left-[5%] z-10 h-3/4 md:h-full w-[40%]">
-                      <img
-                        src={item.bottle}
-                        alt={item.name}
-                        className="absolute max-h-full max-w-full"
-                      />
-                    </div>
+                    <img
+                      src={item.bottle}
+                      alt={item.name}
+                      className="absolute -top-20 left-5 h-[100%]"
+                    />
                     {item.fruit && (
                       <div className="absolute -top-2 -right-2 flex justify-center items-center h-[30%] md:h-[40%] w-[40%] md:w-[55%]">
                         <img

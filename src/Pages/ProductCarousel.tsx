@@ -16,7 +16,7 @@ export default function ProductCarousel() {
   };
   return (
     <>
-      <div className="flex flex-col overflow-hidden h-screen w-[80%] mx-auto pt-20 md:pt-32">
+      <div className="flex flex-col overflow-x-hidden w-[80%] mx-auto pt-20 md:pt-32">
         <div className="flex flex-col h-full">
           <div id="carousel" className="h-fit">
             <Carousel />
