@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import Catalog from "./Pages/Catalog";
 import Certificates from "./Pages/Certificates";
 import Designer from "./Pages/Designer";
+import ProductCarousel from "./Pages/ProductCarousel";
 
 export default function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ export default function AppRoutes() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/designer" element={<Designer />} />
+        <Route path="/catalog/:products" element={<ProductCarousel />} />
       </Routes>
     </>
   );
