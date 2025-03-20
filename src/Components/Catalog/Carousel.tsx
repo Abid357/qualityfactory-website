@@ -187,7 +187,7 @@ export default function Carousel() {
 
   return (
     <div className="flex flex-col h-fit">
-      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-2 sm:mb-4">
+      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-6">
         {title}
         <span className="text-[#0C7E4A]">.</span>
       </p>
