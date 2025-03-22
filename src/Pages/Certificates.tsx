@@ -1,12 +1,18 @@
+import CertificatesData from "../Components/Certificates/Certificates.json";
+
 export default function Certificates() {
   return (
-    <>
-      <div className="flex flex-col items-center justify-center h-screen">
-        <p className="font-bold text-3xl lg:text-4xl xl:text-5xl">
-          We are renovating<span className="text-[#0C7E4A]">!</span>
-        </p>
-        <p className="lg:text-2xl xl:text-3xl">Please visit us again soon</p>
+    <div className="w-[80%] mx-auto mb-10 pt-15 md:pt-40">
+      <div className="grid grid-cols-1 lg:grid-cols-2">
+        {CertificatesData.map((cert, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center w-full h-auto max-h-fit"
+          >
+            <img src={cert.src} alt={`${cert.name} certificate`} />
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
