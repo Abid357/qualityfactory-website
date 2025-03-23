@@ -4,7 +4,9 @@ import Certifications from "../Components/Home/Certifications/Certifications";
 import Services from "../Components/Home/Services/Services";
 import Stats from "../Components/Home/Stats/Stats";
 import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
+import Catalog from "../Components/Home/Catalog/Catalog";
 import Customers from "../Components/Home/Customers/Customers";
+import Design from "../Components/Home/Design/Design";
 import Contact from "../Components/Home/Contact/Contact";
 
 export default function Home() {
@@ -16,7 +18,9 @@ export default function Home() {
     { id: "services", Component: Services },
     { id: "stats", Component: Stats },
     { id: "openingHours", Component: OpeningHours },
+    { id: "catalog", Component: Catalog },
     { id: "customers", Component: Customers },
+    { id: "design", Component: Design },
     { id: "contact", Component: Contact },
   ];
 

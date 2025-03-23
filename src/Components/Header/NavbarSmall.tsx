@@ -5,6 +5,7 @@ import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
 import { MdContactEmergency } from "react-icons/md";
+import { useScrollToTop } from "../ScrollToTop";
 import logo from "/Logo/QualityLogo.svg";
 
 export default function NavbarSmall({
@@ -18,16 +19,23 @@ export default function NavbarSmall({
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
+  const scrollToTop = useScrollToTop();
 
   const navItems = useMemo(
     () => [
       { to: "/", label: "Home", type: "page", icon: <TiHome /> },
-      { to: "/catalog", label: "Catalog", type: "page", icon: <GrCatalog /> },
+      { to: "/#catalog", label: "Catalog", type: "section", icon: <GrCatalog /> },
       {
         to: "/#services",
         label: "Services",
         type: "section",
         icon: <GrBusinessService />,
+      },
+      {
+        to: "/#design",
+        label: "Design",
+        type: "section",
+        icon: "<Design />", //need to change
       },
       {
         to: "/#contact",
@@ -80,25 +88,6 @@ export default function NavbarSmall({
     items: {
       base: "",
     },
-  };
-
-  const scrollToTop = (path: string) => {
-    // If already on target path, just scroll to top
-    if (location.pathname === path) {
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }, 300);
-    } else {
-      // If not on target path, navigate and then scroll to top
-      navigate(path);
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
-    }
   };
 
   const scrollToSection = (to: string) => {
