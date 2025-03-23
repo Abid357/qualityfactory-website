@@ -7,7 +7,7 @@ export default function Catalog() {
   const scrollToTop = useScrollToTop();
   return (
     <>
-      <p className="flex justify-center font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
+      <p className="flex justify-center md:justify-start font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
         Explore our catalog<span className="text-[#0C7E4A]">.</span>
       </p>
       <div className="relative rounded-xl overflow-hidden mb-5">
