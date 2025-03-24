@@ -4,7 +4,7 @@ import CustomersImage from "./Customers.json";
 export default function Customers() {
   return (
     <>
-      <p className="flex justify-center font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-10">
+      <p className="flex justify-center font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5 lg:mb-10">
         Meet our customers<span className="text-[#0C7E4A]">.</span>
       </p>
       <Slider blurBorders={true} blurBorderColor={"#f8f4f4"}>

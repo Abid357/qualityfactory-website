@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router";
 import { IoMenu } from "react-icons/io5";
+import { useScrollToTop } from "../ScrollToTop";
 import logo from "/Logo/QualityLogo.svg";
 import logoMini from "/Logo/Quality_miniNav.svg";
 
@@ -8,35 +9,20 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
   const [isSticky, setIsSticky] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const scrollToTop = useScrollToTop();
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
 
   const navItems = useMemo(
     () => [
       { to: "/", label: "Home", type: "page" },
-      { to: "/catalog", label: "Catalog", type: "page" },
+      { to: "/#catalog", label: "Catalog", type: "section" },
       { to: "/#services", label: "Services", type: "section" },
+      { to: "/#design", label: "Design", type: "section" },
       { to: "/#contact", label: "Contact", type: "section" },
     ],
     []
   );
-
-  const scrollToTop = (path: string) => {
-    // If already on target path, just scroll to top
-    if (location.pathname === path) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    } else {
-      // If not on target path, navigate and then scroll to top
-      navigate(path);
-      window.scrollTo({
-        top: 0,
-        behavior: "auto",
-      });
-    }
-  };
 
   const scrollToSection = (to: string) => {
     // Extract the section ID from the hash

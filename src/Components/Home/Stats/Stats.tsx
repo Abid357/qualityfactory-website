@@ -25,7 +25,7 @@ export default function Stats() {
     {
       icon: Products,
       alt: "Products Developed",
-      value: 53,
+      value: 82,
       label: "Products Developed",
       suffix: "",
     },

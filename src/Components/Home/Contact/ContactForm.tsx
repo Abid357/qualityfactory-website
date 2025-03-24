@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Select, { StylesConfig } from "react-select";
 import { HiMiniIdentification } from "react-icons/hi2";
-import { CiMobile3 } from "react-icons/ci";
 import { IoMail } from "react-icons/io5";
 import { FaGlobe } from "react-icons/fa";
 import { RiMessage2Fill } from "react-icons/ri";
 import { MdMessage } from "react-icons/md";
 import countries from "./Countries.json";
 import subjectsData from "./Subjects.json";
+import { FaMobileScreenButton } from "react-icons/fa6";
 
 interface FormState {
   name: string;
@@ -294,7 +294,7 @@ export default function ContactForm() {
           <div className="flex flex-col">
             <label htmlFor="countryCode" className="flex items-center gap-1">
               <span className="text-[#0C7E4A]">
-                <CiMobile3 />
+                <FaMobileScreenButton />
               </span>
               Mobile
             </label>
