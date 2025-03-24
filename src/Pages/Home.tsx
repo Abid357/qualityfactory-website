@@ -15,12 +15,12 @@ export default function Home() {
 
   const sections = [
     { id: "certifications", Component: Certifications },
+    { id: "catalog", Component: Catalog },
     { id: "services", Component: Services },
     { id: "stats", Component: Stats },
-    { id: "openingHours", Component: OpeningHours },
-    { id: "catalog", Component: Catalog },
-    { id: "customers", Component: Customers },
     { id: "design", Component: Design },
+    { id: "openingHours", Component: OpeningHours },
+    { id: "customers", Component: Customers },
     { id: "contact", Component: Contact },
   ];
 

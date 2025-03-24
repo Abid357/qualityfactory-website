@@ -12,7 +12,7 @@ export default function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/certificates" element={<Certificates />} />
-        <Route path="/designer" element={<Designer />} />
+        <Route path="/design" element={<Designer />} />
         <Route path="/catalog/:products" element={<ProductCarousel />} />
       </Routes>
     </>

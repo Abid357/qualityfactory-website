@@ -11,7 +11,7 @@ export default function Catalog() {
       <p className="flex justify-center md:justify-start font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
         Explore our catalog<span className="text-[#0C7E4A]">.</span>
       </p>
-      <div className="relative rounded-xl overflow-hidden mb-5">
+      <div className="relative rounded-xl overflow-hidden">
         <img src="/Catalog/Catalog.png" alt="" />
         <div className="absolute top-2/5 left-1/4">
           <Link to="/catalog" onClick={() => scrollToTop("/catalog")}>
