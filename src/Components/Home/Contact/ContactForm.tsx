@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Select, { StylesConfig } from "react-select";
 import { HiMiniIdentification } from "react-icons/hi2";
-import { CiMobile3 } from "react-icons/ci";
 import { IoMail } from "react-icons/io5";
 import { FaGlobe } from "react-icons/fa";
 import { RiMessage2Fill } from "react-icons/ri";

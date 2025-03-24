@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { GrCatalog } from "react-icons/gr";
 import { useScrollToTop } from "../../ScrollToTop";
 import Card from "../../Card";
 import { MdMenuBook } from "react-icons/md";
