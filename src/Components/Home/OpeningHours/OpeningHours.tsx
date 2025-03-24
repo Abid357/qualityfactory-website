@@ -48,7 +48,7 @@ export default function OpeningHours() {
 
   return (
     <>
-      <p className="flex flex-wrap items-end font-bold text-3xl lg:text-4xl xl:text-5xl mb-10">
+      <p className="flex flex-wrap items-end md:justify-start justify-center font-bold text-3xl lg:text-4xl xl:text-5xl mb-5 lg:mb-10">
         <span className="whitespace-nowrap">We are</span>
         {isOpen ? (
           <img

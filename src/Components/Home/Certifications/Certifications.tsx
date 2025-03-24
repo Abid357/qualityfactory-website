@@ -17,7 +17,7 @@ export default function Certifications() {
         />
         <Link to="/certificates">
           <Card>
-            <button className="flex justify-center items-center gap-3 font-bold text-[#0C7E4A] hover:text-white bg-white hover:bg-[#0C7E4A] transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
+            <button className="flex justify-center items-center gap-3 font-bold text-white bg-[#0C7E4A] transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
               <FaEye />
               <p>Certificates</p>
             </button>
@@ -36,12 +36,12 @@ export default function Certifications() {
         </div>
 
         <div className="w-1/2 flex flex-col items-center justify-center">
-          <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
+          <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-3 lg:mb-6">
             We are certified<span className="text-[#0C7E4A]">.</span>
           </p>
           <Link to="/certificates">
             <Card>
-              <button className="flex justify-center items-center gap-3 font-bold text-[#0C7E4A] hover:text-white bg-white hover:bg-[#0C7E4A] transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
+              <button className="flex justify-center items-center gap-3 font-bold hover:text-[#0C7E4A] text-white hover:bg-white bg-[#0C7E4A] transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
                 <FaEye />
                 <p>Certificates</p>
               </button>

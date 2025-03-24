@@ -79,7 +79,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full md:h-32 h-8 bg-gradient-to-t from-[#EDEBE8] to-transparent"></div>
       </div>
       <div className="left-0 w-full md:h-32 h-8 bg-gradient-to-t to-[#EDEBE8] from-transparent"></div>
-      <div className="flex flex-col gap-40 w-[80%] my-20 mx-auto">
+      <div className="flex flex-col gap-20 md:gap-30 w-[80%] my-20 mx-auto">
         {sections.map(({ id, Component }) => (
           <div key={id} id={id}>
             <Component />

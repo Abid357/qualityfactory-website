@@ -4,9 +4,10 @@ import { NavLink, Link, useLocation, useNavigate } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { GrCatalog } from "react-icons/gr";
 import { GrBusinessService } from "react-icons/gr";
-import { MdContactEmergency } from "react-icons/md";
+import { MdContactEmergency, MdMenuBook, MdOutlineMiscellaneousServices } from "react-icons/md";
 import { useScrollToTop } from "../ScrollToTop";
 import logo from "/Logo/QualityLogo.svg";
+import { IoIosColorPalette, IoMdContact } from "react-icons/io";
 
 export default function NavbarSmall({
   isOpen,
@@ -24,24 +25,24 @@ export default function NavbarSmall({
   const navItems = useMemo(
     () => [
       { to: "/", label: "Home", type: "page", icon: <TiHome /> },
-      { to: "/#catalog", label: "Catalog", type: "section", icon: <GrCatalog /> },
+      { to: "/#catalog", label: "Catalog", type: "section", icon: <MdMenuBook /> },
       {
         to: "/#services",
         label: "Services",
         type: "section",
-        icon: <GrBusinessService />,
+        icon: <MdOutlineMiscellaneousServices />,
       },
       {
         to: "/#design",
         label: "Design",
         type: "section",
-        icon: "<Design />", //need to change
+        icon: <IoIosColorPalette/>,
       },
       {
         to: "/#contact",
         label: "Contact",
         type: "section",
-        icon: <MdContactEmergency />,
+        icon: <IoMdContact  />,
       },
     ],
     []
