@@ -10,6 +10,7 @@ import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
 import ProductData from "./Carousel.json";
 import BrandsData from "./Brands.json";
 import CategoriesData from "./Categories.json";
+import Grid from "./Grid";
 
 export default function Carousel() {
   const dispatch = useDispatch();
@@ -192,6 +193,7 @@ export default function Carousel() {
         <span className="text-[#0C7E4A]">.</span>
       </p>
       {/* Carousel container */}
+      <Grid /> 
       <div className="relative flex-1 w-full mt-[30%] sm:mt-[15%] md:mt-[10%] lg:mt-[7%]">
         {/* Navigation buttons */}
         <div className="absolute top-1/2 -translate-y-1/2 z-10 flex justify-between w-full">
