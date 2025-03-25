@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { selectCatalogScrollPosition } from "../redux/catalog/catalogSelectors";
-import Carousel from "../Components/Catalog/Carousel";
+import Catalog from "../Components/Catalog/Catalog";
 
 export default function ProductCarousel() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function ProductCarousel() {
       <div className="flex flex-col overflow-x-hidden w-[80%] mx-auto pt-20 md:pt-32">
         <div className="flex flex-col h-full">
           <div id="carousel" className="h-fit">
-            <Carousel />
+            <Catalog />
           </div>
           <div className="flex justify-center my-10">
             <button
