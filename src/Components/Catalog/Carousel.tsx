@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { ProductProps } from "./Catalog";
 
-export default function Grid({ items }: { items: ProductProps[] }) {
+export default function Grid({ items, filter, filterType }: { items: ProductProps[], filter: string, filterType: string }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [direction, setDirection] = useState<"left" | "right" | null>(null);
     const [sliding, setSliding] = useState(false);
@@ -13,6 +13,10 @@ export default function Grid({ items }: { items: ProductProps[] }) {
     useEffect(() => {
         setInitialized(true);
     }, []);
+
+    useEffect(() => {
+        setActiveIndex(0);
+      }, [filter, filterType]);
 
     // Handle next slide
     const handleNext = () => {
@@ -115,7 +119,7 @@ export default function Grid({ items }: { items: ProductProps[] }) {
     const itemsWithPositions = getItemsWithPositions();
 
     return (
-        <div className="relative flex-1 w-full mt-[30%] sm:mt-[15%] md:mt-[10%] lg:mt-[7%]">
+        <div className="relative flex-1 w-full mt-[35%] sm:mt-[20%] md:mt-[20%] lg:mt-[13%]">
             {/* Navigation buttons */}
             <div className="absolute top-1/2 -translate-y-1/2 z-10 flex justify-between w-full">
                 <button

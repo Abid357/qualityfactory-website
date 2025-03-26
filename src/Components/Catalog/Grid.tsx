@@ -2,7 +2,7 @@ import { ProductProps } from "./Catalog";
 
 export default function Grid({items}:{items: ProductProps[]}) {
     return (
-        <div className="relative flex-1 flex-grid w-full mt-[30%] sm:mt-[15%] md:mt-[10%] lg:mt-[7%]">
+        <div className="relative flex-1 flex-grid w-full mt-[5%]">
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 lg:gap-5 sm:gap-5 gap-3 p-2">
                 {items.map((item, index) => (
                     <div

@@ -1,16 +1,20 @@
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import {
   selectCarouselFilter,
   selectCarouselFilterType,
+  selectCarouselViewType,
+
 } from "../../redux/carousel/carouselSelectors";
-import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
+import { setFilter, setFilterType, setViewType } from "../../redux/carousel/carouselSlice";
 import ProductData from "./Catalog.json";
 import BrandsData from "./Brands.json";
 import CategoriesData from "./Categories.json";
 import Grid from "./Grid";
 import Carousel from "./Carousel";
+import { MdOutlineViewCarousel } from "react-icons/md";
+import { TfiLayoutGrid3Alt } from "react-icons/tfi";
 
 export interface ProductProps {
   name: string,
@@ -31,6 +35,7 @@ export default function Catalog() {
   const dispatch = useDispatch();
   const filterFromRedux = useSelector(selectCarouselFilter);
   const filterTypeFromRedux = useSelector(selectCarouselFilterType);
+  const viewTypeFromRedux = useSelector(selectCarouselViewType);
   const { products } = useParams<{ products: string }>();
   const urlParam = products?.toLowerCase() || "";
 
@@ -68,6 +73,11 @@ export default function Catalog() {
     }
   }, [urlParam, dispatch]);
 
+  const [viewType, setViewTypeState] = useState(viewTypeFromRedux || "carousel");
+  useEffect(() => {
+    dispatch(setViewType(viewType));
+  }, [viewType, dispatch]);
+
   const filter = filterFromRedux || "";
   const filterType = filterTypeFromRedux || "";
 
@@ -83,133 +93,44 @@ export default function Catalog() {
     });
   }, [filter, filterType]);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState<"left" | "right" | null>(null);
-  const [sliding, setSliding] = useState(false);
-  const [fading, setFading] = useState(false);
-  const [initialized, setInitialized] = useState(false);
-  const totalItems = filteredProducts.length;
-
-  // Reset active index when filter changes
-  useEffect(() => {
-    setActiveIndex(0);
-  }, [filter, filterTypeFromRedux]);
-
-  useEffect(() => {
-    setInitialized(true);
-  }, []);
-
-  // Handle next slide
-  const handleNext = () => {
-    if (sliding || fading || activeIndex === totalItems - 1) return;
-
-    // Start with fade out
-    setFading(true);
-
-    // Start sliding transition
-    setTimeout(() => {
-      setDirection("left");
-      setSliding(true);
-
-      // Update active index
-      setTimeout(() => {
-        setActiveIndex((current) => current + 1);
-        setSliding(false);
-
-        // Start fade in
-        setTimeout(() => {
-          setFading(false);
-        }, 500); // pause before fade in
-      }, 0); // pause before slide
-    }, 500); // pause after fade out
-  };
-
-  // Handle previous slide
-  const handlePrev = () => {
-    if (sliding || fading || activeIndex === 0) return;
-
-    // Start with fade out
-    setFading(true);
-
-    // Start sliding transition
-    setTimeout(() => {
-      setDirection("right");
-      setSliding(true);
-
-      // Update active index
-      setTimeout(() => {
-        setActiveIndex((current) => current - 1);
-        setSliding(false);
-
-        // Start fade in
-        setTimeout(() => {
-          setFading(false);
-        }, 500); // pause before fade in
-      }, 0); // pause before slide
-    }, 500); // pause after fade out
-  };
-
-  // Go to specific slide
-  const goToSlide = (index: number) => {
-    if (sliding || fading || index === activeIndex) return;
-    // Determine direction for transition
-    const newDirection = index > activeIndex ? "left" : "right";
-    setDirection(newDirection);
-
-    // Transition for navigation dots
-    setFading(true);
-
-    setTimeout(() => {
-      setSliding(true);
-
-      setTimeout(() => {
-        setActiveIndex(index);
-        setSliding(false);
-
-        setTimeout(() => {
-          setFading(false);
-        }, 500);
-      }, 0);
-    }, 500);
-  };
-
-  const getItemsWithPositions = () => {
-    return filteredProducts.map((item, index) => {
-      // Calculate the position relative to activeIndex
-      const position = index - activeIndex;
-
-      // Determine if item is prev, current, or next
-      let positionName = "other";
-      if (position === -1) {
-        positionName = "prev";
-      } else if (position === 0) {
-        positionName = "current";
-      } else if (position === 1) {
-        positionName = "next";
-      }
-
-      return {
-        ...item,
-        index,
-        position,
-        positionName,
-      };
-    });
-  };
-
-  const itemsWithPositions = getItemsWithPositions();
-
   const title = filterType === "brand" ? `${filter} Drinks` : filter;
+
+  const toggleViewType = () => setViewTypeState(viewType === 'carousel' ? 'grid' : 'carousel');
 
   return (
     <div className="flex flex-col h-fit">
-      <p className="flex font-bold text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-6">
-        {title}
-        <span className="text-[#0C7E4A]">.</span>
-      </p>
-      {/* Carousel container */}
-      <Carousel items={filteredProducts} />
-      <Grid items={filteredProducts} />
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center md:mt-4">
+        <p className="flex font-bold text-2xl lg:text-4xl xl:text-5xl whitespace-nowrap">
+          {title}
+          <span className="text-[#0C7E4A]">.</span>
+        </p>
+        <div className="flex flex-row">
+          <label className='inline-flex cursor-pointer select-none items-center justify-center border border-black rounded-md'>
+            <input
+              type='checkbox'
+              className='sr-only'
+              checked={viewType == 'carousel'}
+              onChange={toggleViewType}
+            />
+            <span
+              className={`flex gap-2 items-center rounded-md py-2 px-[18px] text-xs sm:text-xs md:text-sm transition-colors duration-400 ${viewType == 'carousel' ? 'text-white bg-[#0C7E4A]' : 'text-gray-400'
+                }`}
+            >
+              <MdOutlineViewCarousel className="text-[130%] md:text-md" />
+              Single View
+            </span>
+            <span
+              className={`flex gap-2 items-center space-x-[6px] rounded-md py-2 px-[18px] text-xs sm:text-xs md:text-sm transition-colors duration-400 ${viewType == 'grid' ? 'text-white bg-[#0C7E4A]' : 'text-gray-400'
+              }`}
+            >
+              <TfiLayoutGrid3Alt className="text-[80%] md:text-md" />
+              Grid View
+            </span>
+          </label>
+        </div>
+      </div>
+      {viewType === "carousel" && <Carousel items={filteredProducts} filter={filter} filterType={filterType} />}
+      {viewType === "grid" && <Grid items={filteredProducts} />}
     </div>
   );
-}
+};
