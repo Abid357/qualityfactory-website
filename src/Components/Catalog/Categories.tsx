@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setFilter, setFilterType } from "../../redux/carousel/carouselSlice";
 import { setCatalogScrollPosition } from "../../redux/catalog/catalogSlice";
 import Card from "../Card";
 import BrandsData from "./Brands.json";
 import CategoriesData from "./Categories.json";
+import { useScrollToTop } from "../ScrollToTop";
 
 export default function Categories() {
   return (
@@ -76,7 +76,7 @@ function ImageCard({
   comingSoon?: boolean;
   displayType: "brand" | "category";
 }) {
-  const navigate = useNavigate();
+  const scrollToTop = useScrollToTop()
   const dispatch = useDispatch();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -94,7 +94,7 @@ function ImageCard({
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       dispatch(setCatalogScrollPosition(scrollPosition));
 
-      navigate(`/catalog/${formattedName}`);
+      scrollToTop(`/catalog/${formattedName}`);
     }
   };
 

@@ -4,6 +4,7 @@ const initialState = {
   items: [],
   filter: "",
   filterType: "", // "brand" or "category"
+  viewType: "", // "grid" or "carousel"
 };
 
 const carouselSlice = createSlice({
@@ -19,9 +20,12 @@ const carouselSlice = createSlice({
     setFilterType: (state, action) => {
       state.filterType = action.payload;
     },
+    setViewType: (state, action) => {
+      state.viewType = action.payload;
+    },
   },
 });
 
-export const { setItems, setFilter, setFilterType } = carouselSlice.actions;
+export const { setItems, setFilter, setFilterType, setViewType } = carouselSlice.actions;
 
 export default carouselSlice.reducer;

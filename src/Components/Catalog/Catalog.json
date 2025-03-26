@@ -1,7 +1,7 @@
 [
   {
     "name": "Apple",
-    "SKU ": "JOO-FD-APP-200-24",
+    "SKU": "JOO-FD-APP-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -15,7 +15,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "JOO-FD-GUA-200-24",
+    "SKU": "JOO-FD-GUA-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -29,7 +29,7 @@
   },
   {
     "name": "Lemon",
-    "SKU ": "JOO-FD-LEM-200-24",
+    "SKU": "JOO-FD-LEM-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -43,7 +43,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "JOO-FD-LYC-200-24",
+    "SKU": "JOO-FD-LYC-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -57,7 +57,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-FD-MAN-200-24",
+    "SKU": "JOO-FD-MAN-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -71,7 +71,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "JOO-FD-MIX-200-24",
+    "SKU": "JOO-FD-MIX-200-24",
     "brand": "Joocy",
     "category": "Flavored Drinks",
     "volume": "200ml",
@@ -85,7 +85,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "JOO-FD-ORA-200-24",
+    "SKU": "JOO-FD-ORA-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -99,7 +99,7 @@
   },
   {
     "name": "Pineapple",
-    "SKU ": "JOO-FD-PIN-200-24",
+    "SKU": "JOO-FD-PIN-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -113,7 +113,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-FD-POM-200-24",
+    "SKU": "JOO-FD-POM-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -127,7 +127,7 @@
   },
   {
     "name": "Tamarind",
-    "SKU ": "JOO-FD-TAM-200-24",
+    "SKU": "JOO-FD-TAM-200-24",
     "volume": "200ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -141,7 +141,7 @@
   },
   {
     "name": "Apple",
-    "SKU ": "JOO-FD-APP-250-24",
+    "SKU": "JOO-FD-APP-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -155,7 +155,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "JOO-FD-GUA-250-24",
+    "SKU": "JOO-FD-GUA-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -169,7 +169,7 @@
   },
   {
     "name": "Lemon",
-    "SKU ": "JOO-FD-LEM-250-24",
+    "SKU": "JOO-FD-LEM-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -183,7 +183,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "JOO-FD-LYC-250-24",
+    "SKU": "JOO-FD-LYC-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -197,7 +197,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-FD-MAN-250-24",
+    "SKU": "JOO-FD-MAN-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -211,7 +211,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "JOO-FD-MIX-250-24",
+    "SKU": "JOO-FD-MIX-250-24",
     "brand": "Joocy",
     "category": "Flavored Drinks",
     "volume": "250ml",
@@ -225,7 +225,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "JOO-FD-ORA-250-24",
+    "SKU": "JOO-FD-ORA-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -239,7 +239,7 @@
   },
   {
     "name": "Pineapple",
-    "SKU ": "JOO-FD-PIN-250-24",
+    "SKU": "JOO-FD-PIN-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -253,7 +253,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-FD-POM-250-24",
+    "SKU": "JOO-FD-POM-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -267,7 +267,7 @@
   },
   {
     "name": "Tamarind",
-    "SKU ": "JOO-FD-TAM-250-24",
+    "SKU": "JOO-FD-TAM-250-24",
     "volume": "250ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -281,7 +281,7 @@
   },
   {
     "name": "Apple",
-    "SKU ": "JOO-FD-APP-1000-6",
+    "SKU": "JOO-FD-APP-1000-6",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -295,7 +295,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "JOO-FD-GUA-1000-6",
+    "SKU": "JOO-FD-GUA-1000-6",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -309,7 +309,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-FD-MAN-1000-6",
+    "SKU": "JOO-FD-MAN-1000-6",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -323,7 +323,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "JOO-FD-MIX-1000-6",
+    "SKU": "JOO-FD-MIX-1000-6",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -337,7 +337,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-FD-POM-1000-24",
+    "SKU": "JOO-FD-POM-1000-24",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Flavored Drinks",
@@ -351,7 +351,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "JOO-BD-LYC-290-24",
+    "SKU": "JOO-BD-LYC-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
@@ -365,7 +365,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-BD-MAN-290-24",
+    "SKU": "JOO-BD-MAN-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
@@ -379,7 +379,7 @@
   },
   {
     "name": "Pineapple",
-    "SKU ": "JOO-BD-PIN-290-24",
+    "SKU": "JOO-BD-PIN-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
@@ -393,7 +393,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-BD-POM-290-24",
+    "SKU": "JOO-BD-POM-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
@@ -407,7 +407,7 @@
   },
   {
     "name": "Strawberry",
-    "SKU ": "JOO-BD-STR-290-24",
+    "SKU": "JOO-BD-STR-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
@@ -421,7 +421,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-CS-MAN-500-24",
+    "SKU": "JOO-CS-MAN-500-24",
     "volume": "500ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -435,7 +435,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "JOO-CS-MIX-500-24",
+    "SKU": "JOO-CS-MIX-500-24",
     "volume": "500ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -449,7 +449,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-CS-POM-500-24",
+    "SKU": "JOO-CS-POM-500-24",
     "volume": "500ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -463,7 +463,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "JOO-CS-ORA-500-24",
+    "SKU": "JOO-CS-ORA-500-24",
     "volume": "500ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -477,7 +477,7 @@
   },
   {
     "name": "Pineapple",
-    "SKU ": "JOO-CS-PIN-500-24",
+    "SKU": "JOO-CS-PIN-500-24",
     "volume": "500ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -491,7 +491,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "JOO-CS-MAN-1000-12",
+    "SKU": "JOO-CS-MAN-1000-12",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -505,7 +505,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "JOO-CS-MIX-1000-12",
+    "SKU": "JOO-CS-MIX-1000-12",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -519,7 +519,7 @@
   },
   {
     "name": "Pomegranate",
-    "SKU ": "JOO-CS-POM-1000-12",
+    "SKU": "JOO-CS-POM-1000-12",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -533,7 +533,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "JOO-CS-ORA-1000-12",
+    "SKU": "JOO-CS-ORA-1000-12",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -547,7 +547,7 @@
   },
   {
     "name": "Pineapple",
-    "SKU ": "JOO-CS-PIN-1000-12",
+    "SKU": "JOO-CS-PIN-1000-12",
     "volume": "1000ml",
     "brand": "Joocy",
     "category": "Concentrated Syrups",
@@ -561,21 +561,7 @@
   },
   {
     "name": "Black Tiger",
-    "SKU ": "BLT-ED-PET-270-24",
-    "volume": "270ml",
-    "brand": "Black Tiger",
-    "category": "Energy Drinks",
-    "bottle": "/Catalog/Carousel/BlackTigerBottle.png",
-    "fruit": "/Catalog/Carousel/EnergyIcon.svg",
-    "logo": "/Catalog/Brands/BlackTigerLogo.png",
-    "backgroundColor": "#ffe0ad",
-    "nameColor": "#b5450d",
-    "categoryColor": "#622100",
-    "volumeColor": "#b5450d"
-  },
-  {
-    "name": "Black Tiger",
-    "SKU ": "BLT-SD-CAN-250-24",
+    "SKU": "BLT-SD-CAN-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Energy Drinks",
@@ -588,8 +574,22 @@
     "volumeColor": "#b77d0d"
   },
   {
+    "name": "Black Tiger",
+    "SKU": "BLT-ED-PET-270-24",
+    "volume": "270ml",
+    "brand": "Black Tiger",
+    "category": "Energy Drinks",
+    "bottle": "/Catalog/Carousel/BlackTigerBottle.png",
+    "fruit": "/Catalog/Carousel/EnergyIcon.svg",
+    "logo": "/Catalog/Brands/BlackTigerLogo.png",
+    "backgroundColor": "#ffe0ad",
+    "nameColor": "#b5450d",
+    "categoryColor": "#622100",
+    "volumeColor": "#b5450d"
+  },
+  {
     "name": "Zeera Pani",
-    "SKU ": "BLT-SD-ZEE-250-24",
+    "SKU": "BLT-SD-ZEE-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -603,7 +603,7 @@
   },
   {
     "name": "Vitaamina C",
-    "SKU ": "BLT-SD-VIT-270-24",
+    "SKU": "BLT-SD-VIT-270-24",
     "volume": "270ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -617,7 +617,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "BLT-FD-MAN-220-24",
+    "SKU": "BLT-FD-MAN-220-24",
     "volume": "220ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -631,7 +631,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "BLT-FD-LYC-220-24",
+    "SKU": "BLT-FD-LYC-220-24",
     "volume": "220ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -645,7 +645,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "BLT-FD-ORA-220-24",
+    "SKU": "BLT-FD-ORA-220-24",
     "volume": "220ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -659,7 +659,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "BLT-FD-GUA-220-24",
+    "SKU": "BLT-FD-GUA-220-24",
     "volume": "220ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -673,7 +673,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "BLT-FD-MIX-220-24",
+    "SKU": "BLT-FD-MIX-220-24",
     "volume": "220ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -687,7 +687,7 @@
   },
   {
     "name": "Coconut",
-    "SKU ": "BLT-FD-COC-250-24",
+    "SKU": "BLT-FD-COC-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -701,7 +701,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "BLT-FD-MAN-250-24",
+    "SKU": "BLT-FD-MAN-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -715,7 +715,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "BLT-FD-LYC-250-24",
+    "SKU": "BLT-FD-LYC-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -729,7 +729,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "BLT-FD-ORA-250-24",
+    "SKU": "BLT-FD-ORA-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -743,7 +743,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "BLT-FD-GUA-250-24",
+    "SKU": "BLT-FD-GUA-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -757,7 +757,7 @@
   },
   {
     "name": "Mix Fruit",
-    "SKU ": "BLT-FD-MIX-250-24",
+    "SKU": "BLT-FD-MIX-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -771,7 +771,7 @@
   },
   {
     "name": "Lemon",
-    "SKU ": "BLT-FD-LEM-250-24",
+    "SKU": "BLT-FD-LEM-250-24",
     "volume": "250ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -785,7 +785,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "BLT-FD-MAN-1000-6",
+    "SKU": "BLT-FD-MAN-1000-6",
     "volume": "1000ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -799,7 +799,7 @@
   },
   {
     "name": "Lychee",
-    "SKU ": "BLT-FD-LYC-1000-6",
+    "SKU": "BLT-FD-LYC-1000-6",
     "volume": "1000ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -813,7 +813,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "BLT-FD-GUA-1000-6",
+    "SKU": "BLT-FD-GUA-1000-6",
     "volume": "1000ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -827,7 +827,7 @@
   },
   {
     "name": "Mango",
-    "SKU ": "BLT-FD-MAN-1500-6",
+    "SKU": "BLT-FD-MAN-1500-6",
     "volume": "1500ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -841,7 +841,7 @@
   },
   {
     "name": "Guava",
-    "SKU ": "BLT-FD-GUA-1500-6",
+    "SKU": "BLT-FD-GUA-1500-6",
     "volume": "1500ml",
     "brand": "Black Tiger",
     "category": "Flavored Drinks",
@@ -855,7 +855,7 @@
   },
   {
     "name": "Cola",
-    "SKU ": "BLT-SD-COL-270-24",
+    "SKU": "BLT-SD-COL-270-24",
     "volume": "270ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -869,7 +869,7 @@
   },
   {
     "name": "Up",
-    "SKU ": "BLT-SD-UP-270-24",
+    "SKU": "BLT-SD-UP-270-24",
     "volume": "270ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -883,7 +883,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "BLT-SD-ORA-270-24",
+    "SKU": "BLT-SD-ORA-270-24",
     "volume": "270ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -897,7 +897,7 @@
   },
   {
     "name": "Cola",
-    "SKU ": "BLT-SD-COL-310-24",
+    "SKU": "BLT-SD-COL-310-24",
     "volume": "310ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -911,7 +911,7 @@
   },
   {
     "name": "Up",
-    "SKU ": "BLT-SD-UP-310-24",
+    "SKU": "BLT-SD-UP-310-24",
     "volume": "310ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -925,7 +925,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "BLT-SD-ORA-310-24",
+    "SKU": "BLT-SD-ORA-310-24",
     "volume": "310ml",
     "brand": "Black Tiger",
     "category": "Soft Drinks",
@@ -939,7 +939,7 @@
   },
   {
     "name": "Boom Tiger",
-    "SKU ": "BMT-ED-CAN-250-24",
+    "SKU": "BMT-ED-CAN-250-24",
     "volume": "250ml",
     "brand": "Boom Tiger",
     "category": "Energy Drinks",
@@ -953,7 +953,7 @@
   },
   {
     "name": "Boom Tiger",
-    "SKU ": "BMT-ED-PET-270-24",
+    "SKU": "BMT-ED-PET-270-24",
     "volume": "270ml",
     "brand": "Boom Tiger",
     "category": "Energy Drinks",
@@ -967,7 +967,7 @@
   },
   {
     "name": "High Speed",
-    "SKU ": "HSP-ED-CAN-250-24",
+    "SKU": "HSP-ED-CAN-250-24",
     "volume": "250ml",
     "brand": "High Speed",
     "category": "Energy Drinks",
@@ -981,7 +981,7 @@
   },
   {
     "name": "High Speed",
-    "SKU ": "HSP-ED-PET-250-24",
+    "SKU": "HSP-ED-PET-250-24",
     "volume": "250ml",
     "brand": "High Speed",
     "category": "Energy Drinks",
@@ -995,7 +995,7 @@
   },
   {
     "name": "Dew",
-    "SKU ": "CRW-SD-DEW-310-24",
+    "SKU": "CRW-SD-DEW-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1009,7 +1009,7 @@
   },
   {
     "name": "Cola",
-    "SKU ": "CRW-SD-COL-310-24",
+    "SKU": "CRW-SD-COL-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1023,7 +1023,7 @@
   },
   {
     "name": "Up",
-    "SKU ": "CRW-SD-UP-310-24",
+    "SKU": "CRW-SD-UP-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1037,7 +1037,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "CRW-SD-ORA-310-24",
+    "SKU": "CRW-SD-ORA-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1051,7 +1051,7 @@
   },
   {
     "name": "Lemonade",
-    "SKU ": "CRW-SD-LEM-310-24",
+    "SKU": "CRW-SD-LEM-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1065,7 +1065,7 @@
   },
   {
     "name": "Soda",
-    "SKU ": "CRW-SD-SOD-310-24",
+    "SKU": "CRW-SD-SOD-310-24",
     "volume": "310ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1079,7 +1079,7 @@
   },
   {
     "name": "Soda",
-    "SKU ": "CRW-SD-SOD-500-24",
+    "SKU": "CRW-SD-SOD-500-24",
     "volume": "500ml",
     "brand": "Crown",
     "category": "Soft Drinks",
@@ -1093,7 +1093,7 @@
   },
   {
     "name": "Blueberry",
-    "SKU ": "QUA-EL-BLU-250-24",
+    "SKU": "QUA-EL-BLU-250-24",
     "volume": "250ml",
     "brand": "Quality",
     "category": "Electrolytes",
@@ -1107,7 +1107,7 @@
   },
   {
     "name": "Lemon",
-    "SKU ": "QUA-EL-LEM-250-24",
+    "SKU": "QUA-EL-LEM-250-24",
     "volume": "250ml",
     "brand": "Quality",
     "category": "Electrolytes",
@@ -1121,7 +1121,7 @@
   },
   {
     "name": "Orange",
-    "SKU ": "QUA-EL-ORA-250-24",
+    "SKU": "QUA-EL-ORA-250-24",
     "volume": "250ml",
     "brand": "Quality",
     "category": "Electrolytes",
@@ -1135,7 +1135,7 @@
   },
   {
     "name": "Protein Water",
-    "SKU ": "QUA-EL-PRW-500-24",
+    "SKU": "QUA-EL-PRW-500-24",
     "volume": "500ml",
     "brand": "Quality",
     "category": "Electrolytes",
