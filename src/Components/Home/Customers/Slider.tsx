@@ -95,6 +95,8 @@ const Slider: React.FC<SliderProps> & { Slide: React.FC<SlideProps> } = ({
         }}
         onMouseEnter={() => pauseOnHover && handleMouseEnter()}
         onMouseLeave={() => pauseOnHover && handleMouseLeave()}
+        onTouchStart={() => pauseOnHover && handleMouseEnter()}
+        onTouchEnd={() => pauseOnHover && handleMouseLeave()}
         id={`slider_wrapper_${idNanoid}`}
       >
         <div
