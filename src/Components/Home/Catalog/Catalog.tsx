@@ -18,7 +18,7 @@ export default function Catalog() {
             <Card className="shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,0.5)]">
               <button className="flex justify-center items-center gap-3 font-bold text-white hover:text-[#0C7E4A] bg-[#0C7E4A] hover:bg-white transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
                 <MdMenuBook className="text-xl" />
-                <p>Catalog</p>
+                <p>Explore</p>
               </button>
             </Card>
           </Link>
@@ -37,7 +37,7 @@ export default function Catalog() {
               <Card className="shadow-[6px_6px_12px_rgba(0,0,0,0.15),-5px_-5px_12px_rgba(255,255,255,0.5)]">
                 <button className="flex justify-center items-center gap-3 font-bold text-white hover:text-[#0C7E4A] bg-[#0C7E4A] hover:bg-white transition-all duration-300 ease-in-out transform cursor-pointer active:scale-95 rounded-md px-4 py-2">
                   <MdMenuBook className="text-xl" />
-                  <p>Catalog</p>
+                  <p>Explore</p>
                 </button>
               </Card>
             </Link>
