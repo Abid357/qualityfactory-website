@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import DesignImg from "/Design/Design.png";
+import DesignImg from "/Design/Design.webp";
 import Card from "../../Card";
 import { IoIosColorPalette } from "react-icons/io";
 import { useScrollToTop } from "../../ScrollToTop";

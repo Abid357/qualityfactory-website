@@ -1,22 +1,22 @@
 {
   "services": [
     {
-      "img": "/Services/product-development.png",
+      "img": "/Services/product-development.webp",
       "title": "Private Labeling & Contract Filling",
       "description": "Custom branding and product formulation tailored to your needs."
     },
     {
-      "img": "/Services/experiment-results.png",
+      "img": "/Services/experiment-results.webp",
       "title": "Custom Formulation & Product Development",
       "description": "R&D support to create unique juice blends, flavors, and nutritional formulations designed to meet market demands."
     },
     {
-      "img": "/Services/distribution.png",
+      "img": "/Services/distribution.webp",
       "title": "Shipping, Logistics & Distribution",
       "description": "Efficient supply chain management, ensuring smooth delivery and market reach."
     },
     {
-      "img": "/Services/shops.png",
+      "img": "/Services/shops.webp",
       "title": "Wholesale & Retail Solutions",
       "description": "Bulk supply and direct-to-consumer retail services for businesses of all sizes."
     }
