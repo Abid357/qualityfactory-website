@@ -54,12 +54,14 @@ export default function OpeningHours() {
           <img
             src="/OpeningHours/Open.svg"
             alt="Open"
+            loading="lazy"
             className="md:h-20 h-[60px] mx-5"
           />
         ) : (
           <img
             src="/OpeningHours/Closed.svg"
             alt="Closed"
+            loading="lazy"
             className="md:h-20 h-[60px] mx-5"
           />
         )}

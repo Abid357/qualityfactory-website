@@ -18,6 +18,7 @@ export default function Contact() {
           <img
             src={formImg}
             alt="formImg"
+            loading="lazy"
             className="object-contain w-full max-w-[700px] min-w-[280px] h-auto max-h-[700px]"
           />
         </div>

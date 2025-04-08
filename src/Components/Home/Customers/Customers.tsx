@@ -14,6 +14,7 @@ export default function Customers() {
             <img
               src={customer.image}
               alt="customer"
+              loading="lazy"
               className="max-h-full max-w-full object-contain"
             />
           </div>

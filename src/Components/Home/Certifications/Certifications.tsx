@@ -13,6 +13,7 @@ export default function Certifications() {
         <img
           src="/Certifications/Medals.svg"
           alt="certifications"
+          loading="lazy"
           className="w-full max-w-md mb-5"
         />
         <Link to="/certificates">
@@ -31,6 +32,7 @@ export default function Certifications() {
           <img
             src="/Certifications/Medals.svg"
             alt="certifications"
+            loading="lazy"
             className="w-full"
           />
         </div>

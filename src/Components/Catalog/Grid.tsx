@@ -19,12 +19,14 @@ export default function Grid({ items }: { items: ProductProps[] }) {
               <img
                 src={item.logo}
                 alt={item.name}
+                loading="lazy"
                 className="w-[40%] object-contain max-h-[85%]"
               />
               <div className="flex flex-col items-end">
                 <img
                   src={item.fruit}
                   alt={item.name}
+                  loading="lazy"
                   className="w-1/2 object-contain max-h-[75%]"
                 />
 
@@ -40,6 +42,7 @@ export default function Grid({ items }: { items: ProductProps[] }) {
               <img
                 src={item.bottle}
                 alt={item.name}
+                loading="lazy"
                 className="w-[40%] mx-auto object-contain max-h-[200px] sm:max-h-[250px] lg:max-h-[300px]"
               />
             </div>
