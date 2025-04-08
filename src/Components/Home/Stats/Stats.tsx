@@ -61,7 +61,7 @@ export default function Stats() {
             className="w-32 md:w-60 h-32 md:h-60 flex justify-center items-center"
           >
             <div className="flex flex-col justify-center items-center gap-3 md:gap-5 rounded-md">
-              <img src={stat.icon} alt={stat.alt} className="h-7 md:h-10" />
+              <img src={stat.icon} alt={stat.alt} loading="lazy" className="h-7 md:h-10" />
               <Counter number={stat.value} suffix={stat.suffix} />
               <p className="md:font-semibold text-xs md:text-xl">
                 {stat.label}

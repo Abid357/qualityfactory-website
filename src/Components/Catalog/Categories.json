@@ -1,31 +1,31 @@
 [
     {
       "name": "Energy Drinks",
-      "background": "/Catalog/Categories/EnergyDrinks.jpg"
+      "background": "/Catalog/Categories/EnergyDrinks.webp"
     },
     {
       "name": "Basil Drinks",
-      "background": "/Catalog/Categories/BasilDrinks.png"
+      "background": "/Catalog/Categories/BasilDrinks.webp"
     },
     {
       "name": "Soft Drinks",
-      "background": "/Catalog/Categories/SoftDrinks.png"
+      "background": "/Catalog/Categories/SoftDrinks.webp"
     },
     {
       "name": "Flavored Drinks",
-      "background": "/Catalog/Categories/FlavoredDrinks.png"
+      "background": "/Catalog/Categories/FlavoredDrinks.webp"
     },
     {
       "name": "Electrolytes",
-      "background": "/Catalog/Categories/Electrolytes.jpg"
+      "background": "/Catalog/Categories/Electrolytes.webp"
     },
     {
       "name": "Concentrated Syrups",
-      "background": "/Catalog/Categories/ConcentratedSyrups.png"
+      "background": "/Catalog/Categories/ConcentratedSyrups.webp"
     },
     {
       "name": "Sparkling Waters",
-      "background": "/Catalog/Categories/SparklingWaters.png",
+      "background": "/Catalog/Categories/SparklingWaters.webp",
       "comingSoon": true
     }
   ]

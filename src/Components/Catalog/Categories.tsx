@@ -128,6 +128,7 @@ function ImageCard({
                 <img
                   src={logo}
                   alt={`${name} Logo`}
+                  loading="lazy"
                   className="max-w-full max-h-full object-contain drop-shadow-[0_0_10px_rgba(255,255,255,1)] transform transition-transform duration-300 ease-in-out"
                 />
               </div>

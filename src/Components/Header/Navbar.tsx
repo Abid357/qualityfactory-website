@@ -193,6 +193,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
               <img
                 src={logo}
                 alt="logo"
+                loading="eager"
                 className={`transition-opacity duration-300 h-[50px] md:h-[100px] w-auto ${
                   isSticky ? "opacity-0" : "opacity-100"
                 }`}
@@ -200,6 +201,7 @@ export default function Navbar({ handleOpen }: { handleOpen: () => void }) {
               <img
                 src={logoMini}
                 alt="logo mini"
+                loading="eager"
                 className={`absolute transition-opacity duration-300 h-[30px] md:h-[50px] w-auto ${
                   isSticky ? "opacity-100" : "opacity-0"
                 }`}

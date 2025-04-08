@@ -25,6 +25,7 @@ const countryCodeOptions: OptionType[] = (countries as Country[]).map(
                 <img
                     src={country.image}
                     alt={country.name}
+                    loading="lazy"
                     className="w-7 md:w-10 md:ml-2 md:mr-1"
                 />
                 <span className="text-[14px] md:text-[16px]">

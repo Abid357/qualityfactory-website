@@ -15,7 +15,7 @@ const ServiceItem = ({
   return (
     <div className="flex flex-col text-center gap-2">
       <div className="h-24 mx-auto flex items-end justify-center">
-        <img src={img} alt={title} className="w-20 h-full object-contain" />
+        <img src={img} alt={title} loading="lazy" className="w-20 h-full object-contain" />
       </div>
       <p className="font-bold text-xl">
         {titleParts.map((part, index) => (

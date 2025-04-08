@@ -9,7 +9,7 @@ export default function Certificates() {
             key={index}
             className="flex flex-col items-center w-full h-auto max-h-fit"
           >
-            <img src={cert.src} alt={`${cert.name} certificate`} />
+            <img src={cert.src} alt={`${cert.name} certificate`} loading="lazy" />
           </div>
         ))}
       </div>

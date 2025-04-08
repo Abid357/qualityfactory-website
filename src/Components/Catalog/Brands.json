@@ -1,32 +1,32 @@
 [
   {
     "name": "Black Tiger",
-    "logo": "/Catalog/Brands/BlackTigerLogo.png",
-    "background": "/Catalog/Brands/BlackTiger.png"
+    "logo": "/Catalog/Brands/BlackTigerLogo.webp",
+    "background": "/Catalog/Brands/BlackTiger.webp"
   },
   {
     "name": "Boom Tiger",
     "logo": "/Catalog/Brands/BoomTigerLogo.svg",
-    "background": "/Catalog/Brands/BoomTiger.png"
+    "background": "/Catalog/Brands/BoomTiger.webp"
   },
   {
     "name": "Joocy",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
-    "background": "/Catalog/Brands/Joocy.png"
+    "background": "/Catalog/Brands/Joocy.webp"
   },
   {
     "name": "Crown",
     "logo": "/Catalog/Brands/CrownLogo.svg",
-    "background": "/Catalog/Brands/Crown.png"
+    "background": "/Catalog/Brands/Crown.webp"
   },
   {
     "name": "High Speed",
     "logo": "/Catalog/Brands/SpeedLogo.svg",
-    "background": "/Catalog/Brands/Speed.png"
+    "background": "/Catalog/Brands/Speed.webp"
   },
   {
     "name": "Quality",
     "logo": "/Logo/Quality_title.svg",
-    "background": "/Catalog/Brands/Electrolytes.png"
+    "background": "/Catalog/Brands/Electrolytes.webp"
   }
 ]

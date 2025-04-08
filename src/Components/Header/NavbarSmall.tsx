@@ -250,6 +250,7 @@ export default function NavbarSmall({
             <img
               src={logo}
               alt="logo"
+              loading="eager"
               className="flex justify-center w-full h-[80px]"
             />
           </NavLink>

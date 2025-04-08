@@ -5,7 +5,7 @@ import { BsMailbox2 } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
 import Card from "../../Card";
-import formImg from "/ContactUs/ContactForm.png";
+import formImg from "/ContactUs/ContactForm.webp";
 
 export default function Contact() {
   return (
@@ -18,6 +18,7 @@ export default function Contact() {
           <img
             src={formImg}
             alt="formImg"
+            loading="lazy"
             className="object-contain w-full max-w-[700px] min-w-[280px] h-auto max-h-[700px]"
           />
         </div>
