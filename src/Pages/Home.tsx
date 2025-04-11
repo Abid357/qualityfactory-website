@@ -71,6 +71,7 @@ export default function Home() {
           autoPlay
           loop
           muted
+          playsInline
           className="w-full h-full object-cover md:mt-10"
         >
           <source src="/landing-page.webm" type="video/webm" />
