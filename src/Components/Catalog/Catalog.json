@@ -560,6 +560,34 @@
     "volumeColor": "#b2a805"
   },
   {
+    "name": "Mango",
+    "SKU": "JOO-FD-MAN-250-12",
+    "volume": "250ml",
+    "brand": "Joocy Prime",
+    "category": "Flavored Drinks",
+    "bottle": "/Catalog/Carousel/JoocyPrimeMango250.webp",
+    "fruit": "/Catalog/Carousel/MangoFruit.webp",
+    "logo": "/Catalog/Brands/JoocyPrimeLogo.svg",
+    "backgroundColor": "#ffe470",
+    "nameColor": "#ae6d00",
+    "categoryColor": "#472c09",
+    "volumeColor": "#ae6d00"
+  },
+  {
+    "name": "Mango",
+    "SKU": "JOO-FD-MAN-1000-12",
+    "volume": "1000ml",
+    "brand": "Joocy Prime",
+    "category": "Flavored Drinks",
+    "bottle": "/Catalog/Carousel/JoocyPrimeMango1000.webp",
+    "fruit": "/Catalog/Carousel/MangoFruit.webp",
+    "logo": "/Catalog/Brands/JoocyPrimeLogo.svg",
+    "backgroundColor": "#ffe470",
+    "nameColor": "#ae6d00",
+    "categoryColor": "#472c09",
+    "volumeColor": "#ae6d00"
+  },
+  {
     "name": "Black Tiger",
     "SKU": "BLT-SD-CAN-250-24",
     "volume": "250ml",
