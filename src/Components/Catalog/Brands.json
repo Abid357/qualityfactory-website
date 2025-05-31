@@ -15,6 +15,11 @@
     "background": "/Catalog/Brands/Joocy.webp"
   },
   {
+    "name": "Joocy Prime",
+    "logo": "/Catalog/Brands/JoocyPrimeLogo.svg",
+    "background": "/Catalog/Brands/JoocyPrime.webp"
+  },
+  {
     "name": "Crown",
     "logo": "/Catalog/Brands/CrownLogo.svg",
     "background": "/Catalog/Brands/Crown.webp"
