@@ -68,7 +68,7 @@ export default function Home() {
     <>
       <div className="w-full h-screen relative overflow-hidden">
         <div className="hidden md:block absolute h-[40px] w-full bg-gradient-to-r from-[#f5f7f7] to-[#c6c9c4]"></div>
-        <div className="hidden md:block absolute h-[200px] left-0 w-full h-32 bg-gradient-to-t to-[#EDEBE8] from-transparent"></div>
+        <div className="hidden md:block absolute h-[200px] left-0 w-full bg-gradient-to-t to-[#EDEBE8] from-transparent"></div>
         <video
           autoPlay
           loop
