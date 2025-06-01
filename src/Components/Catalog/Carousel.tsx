@@ -8,8 +8,8 @@ export default function Grid({
   filterType,
 }: {
   items: ProductProps[];
-  filter: string;
-  filterType: string;
+  filter?: string;
+  filterType?: string;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);

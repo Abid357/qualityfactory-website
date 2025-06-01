@@ -8,6 +8,7 @@ import Catalog from "../Components/Home/Catalog/Catalog";
 import Customers from "../Components/Home/Customers/Customers";
 import Design from "../Components/Home/Design/Design";
 import Contact from "../Components/Home/Contact/Contact";
+import NewArrivals from "../Components/Home/NewArrivals/NewArrivals";
 
 export default function Home() {
   const location = useLocation();
@@ -15,6 +16,7 @@ export default function Home() {
 
   const sections = [
     { id: "certifications", Component: Certifications },
+    { id: "newArrivals", Component: NewArrivals },
     { id: "catalog", Component: Catalog },
     { id: "services", Component: Services },
     { id: "stats", Component: Stats },
