@@ -1121,8 +1121,8 @@
   },
   {
     "name": "Blueberry",
-    "SKU": "QUA-EL-BLU-250-24",
-    "volume": "250ml",
+    "SKU": "QUA-EL-BLU-500-12",
+    "volume": "500ml",
     "brand": "Quality",
     "category": "Electrolytes",
     "bottle": "/Catalog/Carousel/ElectrolyteBlueberry.webp",
@@ -1135,8 +1135,8 @@
   },
   {
     "name": "Lemon",
-    "SKU": "QUA-EL-LEM-250-24",
-    "volume": "250ml",
+    "SKU": "QUA-EL-LEM-500-12",
+    "volume": "500ml",
     "brand": "Quality",
     "category": "Electrolytes",
     "bottle": "/Catalog/Carousel/ElectrolyteLemon.webp",
@@ -1149,8 +1149,8 @@
   },
   {
     "name": "Orange",
-    "SKU": "QUA-EL-ORA-250-24",
-    "volume": "250ml",
+    "SKU": "QUA-EL-ORA-500-12",
+    "volume": "500ml",
     "brand": "Quality",
     "category": "Electrolytes",
     "bottle": "/Catalog/Carousel/ElectrolyteOrange.webp",
@@ -1163,7 +1163,7 @@
   },
   {
     "name": "Protein Water",
-    "SKU": "QUA-EL-PRW-500-24",
+    "SKU": "QUA-EL-PRW-500-12",
     "volume": "500ml",
     "brand": "Quality",
     "category": "Electrolytes",
