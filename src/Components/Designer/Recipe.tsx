@@ -6,7 +6,7 @@ import {
   FormEvent,
 } from "react";
 import { FiPlus, FiTrash } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { CardType } from "../../Pages/Designer";
 
 
