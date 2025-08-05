@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { Drawer } from "flowbite-react";
+import { Drawer, DrawerHeader, DrawerItems } from "flowbite-react";
 import { NavLink, Link, useLocation, useNavigate } from "react-router";
 import { TiHome } from "react-icons/ti";
 import { MdMenuBook, MdOutlineMiscellaneousServices } from "react-icons/md";
@@ -23,7 +23,12 @@ export default function NavbarSmall({
   const navItems = useMemo(
     () => [
       { to: "/", label: "Home", type: "page", icon: <TiHome /> },
-      { to: "/#catalog", label: "Catalog", type: "section", icon: <MdMenuBook /> },
+      {
+        to: "/#catalog",
+        label: "Catalog",
+        type: "section",
+        icon: <MdMenuBook />,
+      },
       {
         to: "/#services",
         label: "Services",
@@ -34,13 +39,13 @@ export default function NavbarSmall({
         to: "/#design",
         label: "Design",
         type: "section",
-        icon: <IoIosColorPalette/>,
+        icon: <IoIosColorPalette />,
       },
       {
         to: "/#contact",
         label: "Contact",
         type: "section",
-        icon: <IoMdContact  />,
+        icon: <IoMdContact />,
       },
     ],
     []
@@ -244,7 +249,7 @@ export default function NavbarSmall({
         position="right"
         theme={drawerTheme}
       >
-        <Drawer.Header titleIcon={() => <></>} />
+        <DrawerHeader titleIcon={() => <></>} />
         <div className="mb-5">
           <NavLink to="/" onClick={() => scrollToTop("/")}>
             <img
@@ -255,7 +260,7 @@ export default function NavbarSmall({
             />
           </NavLink>
         </div>
-        <Drawer.Items>
+        <DrawerItems>
           <div className="grid grid-cols-1 gap-4">
             <div className="font-semibold uppercase text-[#0a0a0a] text-[17px] transition-all duration-300 ">
               <ul className="flex flex-col text-[#0C7E4A] pt-5 gap-5">
@@ -320,7 +325,7 @@ export default function NavbarSmall({
               </ul>
             </div>
           </div>
-        </Drawer.Items>
+        </DrawerItems>
       </Drawer>
     </>
   );
