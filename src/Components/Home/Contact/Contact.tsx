@@ -44,7 +44,7 @@ export default function Contact() {
               <IoLogoWhatsapp />
             </span>
             <p>
-              +971 50 4567 348 <i>(WhatsApp only)</i>
+              +971 56 2609 404 <i>(WhatsApp only)</i>
             </p>
           </div>
           <div className="flex items-center gap-4">
