@@ -8,7 +8,9 @@ export default function NewArrivals() {
       <p className="flex font-bold md:justify-start justify-center text-3xl lg:text-4xl xl:text-5xl whitespace-nowrap mb-5">
         New Arrivals<span className="text-[#0C7E4A]">.</span>
       </p>
-      <Carousel items={items} />
+      <div className="overflow-x-hidden overflow-y-auto">
+        <Carousel items={items} />
+      </div>
     </>
   );
 }
