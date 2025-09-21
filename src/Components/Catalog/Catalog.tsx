@@ -98,7 +98,7 @@ export default function Catalog() {
   const toggleViewType = () => setViewTypeState(viewType === 'carousel' ? 'grid' : 'carousel');
 
   return (
-    <div className="flex flex-col h-fit">
+    <div className="flex flex-col h-fit overflow-x-hidden overflow-y-auto">
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center md:mt-4">
         <p className="flex font-bold text-2xl lg:text-4xl xl:text-5xl whitespace-nowrap">
           {title}
