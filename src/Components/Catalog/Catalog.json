@@ -420,6 +420,20 @@
     "volumeColor": "#c6131c"
   },
   {
+    "name": "Honey",
+    "SKU": "JOO-BD-HON-290-24",
+    "brand": "Joocy",
+    "category": "Basil Drinks",
+    "volume": "290ml",
+    "bottle": "/Catalog/Carousel/BasilHoney.webp",
+    "fruit": "/Catalog/Carousel/Honey.webp",
+    "logo": "/Catalog/Brands/JoocyLogo.svg",
+    "backgroundColor": "#ffd270",
+    "nameColor": "#ae6000",
+    "categoryColor": "#472709",
+    "volumeColor": "#ae6000"
+  },
+  {
     "name": "Mango",
     "SKU": "JOO-CS-MAN-500-24",
     "volume": "500ml",
