@@ -1,4 +1,5 @@
 import CountUp from "react-countup";
+// import { ReactCountUp } from "../../CountUp/CountUp";
 
 export default function Counter({
   number,
