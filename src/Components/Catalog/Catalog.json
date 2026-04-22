@@ -420,12 +420,12 @@
     "volumeColor": "#c6131c"
   },
   {
-    "name": "Honey",
+    "name": "Honey Prime",
     "SKU": "JOO-BD-HON-290-24",
     "brand": "Joocy",
     "category": "Basil Drinks",
     "volume": "290ml",
-    "bottle": "/Catalog/Carousel/BasilHoney.webp",
+    "bottle": "/Catalog/Carousel/BasilHoneyPrime.webp",
     "fruit": "/Catalog/Carousel/Honey.webp",
     "logo": "/Catalog/Brands/JoocyLogo.svg",
     "backgroundColor": "#ffd270",
@@ -658,7 +658,7 @@
     "volumeColor": "#b2a805"
   },
   {
-    "name": "Mango",
+    "name": "Mango Prime",
     "SKU": "JOO-PR-MAN-250-12",
     "volume": "250ml",
     "brand": "Joocy Prime",
@@ -672,7 +672,7 @@
     "volumeColor": "#ae6d00"
   },
   {
-    "name": "Mango",
+    "name": "Mango Prime",
     "SKU": "JOO-PR-MAN-1000-12",
     "volume": "1000ml",
     "brand": "Joocy Prime",
@@ -686,7 +686,7 @@
     "volumeColor": "#ae6d00"
   },
   {
-    "name": "Orange",
+    "name": "Orange Prime",
     "SKU": "JOO-PR-ORA-250-12",
     "volume": "250ml",
     "brand": "Joocy Prime",
@@ -700,7 +700,7 @@
     "volumeColor": "#ae6d00"
   },
   {
-    "name": "Pomegranate",
+    "name": "Pomegranate Prime",
     "SKU": "JOO-PR-POM-250-12",
     "volume": "250ml",
     "brand": "Joocy Prime",
@@ -714,7 +714,7 @@
     "volumeColor": "#ae6d00"
   },
   {
-    "name": "Tamarind",
+    "name": "Tamarind Prime",
     "SKU": "JOO-PR-TAM-250-12",
     "volume": "250ml",
     "brand": "Joocy Prime",
