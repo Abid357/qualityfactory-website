@@ -1148,6 +1148,20 @@
     "volumeColor": "#b5450d"
   },
   {
+    "name": "High Speed Prime",
+    "SKU": "HSP-ED-PET-250-24",
+    "volume": "250ml",
+    "brand": "High Speed",
+    "category": "Energy Drinks",
+    "bottle": "/Catalog/Carousel/HighSpeedPrimeBottle.webp",
+    "fruit": "/Catalog/Carousel/EnergyIcon.svg",
+    "logo": "/Catalog/Brands/SpeedLogo.svg",
+    "backgroundColor": "#ffe0ad",
+    "nameColor": "#b5450d",
+    "categoryColor": "#622100",
+    "volumeColor": "#b5450d"
+  },
+  {
     "name": "High Speed",
     "SKU": "HSP-ED-CAN-250-24",
     "volume": "250ml",
