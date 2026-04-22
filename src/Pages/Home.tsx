@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import Certifications from "../Components/Home/Certifications/Certifications";
 import Services from "../Components/Home/Services/Services";
-import Stats from "../Components/Home/Stats/Stats";
+// import Stats from "../Components/Home/Stats/Stats";
 import OpeningHours from "../Components/Home/OpeningHours/OpeningHours";
 import Catalog from "../Components/Home/Catalog/Catalog";
 import Customers from "../Components/Home/Customers/Customers";
@@ -19,7 +19,7 @@ export default function Home() {
     { id: "newArrivals", Component: NewArrivals },
     { id: "catalog", Component: Catalog },
     { id: "services", Component: Services },
-    { id: "stats", Component: Stats },
+    // { id: "stats", Component: Stats },
     { id: "design", Component: Design },
     { id: "openingHours", Component: OpeningHours },
     { id: "customers", Component: Customers },
